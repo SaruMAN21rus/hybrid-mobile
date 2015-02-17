@@ -37,7 +37,25 @@
 
 <!-- utilities : Must run before models & viewModels-->
 <script src="shared/utilities/currentDate.js"></script>
+<script>
+function setEqualHeight(table) {  
+    console.log($(this).height());
 
+    var tallestcolumn = 0;  
+    table.children("div").each (  
+        function() {
+            currentHeight = $(this).height();  
+            if (currentHeight > tallestcolumn) {  
+                tallestcolumn  = currentHeight;  
+            }  
+        }  
+    );  
+    table.children("div").height(($(this).height() - 47)/3);
+}  
+$(document).ready(function() {  
+   // setEqualHeight($("#menu"));  
+});  
+</script>
 <!-- endbuild -->
 
 <!-- run application  -->
