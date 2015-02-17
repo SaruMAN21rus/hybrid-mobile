@@ -1,0 +1,18 @@
+{
+  "name": "KetraApp",
+  "version": "0.0.0",
+  "authors": [
+    "Aleksei Mukin"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "kendo-ui": "~2014.3.1328"
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Eludia App</title>
+    <meta charset="windows-1251" />
+
+    <!-- build:css /thirdparty/thirdparty.css -->
+
+    <link href="bower_components/kendo-ui/src/styles/mobile/kendo.mobile.common.css" rel="stylesheet"/>
+    <link href="bower_components/kendo-ui/src/styles/mobile/kendo.mobile.flat.material-blue.css" rel="stylesheet"/>
+
+    <!-- endbuild -->
+
+</head>
+<body>
+
+    <!-- views -->
+    @@include('./ui/menu/menuPage/menuPageView.html')
+
+    <!-- layouts -->
+    @@include('./shared/layouts/global/globalLayout.html')
+
+<!-- APP Namespace -->
+
+<script> this.eludiaapp = this.app = {}; //long and shortcut namespace </script>
+
+<!-- build:js /thirdparty/thirdparty.js : Must run before utilities, models, and viewModels-->
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/kendo-ui/src/js/kendo.ui.core.js"></script>
+
+<!-- endbuild -->
+
+<!-- build:js whatsername.js -->
+
+<!-- utilities : Must run before models & viewModels-->
+<script src="shared/utilities/currentDate.js"></script>
+
+<!-- endbuild -->
+
+<!-- run application  -->
+<script>
+app.app = new kendo.mobile.Application(document.body, { //document.body is default, but I'm being explicit
+    skin: 'flat',
+    initial: 'menuPageView', //this is the initial view to show
+    init: function() {
+        //fix mouse events in iOS don't do it for android, causes more issues than it fixes
+        kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0:20);
+    }
+});
+</script>
+
+</body>
+</html>
