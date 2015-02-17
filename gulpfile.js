@@ -170,6 +170,6 @@ gulp.task('dev', function(callback) {
 });
 
 gulp.task('prod', function(callback) {
-    runSequence('cleanProd','buildFromDev','cssLint','htmlHint','jsHint','minifyHtml','minifyCss','minifyJs','moveKendoImages','moveKendoFlatTheme','moveBootstrapCSSStuff','reportSize','startProductionServer', callback);
+    runSequence('cleanProd','buildFromDev','cssLint','htmlHint','jsHint','minifyHtml','minifyCss','minifyJs','moveKendoImages','moveKendoFlatTheme',/*'moveBootstrapCSSStuff',*/'reportSize','startProductionServer', callback);
     return false;
 });
