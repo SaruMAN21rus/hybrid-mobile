@@ -1,13 +1,14 @@
-﻿<div id="menuPageView" 
+﻿<div id="tasksMenuView" 
 data-role="view" 
 data-layout="default"
 data-stretch="true"
-data-model="app.menuPage.viewModel"
-data-bind="events:{init:init}"
+<!-- data-model="app.menuPage.viewModel"
+data-bind="events:{init:init}" -->
 >
 	<header data-role="header">
 		<div data-role="navbar">
-			<span data-role="view-title">Главное меню</span>
+            <div data-align="left" data-icon="back" data-role="backbutton">Back</div>
+			<span data-role="view-title">Задачи</span>
 			<span data-align="right" data-role="view-title" id="date"></span>
 			<div data-align="right" data-icon="refresh" data-role="button" ></div>
 			<div data-align="right" data-icon="home" data-role="button"></div>

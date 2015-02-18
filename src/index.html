@@ -6,10 +6,22 @@
     <title>Eludia App</title>
     <meta charset="windows-1251" />
 
-    <!-- build:css /thirdparty/thirdparty.css -->
+    <!-- build:css thirdparty/thirdparty.css -->
 
     <link href="bower_components/kendo-ui/src/styles/mobile/kendo.mobile.common.css" rel="stylesheet"/>
     <link href="bower_components/kendo-ui/src/styles/mobile/kendo.mobile.flat.material-blue.css" rel="stylesheet"/>
+
+    <!-- endbuild -->
+
+    <!-- build:css eludiaapp.css -->
+
+    <!-- globals CSS -->
+
+
+    <!-- views CSS -->
+     <link href="ui/menu/menuPage/menuPage.css" rel="stylesheet"/>
+
+     <!-- layouts CSS -->
 
     <!-- endbuild -->
 
@@ -18,6 +30,7 @@
 
     <!-- views -->
     @@include('./ui/menu/menuPage/menuPageView.html')
+    @@include('./ui/tasks/tasksMenu/tasksMenuView.html')
 
     <!-- layouts -->
     @@include('./shared/layouts/global/globalLayout.html')
@@ -26,36 +39,21 @@
 
 <script> this.eludiaapp = this.app = {}; //long and shortcut namespace </script>
 
-<!-- build:js /thirdparty/thirdparty.js : Must run before utilities, models, and viewModels-->
+<!-- build:js thirdparty/thirdparty.js : Must run before utilities, models, and viewModels-->
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/kendo-ui/src/js/kendo.ui.core.js"></script>
 
 <!-- endbuild -->
 
-<!-- build:js whatsername.js -->
+<!-- build:js eludiaapp.js -->
 
 <!-- utilities : Must run before models & viewModels-->
 <script src="shared/utilities/currentDate.js"></script>
-<script>
-function setEqualHeight(table) {  
-    console.log($(this).height());
 
-    var tallestcolumn = 0;  
-    table.children("div").each (  
-        function() {
-            currentHeight = $(this).height();  
-            if (currentHeight > tallestcolumn) {  
-                tallestcolumn  = currentHeight;  
-            }  
-        }  
-    );  
-    table.children("div").height(($(this).height() - 47)/3);
-}  
-$(document).ready(function() {  
-   // setEqualHeight($("#menu"));  
-});  
-</script>
+<!-- viewModels  -->
+<script src="ui/menu/menuPage/menuPageViewModel.js"></script>
+
 <!-- endbuild -->
 
 <!-- run application  -->

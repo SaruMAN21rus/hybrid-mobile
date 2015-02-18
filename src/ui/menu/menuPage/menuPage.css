@@ -1,0 +1,70 @@
+#menuPageView .div00{
+	position:absolute;
+	width:50%;
+	height:33.33%;
+	left:0;
+	top:0;
+}
+#menuPageView .div01{
+	position:absolute;
+	width:50%;
+	height:33.33%;
+	right:0;
+	top:0;
+}
+#menuPageView .div10{
+	position:absolute;
+	width:50%;
+	height:33.33%;
+	left:0;
+	top:33.33%;
+}
+#menuPageView .div11{
+	position:absolute;
+	width:50%;
+	height:33.33%;
+	right:0;
+	top:33.33%;
+}
+#menuPageView .div20{
+	position:absolute;
+	width:50%;
+	height:33.33%;
+	left:0;
+	bottom:0;
+}
+#menuPageView .div21{
+	position:absolute;
+	width:50%;
+	height:33.33%;
+	right:0;
+	bottom:0;
+}
+#menuPageView .menuLeftBtn{
+	width: 80%;
+	height: 60%;
+	float: left;
+	margin: 20px 0 0 20px;
+	text-align: left;
+}
+#menuPageView .menuRightBtn{
+	width: 80%;
+	height: 60%;
+	float: right;
+	margin: 20px 20px 0 0;
+	text-align: left;
+}
+#menuPageView .km-button .bigButtonWithIcon{
+	height: 100%;
+}
+#menuPageView .km-button .bigButtonWithIcon .icon{
+    height: 100%;
+}
+#menuPageView .agentInfo{
+    background-image: url("img/test.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#menuPageView .km-button .bigButtonWithIcon .text{
+	font-size: 1.2vw;
+}
