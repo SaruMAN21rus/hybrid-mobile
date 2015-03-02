@@ -5,16 +5,16 @@ data-stretch="true"
 data-model="app.menuPage.viewModel"
 data-bind="events:{init:init}"
 >
-	<header data-role="header">
-		<div data-role="navbar">
-			<span data-role="view-title">Главное меню</span>
-			<span data-align="right" data-role="view-title" id="date"></span>
-			<div data-align="right" data-icon="refresh" data-role="button" ></div>
-			<div data-align="right" data-icon="home" data-role="button"></div>
-		</div>
-	</header>
+    <header data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title">Главное меню</span>
+            <span data-align="right" data-role="view-title" id="currentDate"></span>
+            <div data-align="right" data-icon="refresh" data-role="button" ></div>
+            <div data-align="right" data-icon="home" data-role="button"></div>
+        </div>
+    </header>
     <div class="div00">
-		<div data-role="button" class="menuLeftBtn" data-bind="click:goToAgents">
+        <div data-role="button" class="btn" data-bind="click:goToAgents">
             <table class="bigButtonWithIcon">
                 <tr>
                     <td class="icon agentInfo">
@@ -24,10 +24,10 @@ data-bind="events:{init:init}"
                     </td>
                 </tr>
             </table>
-    	</div>
+        </div>
     </div> 
     <div class="div01">
-        <div data-role="button" class="menuRightBtn" data-bind="click:goToCalendar">
+        <div data-role="button" class="btn" data-bind="click:goToCalendar">
             <table class="bigButtonWithIcon">
                 <tr>
                     <td class="icon agentInfo">
@@ -40,7 +40,7 @@ data-bind="events:{init:init}"
         </div>
     </div> 
     <div class="div10">
-        <div data-role="button" class="menuLeftBtn" data-bind="click:goToAnalytics">
+        <div data-role="button" class="btn" data-bind="click:goToAnalytics">
             <table class="bigButtonWithIcon">
                 <tr>
                     <td class="icon agentInfo">
@@ -53,7 +53,7 @@ data-bind="events:{init:init}"
         </div>
     </div> 
     <div class="div11">
-        <div data-role="button" class="menuRightBtn" data-bind="click:goToTasks">
+        <div data-role="button" class="btn" data-bind="click:goToTasks">
             <table class="bigButtonWithIcon">
                 <tr>
                     <td class="icon agentInfo">
@@ -66,7 +66,7 @@ data-bind="events:{init:init}"
         </div>
     </div>
     <div class="div20">
-        <div data-role="button" class="menuLeftBtn" data-bind="click:goToDocuments">
+        <div data-role="button" class="btn" data-bind="click:goToDocuments">
             <table class="bigButtonWithIcon">
                 <tr>
                     <td class="icon agentInfo">
@@ -79,7 +79,7 @@ data-bind="events:{init:init}"
         </div>
     </div> 
     <div class="div21">
-        <div data-role="button" class="menuRightBtn" data-bind="click:goToFavorites">
+        <div data-role="button" class="btn" data-bind="click:goToFavorites">
             <table class="bigButtonWithIcon">
                 <tr>
                     <td class="icon agentInfo">

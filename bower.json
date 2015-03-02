@@ -14,5 +14,8 @@
   ],
   "dependencies": {
     "kendo-ui": "~2014.3.1328"
+  },
+  "devDependencies": {
+    "fastclick": "~1.0.6"
   }
 }

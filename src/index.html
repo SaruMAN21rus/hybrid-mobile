@@ -1,32 +1,33 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Eludia App</title>
-    <meta charset="windows-1251" />
+    <meta charset="utf-8" />
 
     <!-- build:css thirdparty/thirdparty.css -->
 
     <link href="bower_components/kendo-ui/src/styles/mobile/kendo.mobile.common.css" rel="stylesheet"/>
-    <link href="bower_components/kendo-ui/src/styles/mobile/kendo.mobile.flat.material-blue.css" rel="stylesheet"/>
+    <link href="bower_components/kendo-ui/src/styles/mobile/kendo.mobile.flat.professional.css" rel="stylesheet"/>
 
     <!-- endbuild -->
 
     <!-- build:css eludiaapp.css -->
 
     <!-- globals CSS -->
-
+    <link href="/shared/css/application.css" rel="stylesheet"/>
 
     <!-- views CSS -->
-     <link href="ui/menu/menuPage/menuPage.css" rel="stylesheet"/>
+    <link href="ui/menu/menuPage/menuPage.css" rel="stylesheet"/>
+    <link href="ui/tasks/tasksMenu/tasksMenu.css" rel="stylesheet"/>
 
      <!-- layouts CSS -->
 
     <!-- endbuild -->
 
 </head>
-<body>
+<body onload="onLoad()">
 
     <!-- views -->
     @@include('./ui/menu/menuPage/menuPageView.html')
@@ -43,6 +44,7 @@
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/kendo-ui/src/js/kendo.ui.core.js"></script>
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
 
 <!-- endbuild -->
 
@@ -53,19 +55,33 @@
 
 <!-- viewModels  -->
 <script src="ui/menu/menuPage/menuPageViewModel.js"></script>
+<script src="ui/tasks/tasksMenu/tasksMenuViewModel.js"></script>
 
 <!-- endbuild -->
 
 <!-- run application  -->
+<script src="cordova.js"></script>
 <script>
-app.app = new kendo.mobile.Application(document.body, { //document.body is default, but I'm being explicit
-    skin: 'flat',
-    initial: 'menuPageView', //this is the initial view to show
-    init: function() {
-        //fix mouse events in iOS don't do it for android, causes more issues than it fixes
-        kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0:20);
-    }
-});
+function onLoad() {
+    document.addEventListener('deviceready', onDeviceReady, false);
+};
+
+function onDeviceReady() {
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+
+    app.app = new kendo.mobile.Application(document.body, { //document.body is default, but I'm being explicit
+        transition: 'slide',
+        skin: 'flat',
+        initial: 'menuPageView', //this is the initial view to show
+        init: function() {
+            //fix mouse events in iOS don't do it for android, causes more issues than it fixes
+            kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0:20);
+        }
+    });
+}
 </script>
 
 </body>
