@@ -19,7 +19,7 @@
             showTasks:function(){
                 this.modelData.dataSource.fetch(function(){
                     var data = this.data();
-                    console.log(data.length);
+                    alert(data.length);
                 });
             },
             goToAnalytics:function(){
