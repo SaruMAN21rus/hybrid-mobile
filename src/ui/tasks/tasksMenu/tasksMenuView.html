@@ -2,94 +2,164 @@
 data-role="view" 
 data-layout="default"
 data-stretch="true"
-<!-- data-model="app.menuPage.viewModel"
-data-bind="events:{init:init}" -->
+data-model="app.tasksMenu.viewModel"
+data-bind="events:{init:init}"
 >
-	<header data-role="header">
-		<div data-role="navbar">
-            <div data-align="left" data-icon="back" data-role="backbutton">Back</div>
-			<span data-role="view-title">Задачи</span>
-			<span data-align="right" data-role="view-title" id="date"></span>
-			<div data-align="right" data-icon="refresh" data-role="button" ></div>
-			<div data-align="right" data-icon="home" data-role="button"></div>
-		</div>
-	</header>
-    <div class="div00">
-		<div data-role="button" class="menuLeftBtn" data-bind="click:goToAgents">
-            <table class="bigButtonWithIcon">
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-align="left" data-icon="details" data-role="backbutton"></a>
+            <span data-role="view-title">Задачи</span>
+            <span data-align="right" data-role="view-title" id="currentDate"></span>
+            <div data-align="right" data-icon="refresh" data-role="button" ></div>
+            <div data-align="right" data-icon="home" data-role="button"></div>
+        </div>
+    </header>
+    <div class="cell-00">
+        <div data-role="button" class="btn" data-bind="click:showTasks">
+            <table>
                 <tr>
-                    <td class="icon agentInfo">
-                    </td>
                     <td class="text">
-                        Информация о контрагентах
+                        ВАЖНОЕ
+                    </td>
+                    <td class="text value" data-bind="text: importantTasksCount">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">
+                        ПРОСРОЧЕННЫЕ
+                    </td>
+                    <td class="text value" data-bind="text: overdueTasksCount">
                     </td>
                 </tr>
             </table>
     	</div>
     </div> 
-    <div class="div01">
-        <div data-role="button" class="menuRightBtn" data-bind="click:goToCalendar">
-            <table class="bigButtonWithIcon">
+    <div class="cell-01">
+        <div data-role="button" class="btn" data-bind="click:addTask">
+            <table>
                 <tr>
-                    <td class="icon agentInfo">
-                    </td>
                     <td class="text">
-                        Календарь
+                        ДОБАВИТЬ ЗАДАЧУ
                     </td>
                 </tr>
             </table>
         </div>
     </div> 
-    <div class="div10">
-        <div data-role="button" class="menuLeftBtn" data-bind="click:goToAnalytics">
-            <table class="bigButtonWithIcon">
+    <div class="cell-02">
+        <div data-role="button" class="btn" data-bind="click:goToAnalytics">
+            <table class="fullheight">
                 <tr>
-                    <td class="icon agentInfo">
-                    </td>
                     <td class="text">
-                        Аналитика, Отчеты, Графики
+                        ИСПОЛНИТЬ
+                    </td>
+                </tr>
+                <tr class="fullheight">
+                </tr>
+                <tr>
+                    <td class="text">
+                        Новые
+                    </td>
+                    <td class="text value" data-bind="text: newPerformTasksCount">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">
+                        Просроченные
+                    </td>
+                    <td class="text value" data-bind="text: overduePerformTasksCount">
                     </td>
                 </tr>
             </table>
         </div>
     </div> 
-    <div class="div11">
-        <div data-role="button" class="menuRightBtn" data-bind="click:goToTasks">
-            <table class="bigButtonWithIcon">
+    <div class="cell-10">
+        <div data-role="button" class="btn" data-bind="click:goToTasks">
+            <table>
                 <tr>
-                    <td class="icon agentInfo">
-                    </td>
                     <td class="text">
-                        Задачи, распоряжения
+                        ЗАГРУЖЕННОСТЬ СОТРУДНИКОВ
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-    <div class="div20">
-        <div data-role="button" class="menuLeftBtn" data-bind="click:goToDocuments">
-            <table class="bigButtonWithIcon">
+    <div class="cell-11">
+        <div data-role="button" class="btn" data-bind="click:goToDocuments">
+            <table class="fullheight">
                 <tr>
-                    <td class="icon agentInfo">
-                    </td>
                     <td class="text">
-                        Документы
+                        СОГЛАСОВАТЬ
+                    </td>
+                </tr>
+                <tr class="fullheight">
+                </tr>
+                <tr>
+                    <td class="text">
+                        Новые
+                    </td>
+                    <td class="text value" data-bind="text: newConformTasksCount">
                     </td>
                 </tr>
             </table>
         </div>
     </div> 
-    <div class="div21">
-        <div data-role="button" class="menuRightBtn" data-bind="click:goToFavorites">
-            <table class="bigButtonWithIcon">
+    <div class="cell-12">
+        <div data-role="button" class="btn" data-bind="click:goToFavorites">
+            <table class="fullheight">
                 <tr>
-                    <td class="icon agentInfo">
-                    </td>
                     <td class="text">
-                        Избранное
+                        НА КОНТРОЛЕ
+                    </td>
+                </tr>
+                <tr class="fullheight">
+                </tr>
+                <tr>
+                    <td class="text">
+                        Новые
+                    </td>
+                    <td class="text value" data-bind="text: newControlTasksCount">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">
+                        Просроченные
+                    </td>
+                    <td class="text value" data-bind="text: overdueControlTasksCount">
                     </td>
                 </tr>
             </table>
         </div>
-    </div> 
+    </div>
+    <div class="cell-21">
+        <div data-role="button" class="btn" data-bind="click:goToFavorites">
+            <table>
+                <tr>
+                    <td class="text">
+                        СПИСОК ЗАДАЧ
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="cell-22">
+        <div data-role="button" class="btn" data-bind="click:goToFavorites">
+            <table class="fullheight">
+                <tr>
+                    <td class="text">
+                        ПРОСМОТР ДОКУМЕНТОВ
+                    </td>
+                </tr>
+                <tr class="fullheight">
+                </tr>
+                <tr>
+                    <td class="text">
+                        Новые
+                    </td>
+                    <td class="text value" data-bind="text: newDocumentsCount">
+                        123
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>

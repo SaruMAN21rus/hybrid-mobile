@@ -130,6 +130,11 @@ gulp.task('reportSize', function() {
         .pipe(size());
 });
 
+gulp.task('moveAppImages', function(){
+    return gulp.src(['./src/ui/menu/menuPage/img/**/*.*'])
+        .pipe(gulp.dest('./www/img'));
+});
+
 /**** Servers ****************************************************************************/
 
 //dev sever
@@ -165,11 +170,11 @@ gulp.task('watchDevServer', function(){
 /**** Tasks ********************************************************************************/
 
 gulp.task('dev', function(callback) {
-    runSequence('cleanDev','runDevTasks','startDevServer','watchDevServer', callback);
+    runSequence('cleanDev','runDevTasks'/*,'startDevServer','watchDevServer'*/, callback);
     return false;
 });
 
 gulp.task('prod', function(callback) {
-    runSequence('cleanProd','buildFromDev','cssLint','htmlHint','jsHint','minifyHtml','minifyCss','minifyJs','moveKendoImages','moveKendoFlatTheme',/*'moveBootstrapCSSStuff',*/'reportSize','startProductionServer', callback);
+    runSequence('cleanProd','buildFromDev','cssLint','htmlHint','jsHint','minifyHtml','minifyCss','minifyJs','moveKendoImages','moveKendoFlatTheme','moveAppImages',/*'moveBootstrapCSSStuff',*/'reportSize'/*,'startProductionServer'*/, callback);
     return false;
 });
