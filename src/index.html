@@ -28,9 +28,13 @@
 
 </head>
 <body>
+    <!-- templates -->
+    @@include('./ui/tasks/tasksList/tasksListItemTemplate.html')
+
     <!-- views -->
     @@include('./ui/menu/menuPage/menuPageView.html')
     @@include('./ui/tasks/tasksMenu/tasksMenuView.html')
+    @@include('./ui/tasks/tasksList/tasksListView.html')
 
     <!-- layouts -->
     @@include('./shared/layouts/global/globalLayout.html')
@@ -62,6 +66,7 @@
 <!-- viewModels  -->
 <script src="ui/menu/menuPage/menuPageViewModel.js"></script>
 <script src="ui/tasks/tasksMenu/tasksMenuViewModel.js"></script>
+<script src="ui/tasks/tasksList/tasksListViewModel.js"></script>
 
 <!-- endbuild -->
 

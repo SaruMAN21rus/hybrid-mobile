@@ -13,8 +13,7 @@
                 this.modelData.createTable();
             },
             addTask:function(){
-                this.modelData.dataSource.add({name:"test"});
-                this.modelData.dataSource.sync();
+                app.app.navigate('#tasksListView');
             },
             showTasks:function(){
                 this.modelData.dataSource.fetch(function(){

@@ -1,0 +1,34 @@
+<div id="tasksListView" 
+data-role="view" 
+data-layout="default" 
+data-model="app.tasksList.viewModel"
+data-bind="events:{init:init}"
+>
+	<header data-role="header">
+		<div data-role="navbar">
+			<a data-align="left" data-icon="details" data-role="backbutton"></a>
+			<span data-role="view-title">Список задач</span>
+			<a data-align="right" data-icon="add" data-role="button" data-bind="events:{click:addTask}"></a>
+		</div>
+	</header>
+
+	<div>
+    	<table id="tasks">
+        	<thead>
+            	<tr>
+                	<th>Идентификатор</th>
+                  	<th>Наименование</th>
+                </tr>
+            </thead>
+        	<tbody>
+            	<tr>
+                	<td colspan="4"></td>
+                </tr>
+            </tbody>
+        </table>
+	</div>
+	<div>
+		<ul data-bind="source: modelData.dataSource" data-template="tasksListItemTemplate">
+  		</ul>
+    </div>
+</div>
