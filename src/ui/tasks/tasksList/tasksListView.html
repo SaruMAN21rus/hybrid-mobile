@@ -12,23 +12,18 @@ data-bind="events:{init:init}"
 		</div>
 	</header>
 
-	<div>
+	<div class="grid k-content">
     	<table id="tasks">
         	<thead>
             	<tr>
                 	<th>Идентификатор</th>
                   	<th>Наименование</th>
+                    <th>Чекбокс</th>
+                    <th>Свойство</th>
                 </tr>
             </thead>
-        	<tbody>
-            	<tr>
-                	<td colspan="4"></td>
-                </tr>
+        	<tbody data-bind="source: modelData.dataSource" data-template="tasksListItemTemplate">
             </tbody>
         </table>
 	</div>
-	<div>
-		<ul data-bind="source: modelData.dataSource" data-template="tasksListItemTemplate">
-  		</ul>
-    </div>
 </div>

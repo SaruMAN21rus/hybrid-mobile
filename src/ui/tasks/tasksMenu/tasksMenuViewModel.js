@@ -10,6 +10,7 @@
             //other properties or functions you want to observe and expose to html
             init:function() {
                 $('#tasksMenuView #currentDate').text(app.currentDate);
+                //this.modelData.dropTable();
                 this.modelData.createTable();
             },
             addTask:function(){

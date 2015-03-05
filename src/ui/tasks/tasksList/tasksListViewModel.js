@@ -10,8 +10,7 @@
 			init:function(e){
 			}, 
 			addTask: function() {
-				this.modelData.dataSource.add({name:"Наименование"});
-                this.modelData.dataSource.sync();
+				app.app.navigate('#addTaskView');
 			}
 		})
 	};

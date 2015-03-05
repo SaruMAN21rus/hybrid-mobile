@@ -39,13 +39,13 @@
                 //alert("Календарь");
             },
             goToAnalytics:function(){
-                //alert("Аналитика, Отчеты, Графики");
+                app.app.navigate('#chartView');
             },
             goToTasks:function(){
                 app.app.navigate('#tasksMenuView');
             },
             goToDocuments:function(){
-                //alert("Документы");
+                app.app.navigate('#gridView');
             },
             goToFavorites:function(){
                 //alert("Избранное");

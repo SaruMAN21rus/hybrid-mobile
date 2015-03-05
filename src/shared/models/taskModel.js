@@ -24,7 +24,9 @@
                     id: "id",
                     fields: {
                         id: { editable: false },
-                        name: { type:"text", validation: { required: true } }
+                        name: { type:"text", validation: { required: true } },
+                        checkbox: {type:"boolean"},
+                        radio: {type:"text"}
                     }
                 }
             }
@@ -32,7 +34,7 @@
 
         read: function (db, callback) {
             app.db.transaction(function(tx) {
-                tx.executeSql('SELECT id, name from taskModel', [], function(tx, result) {
+                tx.executeSql('SELECT id, name, checkbox, radio from taskModel', [], function(tx, result) {
                     callback(app.selectResultToArray(result));
                 }, app.onDatabaseError);
             });
@@ -40,8 +42,8 @@
 
         update: function (db, model, callback) {
             app.db.transaction(function(tx) {
-                tx.executeSql('UPDATE taskModel SET name=? WHERE id=?', 
-                    [model.name, model.id], function(tx, result) {
+                tx.executeSql('UPDATE taskModel SET name=? , checkbox=?, radio = ? WHERE id=?', 
+                    [model.name, model.checkbox, model.radio, model.id], function() {
                     callback([]);
                 }, app.onDatabaseError);
             });
@@ -49,9 +51,9 @@
 
         create: function (db, model, callback) {
             app.db.transaction(function(tx) {
-                tx.executeSql('INSERT INTO taskModel (name) VALUES(?)', 
-                    [model.name], function(tx, result) {
-                    callback([{ id: result.insertId, name: model.name }]);
+                tx.executeSql('INSERT INTO taskModel (name, checkbox, radio) VALUES(?, ?, ?)', 
+                    [model.name, model.checkbox, model.radio], function(tx, result) {
+                    callback([{ id: result.insertId, name: model.name, checkbox: model.checkbox, radio: model.radio}]);
                 }, app.onDatabaseError);
             });
         },
@@ -59,17 +61,23 @@
         destroy: function (db, model, callback) {
             app.db.transaction(function(tx) {
                 tx.executeSql('DELETE FROM taskModel WHERE id=?', 
-                    [model.id], function(tx, result) {
+                    [model.id], function() {
                     callback([]);
                 }, app.onDatabaseError);
             });
         },
         createTable: function() {
             app.db.transaction(function (tx) {
-                tx.executeSql("CREATE TABLE IF NOT EXISTS taskModel(id INTEGER PRIMARY KEY ASC, name TEXT)", [],
+                tx.executeSql("CREATE TABLE IF NOT EXISTS taskModel(id INTEGER PRIMARY KEY ASC, name TEXT, checkbox BOOLEAN, radio TEXT)", [],
+                    app.onDatabaseSuccess, app.onDatabaseError);
+            });
+        },
+        dropTable: function() {
+            app.db.transaction(function (tx) {
+                tx.executeSql("DROP TABLE IF EXISTS taskModel", [],
                     app.onDatabaseSuccess, app.onDatabaseError);
             });
         }
-    }
+    };
 
 })(app); //pass in global namespace

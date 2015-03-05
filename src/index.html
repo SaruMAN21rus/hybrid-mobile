@@ -7,9 +7,12 @@
     <meta charset="utf-8" />
 
     <!-- build:css thirdparty/thirdparty.css -->
-
+    <link href="bower_components/kendo-ui/src/styles/web/kendo.common.core.css" rel="stylesheet"/>
+    <link href="bower_components/kendo-ui/src/styles/web/kendo.default.css" rel="stylesheet"/>
     <link href="bower_components/kendo-ui/src/styles/mobile/kendo.mobile.common.css" rel="stylesheet"/>
     <link href="bower_components/kendo-ui/src/styles/mobile/kendo.mobile.flat.professional.css" rel="stylesheet"/>
+    <link href="bower_components/kendo-ui/src/styles/mobile/kendo.mobile.all.css" rel="stylesheet"/>
+    <link href="bower_components/kendo-ui/src/styles/mobile/kendo.dataviz.mobile.css" rel="stylesheet"/>
 
     <!-- endbuild -->
 
@@ -21,6 +24,10 @@
     <!-- views CSS -->
     <link href="ui/menu/menuPage/menuPage.css" rel="stylesheet"/>
     <link href="ui/tasks/tasksMenu/tasksMenu.css" rel="stylesheet"/>
+    <link href="ui/tasks/tasksList/tasksList.css" rel="stylesheet"/>
+    <link href="ui/tasks/addTask/addTask.css" rel="stylesheet"/>
+    <link href="ui/charts/charts.css" rel="stylesheet"/>
+    <link href="ui/grid/grid.css" rel="stylesheet"/>
 
      <!-- layouts CSS -->
 
@@ -35,6 +42,9 @@
     @@include('./ui/menu/menuPage/menuPageView.html')
     @@include('./ui/tasks/tasksMenu/tasksMenuView.html')
     @@include('./ui/tasks/tasksList/tasksListView.html')
+    @@include('./ui/tasks/addTask/addTaskView.html')
+    @@include('./ui/charts/chartView.html')
+    @@include('./ui/grid/gridView.html')
 
     <!-- layouts -->
     @@include('./shared/layouts/global/globalLayout.html')
@@ -50,6 +60,8 @@
 <script src="bower_components/kendo-ui/src/js/kendo.ui.core.js"></script>
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 <script src="js/app.js"></script>
+<script src="js/kendo.dataviz.mobile.min.js"></script>
+<script src="js/kendo.grid.min.js"></script>
 
 <!-- endbuild -->
 
@@ -67,6 +79,9 @@
 <script src="ui/menu/menuPage/menuPageViewModel.js"></script>
 <script src="ui/tasks/tasksMenu/tasksMenuViewModel.js"></script>
 <script src="ui/tasks/tasksList/tasksListViewModel.js"></script>
+<script src="ui/tasks/addTask/addTaskViewModel.js"></script>
+<script src="ui/charts/chartViewModel.js"></script>
+<script src="ui/grid/gridViewModel.js"></script>
 
 <!-- endbuild -->
 
