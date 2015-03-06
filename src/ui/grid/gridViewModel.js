@@ -17,13 +17,15 @@
             createGrid:function() {
                 $("#gridView #kendoGrid").kendoGrid({
                     dataSource: this.modelData.dataSource,
-                    pageable: true,
-                    height: window.innerHeight - $("#chartView > header").height(),
+                    pageable: {
+                        pageSize: 2
+                    },
+                    height: window.innerHeight - $("#gridView > header").height(),
                     columns: [
-                        { field: "id", title: "Идентификатор", width: "5%" },
-                        { field: "name", title: "Наименование", width: "45%"  },
-                        { field: "checkbox", title: "Чекбокс", width: "10%"  },
-                        { field: "radio", title: "Свойство", width: "20%"   },
+                        { field: "id", title: "Идентификатор", width: "5%"},
+                        { field: "name", title: "Наименование", width: "45%"},
+                        { field: "checkbox", title: "Чекбокс", width: "10%"},
+                        { field: "radio", title: "Свойство", width: "20%"},
                         { command: ["edit", "destroy"], title: "&nbsp;", width: "30%"}
                     ],
                     editable: "inline",

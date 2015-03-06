@@ -2,12 +2,13 @@
 data-role="view" 
 data-layout="default"
 data-model="app.addTask.viewModel"
-data-bind="events:{init:init, afterShow:afterShow}"
+data-bind="events:{init:init, afterShow:afterShow, show:show}"
 >
     <header data-role="header">
         <div data-role="navbar">
-            <a data-align="left" data-icon="details" data-role="backbutton"></a>
+            <a data-align="left" data-role="backbutton">Отмена</a>
             <span data-role="view-title">Добавление задачи</span>
+            <a data-align="right" id="addTaskDoneBtn" data-role="button" data-enable="false" data-bind="events{click: createTask}">Готово</a>
         </div>
     </header>
     <div>
@@ -48,10 +49,6 @@ data-bind="events:{init:init, afterShow:afterShow}"
                     </li>
                 </ul>
             </li>
-        </ul>
-        <br>
-        <ul data-role="listview" data-style="inset" data-type="group">
-            <a data-align="right" id="addTaskBtn" data-role="button" data-enable="false" data-bind="events{click: createTask}">Добавить</a>
         </ul>
     </div>
 </div>

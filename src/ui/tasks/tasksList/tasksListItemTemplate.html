@@ -4,5 +4,9 @@
         <td>#= name #</td>
         <td>#= checkbox #</td>
         <td>#= radio #</td>
+        <td>
+            <a data-icon="edit" data-role="button" data-bind="events:{click:editTask}" data-id="#= id#"></a>
+            <a data-icon="delete" data-role="button" data-bind="events:{click:deleteTask}" data-id="#= id#"></a>
+        </td>
  	</tr>
 </script>

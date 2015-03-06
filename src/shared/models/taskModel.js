@@ -68,7 +68,7 @@
         },
         createTable: function() {
             app.db.transaction(function (tx) {
-                tx.executeSql("CREATE TABLE IF NOT EXISTS taskModel(id INTEGER PRIMARY KEY ASC, name TEXT, checkbox BOOLEAN, radio TEXT)", [],
+                tx.executeSql("CREATE TABLE IF NOT EXISTS taskModel(id INTEGER PRIMARY KEY ASC, name TEXT, checkbox TEXT, radio TEXT)", [],
                     app.onDatabaseSuccess, app.onDatabaseError);
             });
         },

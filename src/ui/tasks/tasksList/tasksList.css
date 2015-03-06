@@ -32,3 +32,9 @@
     color: #787878;
     border-bottom: 1px solid #e1e1e1;
 }
+
+#tasksListView .grid > table > tbody > tr > td:last-child
+{
+    width:1%;
+    white-space:nowrap;
+}

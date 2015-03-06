@@ -12,29 +12,45 @@
             modelData: app.taskModel,
             //other properties or functions you want to observe and expose to html
             init:function(){
-                this.addButton = $('#addTaskBtn').data('kendoMobileButton');
-                var addButton = this.addButton;
+                this.doneButton = $('#addTaskDoneBtn').data('kendoMobileButton');
+                var doneButton = this.doneButton;
                 $('#taskNameInput').on('change input',function(e){
                     if($(e.target).val().replace(' ','') !== ''){
-                        addButton.enable(true);
+                        doneButton.enable(true);
                     }else{
-                        addButton.enable(false);
+                        doneButton.enable(false);
                     }
                 });
             },
             createTask:function(e){
                 if(this.taskName.replace(' ','') !== ''){
-                    this.modelData.dataSource.add({name:this.taskName, checkbox:this.checkbox, radio:this.radio});
+                    if (typeof this.id == "undefined")
+                        this.modelData.dataSource.add({name:this.taskName, checkbox:this.checkbox, radio:this.radio});
+                    else {
+                        this.model.set('name',this.taskName);
+                        this.model.set('checkbox',this.checkbox);
+                        this.model.set('radio',this.radio);
+                    }
                     this.modelData.dataSource.sync();
                     this.set('taskName','');
                     this.set('checkbox',false);
                     this.set('radio','Свойство1');
-                    this.addButton.enable(false);
+                    this.doneButton.enable(false);
                     app.app.navigate('#:back');
                 }
             },
             afterShow:function(e){
                 e.view.element.find('#taskNameInput').focus();
+            },
+            show:function(e){
+                this.id = e.view.params.id;
+                if (typeof this.id != "undefined") {
+                    this.model = this.modelData.dataSource.get(this.id);
+                    this.set('taskName',this.model.name);
+                    this.set('checkbox',JSON.parse(this.model.checkbox));
+                    this.set('radio',this.model.radio);
+                    this.doneButton.enable(true);
+                }
             },
             taskName:'',
             checkbox:false,
