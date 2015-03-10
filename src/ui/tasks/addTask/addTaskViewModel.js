@@ -32,10 +32,6 @@
                         this.model.set('radio',this.radio);
                     }
                     this.modelData.dataSource.sync();
-                    this.set('taskName','');
-                    this.set('checkbox',false);
-                    this.set('radio','Свойство1');
-                    this.doneButton.enable(false);
                     app.app.navigate('#:back');
                 }
             },
@@ -50,6 +46,11 @@
                     this.set('checkbox',JSON.parse(this.model.checkbox));
                     this.set('radio',this.model.radio);
                     this.doneButton.enable(true);
+                } else {
+                    this.set('taskName','');
+                    this.set('checkbox',false);
+                    this.set('radio','Свойство1');
+                    this.doneButton.enable(false);
                 }
             },
             taskName:'',

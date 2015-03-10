@@ -1,4 +1,4 @@
-app = {
+window.app = {
     initialize: function () {
         'use strict';
         
@@ -15,7 +15,7 @@ app = {
     onDeviceReady: function () {
         'use strict';
 
-        app.app = new kendo.mobile.Application(document.body, {
+        window.app.app = new kendo.mobile.Application(document.body, {
             transition: 'slide',
             skin: 'flat',
             initial: 'menuPageView',
@@ -36,7 +36,7 @@ app = {
             };
         }
 
-        app.openDatabase();
+        window.app.openDatabase();
     },
 
     onDOMContentLoaded: function() {
