@@ -44,4 +44,4 @@ window.app = {
 
         FastClick.attach(document.body);
     }
-}
+};
