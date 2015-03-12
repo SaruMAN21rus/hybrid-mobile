@@ -1,0 +1,21 @@
+@-webkit-keyframes fadeInRight { 
+    0% { 
+        opacity: 0; 
+        -webkit-transform: translateX(200px); 
+    } 
+    100% { 
+        opacity: 1; 
+        -webkit-transform: translateX(0); 
+    } 
+}
+
+.fade-in-right { 
+    -webkit-animation: fadeInRight linear 1;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 0s;
+}
+
+#right-menu {
+    width: 7%;
+}

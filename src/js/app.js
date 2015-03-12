@@ -9,7 +9,7 @@ window.app = {
         'use strict';
         
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener('DOMContentLoaded', this.onDOMContentLoaded, false);
+        document.addEventListener('DOMContentLoaded', this.onDeviceReady, false);
     },
 
     onDeviceReady: function () {

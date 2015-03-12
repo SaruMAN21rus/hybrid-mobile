@@ -9,8 +9,9 @@ data-bind="events:{init:init}"
         <div data-role="navbar">
             <span data-role="view-title">Главное меню</span>
             <span data-align="right" data-role="view-title" id="currentDate"></span>
-            <div data-align="right" data-icon="refresh" data-role="button" ></div>
-            <div data-align="right" data-icon="home" data-role="button"></div>
+            <a data-align="right" data-icon="refresh" data-role="button" ></a>
+            <a data-align="right" data-icon="home" data-role="button"></a>
+            <a data-align="right" data-icon="rightmenu" data-role="button" data-rel="drawer" data-bind="click:rightMenuViewModel.showRightMenu"></a>
         </div>
     </header>
     <div class="div00">

@@ -73,3 +73,13 @@
 .km-button .km-state-active {
     box-shadow: inset 5px 5px 20px 0px rgba(0,0,0,0.75);
 }
+
+.km-rightmenu:after,
+.km-rightmenu:before {
+  content: "\e0ab";
+}
+
+#menuPageView{
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    float:right;
+}

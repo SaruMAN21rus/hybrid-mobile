@@ -50,6 +50,8 @@
             goToFavorites:function(){
                 //alert("Избранное");
             },
+            rightMenuViewModel: app.rightMenu.viewModel
+
         })
     };
 })(app); //pass in global namespace

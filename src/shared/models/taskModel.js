@@ -29,7 +29,9 @@
                         radio: {type:"text"}
                     }
                 }
-            }
+            },
+            //pageSize: 10,
+            //serverPaging: true
         }),
 
         read: function (db, callback) {

@@ -10,20 +10,28 @@ data-bind="events:{init:init}"
 			<span data-role="view-title">Список задач</span>
 			<a data-align="right" data-icon="add" data-role="button" data-bind="events:{click:addTask}"></a>
 		</div>
+        <div id="custom-filter">
+          <input id="listView-filter" placeholder="Search..." type="text" style="width: 100%" />
+        </div>
 	</header>
 
 	<div class="grid k-content">
     	<table id="tasks">
         	<thead>
             	<tr>
-                	<th>Идентификатор</th>
+                	<th style="width:10%">Идентификатор</th>
                   	<th>Наименование</th>
                     <th>Чекбокс</th>
                     <th>Свойство</th>
                     <th></th>
                 </tr>
             </thead>
-        	<tbody data-bind="source: modelData.dataSource" data-template="tasksListItemTemplate">
+        	<tbody data-bind="source: modelData.dataSource" 
+            data-header-template="tasksListHeaderTemplate" 
+            data-fixed-headers="true" 
+            data-template="tasksListItemTemplate"
+            data-load-more="true"
+            >
             </tbody>
         </table>
 	</div>
