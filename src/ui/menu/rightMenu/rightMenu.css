@@ -19,3 +19,8 @@
 #right-menu {
     width: 7%;
 }
+.right-menu-btn {
+    width:100%;
+    margin:0;
+    padding:0 !important;
+}
