@@ -13,24 +13,25 @@ data-bind="events:{init:init}"
         <div id="custom-filter">
           <input id="listView-filter" placeholder="Search..." type="text" style="width: 100%" />
         </div>
-	</header>
-
-	<div class="grid k-content">
-    	<table id="tasks">
-        	<thead>
-            	<tr>
-                	<th style="width:10%">Идентификатор</th>
-                  	<th>Наименование</th>
+        <div class="grid k-content">
+        <table id="tasks">
+            <thead>
+                <tr>
+                    <th style="width:10%">Идентификатор</th>
+                    <th>Наименование</th>
                     <th>Чекбокс</th>
                     <th>Свойство</th>
                     <th></th>
                 </tr>
             </thead>
-        	<tbody data-bind="source: modelData.dataSource" 
-            data-header-template="tasksListHeaderTemplate" 
-            data-fixed-headers="true" 
+        </table>
+    </div>
+	</header>
+
+	<div class="grid k-content">
+    	<table id="tasks">
+        	<tbody data-bind="source: modelData"
             data-template="tasksListItemTemplate"
-            data-load-more="true"
             >
             </tbody>
         </table>

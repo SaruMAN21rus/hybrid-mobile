@@ -1,7 +1,7 @@
 <div id="right-menu" 
 data-role="drawer" 
 data-position="right" 
-data-views="['menuPageView']"
+data-views="['menuPageView', 'agentListView']"
 data-swipe-to-open="false"
 data-init="app.rightMenu.viewModel.init"
 >
@@ -13,5 +13,5 @@ data-init="app.rightMenu.viewModel.init"
     <a class="right-menu-btn" data-icon="home" data-role="button"></a>
     <a class="right-menu-btn" data-icon="home" data-role="button"></a>
     <a class="right-menu-btn" data-icon="home" data-role="button"></a>
-    <a class="right-menu-btn" data-icon="home" data-role="button"></a>
+    <a class="right-menu-btn" data-icon="exit" data-role="button" data-click="app.rightMenu.viewModel.exitMenu"></a>
 </div>

@@ -1,3 +1,16 @@
 #currentDate {
     margin-right: 10px;
 }
+
+.km-rightmenu:after,
+.km-rightmenu:before {
+  content: "\e0ab";
+}
+.km-list:before, 
+.km-list:after  { 
+    content: "\E077"; 
+}
+.km-data:before, 
+.km-data:after { 
+    content: "\E0B0"; 
+}

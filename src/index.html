@@ -29,6 +29,7 @@
     <link href="ui/tasks/addTask/addTask.css" rel="stylesheet"/>
     <link href="ui/charts/charts.css" rel="stylesheet"/>
     <link href="ui/grid/grid.css" rel="stylesheet"/>
+    <link href="ui/agent/agentList/agentList.css" rel="stylesheet"/>
 
      <!-- layouts CSS -->
 
@@ -38,6 +39,7 @@
 <body>
     <!-- templates -->
     @@include('./ui/tasks/tasksList/tasksListItemTemplate.html')
+    @@include('./ui/agent/agentList/agentListItemTemplate.html')
 
     <!-- views -->
     @@include('./ui/menu/rightMenu/rightMenuView.html')
@@ -47,6 +49,7 @@
     @@include('./ui/tasks/addTask/addTaskView.html')
     @@include('./ui/charts/chartView.html')
     @@include('./ui/grid/gridView.html')
+    @@include('./ui/agent/agentList/agentListView.html')
 
     <!-- layouts -->
     @@include('./shared/layouts/global/globalLayout.html')
@@ -59,11 +62,12 @@
 
 <script src="js/winstore-jscompat.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/kendo-ui/src/js/kendo.ui.core.js"></script>
+<script src="js/kendo.all.min.js"></script>
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 <script src="js/app.js"></script>
-<script src="js/kendo.dataviz.mobile.min.js"></script>
-<script src="js/kendo.grid.min.js"></script>
+<script src="bower_components/jaydata/Scripts/datajs-1.0.3.js"></script>
+<script src="bower_components/jaydata/build/jaydata.js"></script>
+<script src="bower_components/jaydata/build/jaydatamodules/kendo.js"></script>
 
 <!-- endbuild -->
 
@@ -73,9 +77,11 @@
 <script src="shared/utilities/currentDate.js"></script>
 <script src="shared/utilities/database.js"></script>
 <script src="shared/utilities/selectResultToArray.js"></script>
+<script src="shared/utilities/windowResize.js"></script>
 
 <!-- models  : Must run before viewModels-->
 <script src="shared/models/taskModel.js"></script>
+<script src="shared/models/agentModel.js"></script>
 
 <!-- viewModels  -->
 <script src="ui/menu/rightMenu/rightMenuViewModel.js"></script>
@@ -85,6 +91,7 @@
 <script src="ui/tasks/addTask/addTaskViewModel.js"></script>
 <script src="ui/charts/chartViewModel.js"></script>
 <script src="ui/grid/gridViewModel.js"></script>
+<script src="ui/agent/agentList/agentListViewModel.js"></script>
 
 <!-- endbuild -->
 

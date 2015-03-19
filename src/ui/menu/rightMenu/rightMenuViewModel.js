@@ -9,54 +9,46 @@
                 var buttons = $("#right-menu .km-button");
                 var menu = $("#right-menu");
                 
-                var buttonSize = $(window).height()/9;
-                app.rightMenu.menuWidth = buttonSize;
-                menu.width(buttonSize);
-                console.log(buttonSize);
+                app.rightMenuButtonSize = $(window).height()/9;
+                menu.width(app.rightMenuButtonSize);
                 buttons.each(
                     function () {
-                        $(this).height(buttonSize-2);
-                        $(this).width(buttonSize-2)
+                        $(this).height(app.rightMenuButtonSize-2);
+                        $(this).width(app.rightMenuButtonSize-2)
                         $(this).css({
-                            fontSize: buttonSize*0.7,
-                            lineHeight: buttonSize+"px"
+                            fontSize: app.rightMenuButtonSize*0.7,
+                            lineHeight: app.rightMenuButtonSize+"px"
                         });
                     }
                 );
-
-                $(window).resize(function() {
-                    var buttonSize = window.height/9;
-                    app.rightMenu.menuWidth = buttonSize;
-                    menu.width(buttonSize);
-                    buttons.each(
-                        function () {
-                            $(this).height(buttonSize-2);
-                            $(this).width(buttonSize-2)
-                        }
-                    );
-                });
             },
             showRightMenu: function(e){
-                var drawer = $("#right-menu");
-                var view = app.app.view();
-                var visible = app.rightMenu.isVisible;
-                var menuWidth = app.rightMenu.menuWidth;
-                if (!visible) {
-                    app.rightMenu.isVisible = true;
-                    drawer.show({duration: 400});
-                    $(view.id).animate({
-                        width: "-=" + menuWidth
+                if (!app.rightMenu.viewModel.isVisible) {
+                    app.rightMenu.viewModel.isVisible = true;
+                    $("#right-menu").show({duration: 400});
+                    app.rightMenu.viewModel.view = app.app.view();
+                    $(app.app.view().id).animate({
+                        width: "-=" + app.rightMenuButtonSize
                     }, 400);
                 } else {
-                    app.rightMenu.isVisible = false;
-                    $(view.id).animate({
-                        width: "+=" + menuWidth
-                    }, 400);
-                    drawer.hide({duration: 400});
+                    app.rightMenu.viewModel.exitMenu(e);
+                }
+            },
+            exitMenu: function(e) {
+                if (typeof app.app != "undefined" 
+                    && app.rightMenu.viewModel.isVisible
+                    && app.rightMenu.viewModel.view !== null) {
+                    app.rightMenu.viewModel.isVisible = false;
+                    var duration = typeof e.view != "undefined" ? 0 : 400; 
+                    $(app.rightMenu.viewModel.view.id).animate({
+                        width: "100%"
+                    }, duration);
+                    $("#right-menu").hide({duration: duration});
+                    app.rightMenu.viewModel.view = null;
                 }
             },
             isVisible: false,
-            menuWidth: 50
+            view: null
         })
     };
 })(app);

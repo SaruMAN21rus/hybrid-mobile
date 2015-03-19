@@ -16,20 +16,24 @@
             },
             createGrid:function() {
                 $("#gridView #kendoGrid").kendoGrid({
-                    dataSource: this.modelData.dataSource,
-                    pageable: {
-                        pageSize: 2
-                    },
+                    dataSource: this.modelData,
                     height: window.innerHeight - $("#gridView > header").height(),
                     columns: [
-                        { field: "id", title: "Идентификатор", width: "5%"},
-                        { field: "name", title: "Наименование", width: "45%"},
-                        { field: "checkbox", title: "Чекбокс", width: "10%"},
-                        { field: "radio", title: "Свойство", width: "20%"},
-                        { command: ["edit", "destroy"], title: "&nbsp;", width: "30%"}
+                        { field: "Id", title: "Идентификатор", width: 120},
+                        { field: "name", title: "Наименование", width: 450},
+                        { field: "checkbox", title: "Чекбокс", width: 100},
+                        { field: "radio", title: "Свойство", width: 200},
+                        { command: ["edit", "destroy"], title: "&nbsp;", width: 300}
                     ],
                     editable: "inline",
-                    toolbar: ["create"]
+                    toolbar: ["create"],
+                    groupable: true,
+                        sortable: true,
+                        pageable: {
+                            refresh: true,
+                            pageSizes: true,
+                            buttonCount: 5
+                        },
                 });
             }
         })

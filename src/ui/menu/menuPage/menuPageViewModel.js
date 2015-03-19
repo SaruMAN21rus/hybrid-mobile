@@ -19,21 +19,9 @@
                         $(this).width($(this).height());
                     }
                 );
-                $(window).resize(function() {
-                    icons.each(
-                        function () {
-                            $(this).width($(this).height());
-                        }
-                    );
-                    texts.each(
-                        function () {
-                            $(this).css("z-index", 1);
-                        }
-                    );
-                });
             },
             goToAgents:function(){
-                alert("Информация о контрагентах");
+                app.app.navigate('#agentListView');
             },
             goToCalendar:function(){
                 //alert("Календарь");

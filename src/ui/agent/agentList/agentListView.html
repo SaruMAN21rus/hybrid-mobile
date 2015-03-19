@@ -1,0 +1,37 @@
+<div id="agentListView" 
+data-role="view" 
+data-layout="default" 
+data-model="app.agentList.viewModel"
+data-bind="events:{init:init, beforeHide: rightMenuViewModel.exitMenu}"
+>
+	<header data-role="header">
+		<div data-role="navbar">
+			<a data-align="left" data-icon="details" data-role="backbutton"></a>
+			<span data-role="view-title">Информация о контрагентах</span>
+            <span data-align="right" data-role="view-title" id="currentDate"></span>
+            <a data-align="right" data-icon="refresh" data-role="button"></a>
+            <a data-align="right" data-icon="data" data-role="button"></a>
+            <a data-align="right" data-icon="home" data-role="button"></a>
+            <a data-align="right" data-icon="list" data-role="button"></a>
+            <a data-align="right" data-icon="rightmenu" data-role="button" data-rel="drawer" data-bind="click:rightMenuViewModel.showRightMenu"></a>
+		</div>
+        <div class="grid k-content km-widget km-navbar">
+        <table id="agents">
+            <thead>
+                <tr>
+                    <th style="width:50%">Наименование контрагента(Список договоров)</th>
+                    <th style="width:10%; max-width:10%;">Отсрочка</th>
+                    <th style="width:30%">Сумма</th>
+                    <th style="width:10%">Статус</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+	</header>
+
+	<div class="grid k-content">
+    	<table id="agents">
+        	<tbody data-bind="source: modelData" data-template="agentListItemTemplate"></tbody>
+        </table>
+	</div>
+</div>

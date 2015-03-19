@@ -35,8 +35,6 @@ window.app = {
                 );
             };
         }
-
-        window.app.openDatabase();
     },
 
     onDOMContentLoaded: function() {

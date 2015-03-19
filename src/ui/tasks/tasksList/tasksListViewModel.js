@@ -21,8 +21,8 @@
 			deleteTask: function(e) {
 				var data = e.button.data()
 				var id = data.id;
-				this.modelData.dataSource.remove(this.modelData.dataSource.get(id));
-				this.modelData.dataSource.sync();
+				this.modelData.remove(this.modelData.get(id));
+				this.modelData.sync();
 			}
 		})
 	};
