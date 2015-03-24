@@ -3,15 +3,14 @@ data-role="view"
 data-layout="default"
 data-stretch="true"
 data-model="app.menuPage.viewModel"
-data-bind="events:{init:init, beforeHide: rightMenuViewModel.exitMenu}"
+data-bind="events:{init:init}"
 >
     <header data-role="header">
         <div data-role="navbar">
             <span data-role="view-title">Главное меню</span>
             <span data-align="right" data-role="view-title" id="currentDate"></span>
             <a data-align="right" data-icon="refresh" data-role="button" ></a>
-            <a data-align="right" data-icon="home" data-role="button"></a>
-            <a data-align="right" data-icon="rightmenu" data-role="button" data-rel="drawer" data-bind="click:rightMenuViewModel.showRightMenu"></a>
+            <a data-align="right" data-icon="data-button" data-role="button"></a>
         </div>
     </header>
     <div class="div00">

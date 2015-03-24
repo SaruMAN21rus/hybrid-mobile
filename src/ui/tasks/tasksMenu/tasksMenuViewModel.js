@@ -9,37 +9,53 @@
             modelData: app.taskModel,
             //other properties or functions you want to observe and expose to html
             init:function() {
+
                 $('#tasksMenuView #currentDate').text(app.currentDate);
+
+                var filterOption = {
+                    field : "name"
+                };
+
+                this.filter = new app.Filter($('#tasksMenuView div[data-role="navbar"]'), this.modelData, filterOption);
+                $('#tasksMenuView header .km-listview-wrapper').hide();
             },
             addTask:function(){
                 app.app.navigate('#tasksListView');
             },
-            showTasks:function(){
-                this.modelData.fetch(function(){
-                    var data = this.data();
-                    alert(data.length);
-                });
+            showHideSearchBox: function(e) {
+                var searchBox = $('#tasksMenuView header .km-listview-wrapper');
+                this.searchBox = searchBox;
+                if (searchBox.is(':visible')) {
+                    searchBox.hide({duration:300});
+                } else {
+                    searchBox.show({duration:300, complete: function() {
+                        searchBox.find('input[type=search]').focus();
+                    }});
+                }
             },
-            goToAnalytics:function(){
-                //alert("В разработке");
+            beforeHide: function(e) {
+                if (this.searchBox && this.searchBox.is(':visible'))
+                    this.searchBox.hide();
+                this.filter._clearFilter(e);
+                this.rightMenuViewModel.exitMenu(e);
             },
-            goToTasks:function(){
-                //alert("В разработке");
+            beforeShow: function(e){
+                this.set("importantTasksCount", 555);
             },
-            goToDocuments:function(){
-                //alert("В разработке");
+            showTasksExecution: function(){
+                app.app.navigate('#tasksExecutionView');
             },
-            goToFavorites:function(){
-               // alert("В разработке");
-            },
+            rightMenuViewModel: app.rightMenu.viewModel,
             importantTasksCount: 0,
             overdueTasksCount: 0,
+            outboundTasksCount: 0,
             newPerformTasksCount: 1,
             overduePerformTasksCount: 0,
-            newConformTasksCount: 1,
-            newControlTasksCount: 1,
-            overdueControlTasksCount: 0,
-            newDocumentsCount: 1
+            newConformDocumentsCount: 1,
+            сontrolTasksCount: 1,
+            newDocumentsCount: 1,
+            weekday: kendo.toString(new Date(), "dddd", "ru-RU"),
+            date: (new Date()).getDate() + " " + app.genetiveMonths[(new Date()).getMonth()].toUpperCase()
         })
     };
 })(app); //pass in global namespace

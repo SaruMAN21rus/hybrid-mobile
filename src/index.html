@@ -30,6 +30,7 @@
     <link href="ui/charts/charts.css" rel="stylesheet"/>
     <link href="ui/grid/grid.css" rel="stylesheet"/>
     <link href="ui/agent/agentList/agentList.css" rel="stylesheet"/>
+    <link href="ui/tasks/tasksExecution/tasksExecution.css" rel="stylesheet"/>
 
      <!-- layouts CSS -->
 
@@ -50,6 +51,7 @@
     @@include('./ui/charts/chartView.html')
     @@include('./ui/grid/gridView.html')
     @@include('./ui/agent/agentList/agentListView.html')
+    @@include('./ui/tasks/tasksExecution/tasksExecutionView.html')
 
     <!-- layouts -->
     @@include('./shared/layouts/global/globalLayout.html')
@@ -63,6 +65,9 @@
 <script src="js/winstore-jscompat.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="js/kendo.all.min.js"></script>
+<script src="bower_components/kendo-ui/src/js/messages/kendo.messages.ru-RU.js"></script>
+<script src="bower_components/kendo-ui/src/js/cultures/kendo.culture.ru-RU.js"></script>
+<script src="js/kendo.all.min.js"></script>
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
 <script src="js/app.js"></script>
 <script src="bower_components/jaydata/Scripts/datajs-1.0.3.js"></script>
@@ -74,10 +79,9 @@
 <!-- build:js eludiaapp.js -->
 
 <!-- utilities : Must run before models & viewModels-->
-<script src="shared/utilities/currentDate.js"></script>
-<script src="shared/utilities/database.js"></script>
-<script src="shared/utilities/selectResultToArray.js"></script>
+<script src="shared/utilities/globalParams.js"></script>
 <script src="shared/utilities/windowResize.js"></script>
+<script src="shared/utilities/filter.js"></script>
 
 <!-- models  : Must run before viewModels-->
 <script src="shared/models/taskModel.js"></script>
@@ -92,6 +96,7 @@
 <script src="ui/charts/chartViewModel.js"></script>
 <script src="ui/grid/gridViewModel.js"></script>
 <script src="ui/agent/agentList/agentListViewModel.js"></script>
+<script src="ui/tasks/tasksExecution/tasksExecutionViewModel.js"></script>
 
 <!-- endbuild -->
 

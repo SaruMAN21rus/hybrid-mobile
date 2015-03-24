@@ -5,9 +5,6 @@
     //below we create the viewModel 
     app.menuPage = { //create viewModel namespace in global i.e. namespace.[viewModel Name], to expose to global
         viewModel: kendo.observable({
-            //the actual model
-            //modelData: app.viewerModel,
-            //other properties or functions you want to observe and expose to html
             init:function() {
 
                 $('#menuPageView #currentDate').text(app.currentDate);
@@ -37,9 +34,7 @@
             },
             goToFavorites:function(){
                 //alert("Избранное");
-            },
-            rightMenuViewModel: app.rightMenu.viewModel
-
+            }
         })
     };
 })(app); //pass in global namespace

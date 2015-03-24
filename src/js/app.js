@@ -2,6 +2,8 @@ window.app = {
     initialize: function () {
         'use strict';
         
+        kendo.culture("ru-RU");
+
         this.bindEvents();
     },
 

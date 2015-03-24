@@ -1,0 +1,29 @@
+<div id="tasksExecutionView"
+data-role="splitview" 
+data-transition="slide" 
+data-layout="default"
+>
+    <header data-role="header">
+    <div data-role="navbar">
+        <a data-align="left" data-icon="back-button" data-role="backbutton"></a>
+        <span data-role="view-title">Исполнение поручений</span>
+    </div>
+    </header>
+    <div data-role="pane" data-layout="default" id="menu-pane">
+        <div data-role="view" data-model="app.tasksExecution.viewModel" data-bind="events:{init:initMenu}">
+            <a data-role="button" class="btn00"></a>
+            <a data-role="button" class="btn01"></a>
+            <ul data-role="listview" id="menu-tree" >
+                <li data-icon="home"><a href="#drawer-home" data-transition="none">Inbox</a></li>
+                <li data-icon="home"><a href="#drawer-home" data-transition="none">Inbox</a></li>
+                <li data-icon="home"><a href="#drawer-home" data-transition="none">Inbox</a></li>
+                <li data-icon="home"><a href="#drawer-home" data-transition="none">Inbox</a></li>
+                <li data-icon="home"><a href="#drawer-home" data-transition="none">Inbox</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="pane" data-layout="default" id="content-pane">
+        <div data-role="view">
+        </div>
+    </div>
+</div>

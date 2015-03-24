@@ -4,13 +4,31 @@
 
 .km-rightmenu:after,
 .km-rightmenu:before {
-  content: "\e0ab";
+    content: "\e0ab";
 }
-.km-list:before, 
-.km-list:after  { 
+.km-list-button:before, 
+.km-list-button:after  { 
     content: "\E077"; 
 }
-.km-data:before, 
-.km-data:after { 
+.km-data-button:before, 
+.km-data-button:after { 
     content: "\E0B0"; 
+}
+
+.km-tablet .km-filter-wrap {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.bottom-line {
+    border-style: solid;
+    border-color: #cdcdcd;
+    border-width: 0 0 1px 0;
+}
+
+.km-back-button:after,
+.km-back-button:before {
+    content: "\e0e2";
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
 }

@@ -3,19 +3,22 @@ data-role="view"
 data-layout="default"
 data-stretch="true"
 data-model="app.tasksMenu.viewModel"
-data-bind="events:{init:init}"
+data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
 >
     <header data-role="header">
         <div data-role="navbar">
             <a data-align="left" data-icon="details" data-role="backbutton"></a>
             <span data-role="view-title">Задачи</span>
             <span data-align="right" data-role="view-title" id="currentDate"></span>
-            <div data-align="right" data-icon="refresh" data-role="button" ></div>
-            <div data-align="right" data-icon="home" data-role="button"></div>
+            <a data-align="right" data-icon="search" data-role="button" data-bind="click:showHideSearchBox"></a>
+            <a data-align="right" data-icon="refresh" data-role="button"></a>
+            <a data-align="right" data-icon="data-button" data-role="button"></a>
+            <a data-align="right" data-icon="home" data-role="button"></a>
+            <a data-align="right" data-icon="rightmenu" data-role="button" data-rel="drawer" data-bind="click:rightMenuViewModel.showRightMenu"></a>
         </div>
     </header>
     <div class="cell-00">
-        <div data-role="button" class="btn" data-bind="click:showTasks">
+        <div data-role="button" class="btn">
             <table>
                 <tr>
                     <td class="text">
@@ -35,22 +38,55 @@ data-bind="events:{init:init}"
     	</div>
     </div> 
     <div class="cell-01">
-        <div data-role="button" class="btn" data-bind="click:addTask">
+        <div data-role="button" class="btn">
             <table>
                 <tr>
                     <td class="text">
-                        ДОБАВИТЬ ЗАДАЧУ
+                        ИСХОДЯЩИЕ
+                    </td>
+                    <td class="text value" data-bind="text: outboundTasksCount">
                     </td>
                 </tr>
             </table>
         </div>
-    </div> 
+    </div>   
     <div class="cell-02">
-        <div data-role="button" class="btn" data-bind="click:goToAnalytics">
+        <div data-role="button" class="btn" data-bind="click:addTask">
+            <table>
+                <tr>
+                    <td class="text">
+                        СОЗДАНИЕ ПОРУЧЕНИЙ
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="cell-10">
+        <div data-role="button" class="btn">
+            <table>
+                <tr>
+                    <td class="text">
+                        УВЕДОМЛЕНИЯ
+                    </td>
+                    <td class="text value" data-bind="text: date">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td class="text value" data-bind="text: weekday">
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div class="cell-11">
+        <div data-role="button" class="btn" data-bind="events:{click: showTasksExecution}">
             <table class="fullheight">
                 <tr>
                     <td class="text">
-                        ИСПОЛНИТЬ
+                        ИСПОЛНЕНИЕ ПОРУЧЕНИЙ
                     </td>
                 </tr>
                 <tr class="fullheight">
@@ -71,44 +107,13 @@ data-bind="events:{init:init}"
                 </tr>
             </table>
         </div>
-    </div> 
-    <div class="cell-10">
-        <div data-role="button" class="btn" data-bind="click:goToTasks">
-            <table>
-                <tr>
-                    <td class="text">
-                        ЗАГРУЖЕННОСТЬ СОТРУДНИКОВ
-                    </td>
-                </tr>
-            </table>
-        </div>
     </div>
-    <div class="cell-11">
-        <div data-role="button" class="btn" data-bind="click:goToDocuments">
-            <table class="fullheight">
-                <tr>
-                    <td class="text">
-                        СОГЛАСОВАТЬ
-                    </td>
-                </tr>
-                <tr class="fullheight">
-                </tr>
-                <tr>
-                    <td class="text">
-                        Новые
-                    </td>
-                    <td class="text value" data-bind="text: newConformTasksCount">
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div> 
     <div class="cell-12">
-        <div data-role="button" class="btn" data-bind="click:goToFavorites">
+        <div data-role="button" class="btn">
             <table class="fullheight">
                 <tr>
                     <td class="text">
-                        НА КОНТРОЛЕ
+                        СОГЛАСОВАНИЕ ДОКУМЕНТОВ
                     </td>
                 </tr>
                 <tr class="fullheight">
@@ -117,32 +122,34 @@ data-bind="events:{init:init}"
                     <td class="text">
                         Новые
                     </td>
-                    <td class="text value" data-bind="text: newControlTasksCount">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text">
-                        Просроченные
-                    </td>
-                    <td class="text value" data-bind="text: overdueControlTasksCount">
+                    <td class="text value" data-bind="text: newConformDocumentsCount">
                     </td>
                 </tr>
             </table>
         </div>
     </div>
     <div class="cell-21">
-        <div data-role="button" class="btn" data-bind="click:goToFavorites">
-            <table>
+        <div data-role="button" class="btn">
+            <table class="fullheight">
                 <tr>
                     <td class="text">
-                        СПИСОК ЗАДАЧ
+                        ПРОСМОТР ИСПОЛНЕННЫХ ПОРУЧЕНИЙ
+                    </td>
+                </tr>
+                <tr class="fullheight">
+                </tr>
+                <tr>
+                    <td class="text">
+                        На контроль
+                    </td>
+                    <td class="text value" data-bind="text: сontrolTasksCount">
                     </td>
                 </tr>
             </table>
         </div>
     </div>
     <div class="cell-22">
-        <div data-role="button" class="btn" data-bind="click:goToFavorites">
+        <div data-role="button" class="btn">
             <table class="fullheight">
                 <tr>
                     <td class="text">
@@ -156,7 +163,6 @@ data-bind="events:{init:init}"
                         Новые
                     </td>
                     <td class="text value" data-bind="text: newDocumentsCount">
-                        123
                     </td>
                 </tr>
             </table>

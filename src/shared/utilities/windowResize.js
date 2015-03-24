@@ -10,6 +10,7 @@
         var rightMenuButtons = $("#right-menu .km-button");
         var icons = $(".bigButtonWithIcon .icon");
         var texts = $(".bigButtonWithIcon .text");
+        var tasksExecutionMenuButtons = $('#tasksExecutionView #menu-pane a[data-role="button"]');
 
         rightMenuButtons.each(
             function () {
@@ -35,6 +36,12 @@
         texts.each(
             function () {
                 $(this).css("z-index", 1);
+            }
+        );
+
+        tasksExecutionMenuButtons.each(
+            function () {
+                $(this).height($(this).width());
             }
         );
     });

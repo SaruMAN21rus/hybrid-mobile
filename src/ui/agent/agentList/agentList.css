@@ -10,23 +10,23 @@
 
 #agentListView .grid > table {
     width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
-#agentListView .grid > table > thead > tr > th 
-{
+#agentListView .grid > table > thead > tr > th {
     text-align: left;
     padding: .4em .6em;
     font-weight: lighter;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
     border-style: solid;
     border-color: #cdcdcd;
     border-width: 0 0 0 1px;
     overflow: hidden;
 }
 
-#agentListView .grid > table > tbody > tr > td 
-{
+#agentListView .grid > table > tbody > tr > td {
     padding: .4em .6em;
     text-align: left;
     font-weight: lighter;
@@ -37,6 +37,7 @@
     line-height: 1.6em;
     vertical-align: middle;
     text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }

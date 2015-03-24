@@ -1,0 +1,28 @@
+#tasksExecutionView #content-pane {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3;
+    flex: 3;
+}
+#tasksExecutionView #menu-pane .km-view .km-content{
+    background-color:rgb(159, 197, 248);
+}
+#tasksExecutionView #menu-pane .btn00{
+    position:absolute;
+    width:42.5%;
+    left:0;
+    top:0;
+    display: flex;
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.75);
+    vertical-align: middle;
+    margin: 10% 2.5% auto 5%;
+}
+#tasksExecutionView #menu-pane .btn01{
+    position:absolute;
+    width:42.5%;
+    right:0;
+    top:0;
+    display: flex;
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.75);
+    vertical-align: middle;
+    margin: 10% 5% auto 2.5%;
+}
