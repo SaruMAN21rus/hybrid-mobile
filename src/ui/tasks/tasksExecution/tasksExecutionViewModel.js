@@ -14,8 +14,8 @@
                         $(this).height($(this).width());
                     }
                 );
-                $('#menu-pane #menu-tree').height(0.8 * $('#menu-pane').height() - $(buttons[0]).height());
-                $('#menu-pane #menu-tree').css('margin-top', (0.2 * $('#menu-pane').height() + $(buttons[0]).height()) + 'px');
+                $('#menu-pane #menu-tree').height($('#menu-pane').height() - $(buttons[0]).outerHeight(true));
+                $('#menu-pane #menu-tree').css('margin-top', $(buttons[0]).outerHeight(true) + 'px');
 			}
 		})
 	};

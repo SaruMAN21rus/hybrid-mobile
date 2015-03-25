@@ -14,16 +14,39 @@ data-layout="default"
             <a data-role="button" class="btn00"></a>
             <a data-role="button" class="btn01"></a>
             <ul data-role="listview" id="menu-tree" >
-                <li data-icon="home"><a href="#drawer-home" data-transition="none">Inbox</a></li>
-                <li data-icon="home"><a href="#drawer-home" data-transition="none">Inbox</a></li>
-                <li data-icon="home"><a href="#drawer-home" data-transition="none">Inbox</a></li>
-                <li data-icon="home"><a href="#drawer-home" data-transition="none">Inbox</a></li>
-                <li data-icon="home"><a href="#drawer-home" data-transition="none">Inbox</a></li>
+                <li data-icon="folder"><a href="#drawer-home" data-transition="none"><span class="text">Задания</span><span class="count">1</span></a></li>
+                <li data-icon="folder" class="subfolder"><a href="#drawer-home" data-transition="none"><span class="text">исходящие</span><span class="count">1</span></a></li>
+                <li data-icon="folder" class="subfolder"><a href="#drawer-home" data-transition="none"><span class="text">на исполнение</span><span class="count">1</span></a></li>
+                <li data-icon="folder" class="subfolder"><a href="#drawer-home" data-transition="none"><span class="text">на контроле</span><span class="count">1</span></a></li>
+                <li data-icon="folder" class="subfolder"><a href="#drawer-home" data-transition="none"><span class="text">на доработке</span><span class="count">1</span></a></li>
+                <li data-icon="folder"><a href="#drawer-home" data-transition="none"><span class="text">Согласование</span><span class="count">1</span></a></li>
+                <li data-icon="folder" class="subfolder"><a href="#drawer-home" data-transition="none"><span class="text">на согласование</span><span class="count">1</span></a></li>
+                <li data-icon="folder"><a href="#drawer-home" data-transition="none"><span class="text">Мои документы</span><span class="count">1</span></a></li>
             </ul>
         </div>
     </div>
     <div data-role="pane" data-layout="default" id="content-pane">
-        <div data-role="view">
+        <div data-role="view" data-model="app.tasksExecution.viewModel">
+            <header data-role="header">
+                <div class="grid k-content km-widget km-navbar">
+                    <table id="tasks">
+                        <thead>
+                            <tr>
+                                <th style="width:45%">Задания (Ответственный)</th>
+                                <th style="width:20%">Дата (план)</th>
+                                <th style="width:20%">Дата (факт)</th>
+                                <th style="width:15%">Статус</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </header>
+
+            <div class="grid k-content">
+                <table id="tasks">
+                    <tbody id="taskList" data-bind="source: modelData" data-template="tasksExecutionListItemTemplate"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

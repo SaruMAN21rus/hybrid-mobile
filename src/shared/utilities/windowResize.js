@@ -11,6 +11,7 @@
         var icons = $(".bigButtonWithIcon .icon");
         var texts = $(".bigButtonWithIcon .text");
         var tasksExecutionMenuButtons = $('#tasksExecutionView #menu-pane a[data-role="button"]');
+        var tasksExecutionMenuButtonHeight = $(tasksExecutionMenuButtons[0]).outerHeight(true);
 
         rightMenuButtons.each(
             function () {
@@ -44,5 +45,8 @@
                 $(this).height($(this).width());
             }
         );
+
+        $('#tasksExecutionView #menu-pane #menu-tree').height($('#tasksExecutionView #menu-pane').height() - tasksExecutionMenuButtonHeight);
+        $('#tasksExecutionView #menu-pane #menu-tree').css('margin-top', tasksExecutionMenuButtonHeight + 'px');
     });
 })(app);
