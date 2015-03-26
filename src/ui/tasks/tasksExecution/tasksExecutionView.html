@@ -2,11 +2,14 @@
 data-role="splitview" 
 data-transition="slide" 
 data-layout="default"
+data-init="app.tasksExecution.viewModel.init"
+data-show="app.tasksExecution.viewModel.show"
 >
     <header data-role="header">
     <div data-role="navbar">
         <a data-align="left" data-icon="back-button" data-role="backbutton"></a>
         <span data-role="view-title">Исполнение поручений</span>
+        <a data-align="right" data-icon="search" data-role="button" data-click="app.tasksExecution.viewModel.showHideSearchBox"></a>
     </div>
     </header>
     <div data-role="pane" data-layout="default" id="menu-pane">
@@ -14,22 +17,24 @@ data-layout="default"
             <a data-role="button" class="btn00"></a>
             <a data-role="button" class="btn01"></a>
             <ul data-role="listview" id="menu-tree" >
-                <li data-icon="folder"><a href="#drawer-home" data-transition="none"><span class="text">Задания</span><span class="count">1</span></a></li>
-                <li data-icon="folder" class="subfolder"><a href="#drawer-home" data-transition="none"><span class="text">исходящие</span><span class="count">1</span></a></li>
-                <li data-icon="folder" class="subfolder"><a href="#drawer-home" data-transition="none"><span class="text">на исполнение</span><span class="count">1</span></a></li>
-                <li data-icon="folder" class="subfolder"><a href="#drawer-home" data-transition="none"><span class="text">на контроле</span><span class="count">1</span></a></li>
-                <li data-icon="folder" class="subfolder"><a href="#drawer-home" data-transition="none"><span class="text">на доработке</span><span class="count">1</span></a></li>
-                <li data-icon="folder"><a href="#drawer-home" data-transition="none"><span class="text">Согласование</span><span class="count">1</span></a></li>
-                <li data-icon="folder" class="subfolder"><a href="#drawer-home" data-transition="none"><span class="text">на согласование</span><span class="count">1</span></a></li>
-                <li data-icon="folder"><a href="#drawer-home" data-transition="none"><span class="text">Мои документы</span><span class="count">1</span></a></li>
+                <li data-icon="green-folder"><a href="#" data-transition="none"><span class="text">Задания</span><span class="count" data-bind="text: taskCount"></span></a></li>
+                <li data-icon="green-folder" class="subfolder"><a href="#" data-transition="none"><span class="text">исходящие</span><span class="count" data-bind="text: outboxTaskCount"></span></a></li>
+                <li data-icon="green-folder" class="subfolder"><a href="#" data-transition="none"><span class="text">на исполнение</span><span class="count" data-bind="text: forExecutionTaskCount"></span></a></li>
+                <li data-icon="green-folder" class="subfolder"><a href="#" data-transition="none"><span class="text">на контроле</span><span class="count" data-bind="text: forControlTaskCount"></span></a></li>
+                <li data-icon="green-folder" class="subfolder"><a href="#" data-transition="none"><span class="text">на доработке</span><span class="count" data-bind="text: reworkTaskCount"></span></a></li>
+                <li data-icon="red-folder"><a href="#" data-transition="none"><span class="text">Согласование</span><span class="count" data-bind="text: agreementTaskCount"></span></a></li>
+                <li data-icon="red-folder" class="subfolder"><a href="#" data-transition="none"><span class="text">на согласование</span><span class="count" data-bind="text: forAgreementTaskCount"></span></a></li>
+                <li data-icon="blue-folder"><a href="#" data-transition="none"><span class="text">Мои документы</span><span class="count" data-bind="text: myDocumentCount"></span></a></li>
+                <li class="my-folders-title">М О И &nbsp&nbspП А П К И</li>
+                <li data-icon="add-folder" class="add-folder"><a href="#" data-transition="none"><span class="text">Добавить папку</span></a></li>
             </ul>
         </div>
     </div>
-    <div data-role="pane" data-layout="default" id="content-pane">
-        <div data-role="view" data-model="app.tasksExecution.viewModel">
+    <div data-role="pane" data-layout="default" id="content-pane" data-transition="slide">
+        <div data-role="view" data-model="app.tasksExecution.viewModel" id="tasksExecutionGrid" data-bind="events:{init:initContent}">
             <header data-role="header">
                 <div class="grid k-content km-widget km-navbar">
-                    <table id="tasks">
+                    <table id="tasksExecution">
                         <thead>
                             <tr>
                                 <th style="width:45%">Задания (Ответственный)</th>
@@ -43,10 +48,13 @@ data-layout="default"
             </header>
 
             <div class="grid k-content">
-                <table id="tasks">
-                    <tbody id="taskList" data-bind="source: modelData" data-template="tasksExecutionListItemTemplate"></tbody>
+                <table id="tasksExecution">
+                    <tbody id="tasksExecutionList" data-bind="source: modelData" data-template="tasksExecutionListItemTemplate"></tbody>
                 </table>
             </div>
+        </div>
+        <div data-role="view" data-model="app.tasksExecution.viewModel" id="taskExecutionDetail">
+            <a data-align="left" data-icon="back-button" data-role="backbutton"></a>
         </div>
     </div>
 </div>

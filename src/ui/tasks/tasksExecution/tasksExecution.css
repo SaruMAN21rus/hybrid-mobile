@@ -15,6 +15,7 @@
     box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.75);
     vertical-align: middle;
     margin: 10% 2.5% 10% 5%;
+    content:url("img/test.png");
 }
 #tasksExecutionView #menu-pane .btn01{
     position:absolute;
@@ -25,6 +26,7 @@
     box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.75);
     vertical-align: middle;
     margin: 10% 5% auto 2.5%;
+    content:url("img/test.png");
 }
 #tasksExecutionView #menu-pane #menu-tree li{
     background-color: transparent;
@@ -35,9 +37,24 @@
 #tasksExecutionView #menu-pane #menu-tree .km-listview-link:after{
     content:initial;
 }
-#tasksExecutionView .km-folder:after,
-#tasksExecutionView .km-folder:before {
+#tasksExecutionView .km-green-folder:after,
+#tasksExecutionView .km-green-folder:before {
     content: "\e0a1";
+    color:green;
+}
+#tasksExecutionView .km-red-folder:after,
+#tasksExecutionView .km-red-folder:before {
+    content: "\e0a1";
+    color:red;
+}
+#tasksExecutionView .km-blue-folder:after,
+#tasksExecutionView .km-blue-folder:before {
+    content: "\e0a1";
+    color:blue;
+}
+#tasksExecutionView .km-add-folder:after,
+#tasksExecutionView .km-add-folder:before {
+    content: "\e0a0";
 }
 #tasksExecutionView .subfolder{
     margin-left: 2em;
@@ -51,7 +68,8 @@
 #tasksExecutionView #menu-tree .text{
     display: inline-block;
     vertical-align: top;
-    margin-top: 0.3em;
+    line-height: 2em;
+    margin-top:0.2em;
 }
 #tasksExecutionView #menu-tree .count{
     background: white;
@@ -65,6 +83,21 @@
     height: 2em;
     line-height: 2em;
     vertical-align: top;
-    margin-top: 0.3em;
     float:right;
+    margin-top:0.2em;
+}
+#tasksExecutionView #menu-pane {
+    min-width: 245px
+}
+#tasksExecutionView #menu-pane #menu-tree li.km-state-active .km-listview-link{
+    background-color: rgb(51, 136, 204);
+    color:black;
+}
+
+#tasksExecutionView .my-folders-title{
+    margin-top: 2em;
+    text-align: center;
+}
+#tasksExecutionView .add-folder{
+    text-align: center;
 }
