@@ -101,3 +101,22 @@
 #tasksExecutionView .add-folder{
     text-align: center;
 }
+#left-content{
+    background:red;
+    width:65%;
+    height:70%;
+    position: absolute;
+}
+#right-content{
+    background:blue;
+    width:35%;
+    height:70%;
+    right:0;
+    position: absolute;
+}
+#comment{
+    width:100%;
+    height:30%;
+    bottom: 0;
+    position: absolute;
+}

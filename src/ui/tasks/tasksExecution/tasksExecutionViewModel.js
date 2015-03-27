@@ -29,6 +29,14 @@
                 scroller.bind("scroll", function(e) {
                     $('#content-pane .grid tbody').find('.active-tr').toggleClass('active-tr', false);
                 });
+
+                $("#tasksExecutionView #content-pane #comment").kendoTabStrip({
+                    animation:  {
+                        open: {
+                            effects: "fadeIn"
+                        }
+                    }
+                });
             },
             showHideSearchBox: function(e) {
                 var searchBox = $('#tasksExecutionView header .km-listview-wrapper');
