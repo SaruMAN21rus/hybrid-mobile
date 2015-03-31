@@ -17,7 +17,7 @@ data-bind="events:{init:init, beforeHide: beforeHide}"
             <a data-align="right" data-icon="rightmenu" data-role="button" data-rel="drawer" data-bind="click:rightMenuViewModel.showRightMenu"></a>
 		</div>
         <div class="grid k-content km-widget km-navbar">
-        <table id="agents">
+        <table id="agentsGridHeader">
             <thead>
                 <tr>
                     <th style="width:50%">Наименование контрагента (Список договоров)</th>
@@ -31,8 +31,8 @@ data-bind="events:{init:init, beforeHide: beforeHide}"
 	</header>
 
 	<div class="grid k-content">
-    	<table id="agents">
-        	<tbody id="agentList" data-bind="source: modelData" data-template="agentListItemTemplate" data-filterable='{"field":"name"}'></tbody>
+    	<table id="agentsGridBody">
+        	<tbody id="agentList" data-bind="source: modelData" data-template="agentListItemTemplate"></tbody>
         </table>
 	</div>
 </div>

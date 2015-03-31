@@ -41,16 +41,19 @@
 #tasksExecutionView .km-green-folder:before {
     content: "\e0a1";
     color:green;
+    -webkit-text-fill-color: green;
 }
 #tasksExecutionView .km-red-folder:after,
 #tasksExecutionView .km-red-folder:before {
     content: "\e0a1";
     color:red;
+    -webkit-text-fill-color: red;
 }
 #tasksExecutionView .km-blue-folder:after,
 #tasksExecutionView .km-blue-folder:before {
     content: "\e0a1";
     color:blue;
+    -webkit-text-fill-color: blue;
 }
 #tasksExecutionView .km-add-folder:after,
 #tasksExecutionView .km-add-folder:before {
@@ -102,13 +105,11 @@
     text-align: center;
 }
 #left-content{
-    background:red;
     width:65%;
     height:70%;
     position: absolute;
 }
 #right-content{
-    background:blue;
     width:35%;
     height:70%;
     right:0;
@@ -119,4 +120,38 @@
     height:30%;
     bottom: 0;
     position: absolute;
+}
+
+#comment .k-tabstrip-items .k-item{
+    border-radius: 0;
+    border: rgba(0, 0, 0, 0.1);
+    background-image: none;
+    background-color: rgb(249, 249, 249);
+}
+#comment .k-state-hover, #comment .k-state-hover:hover{
+    background-color: rgb(59, 124, 176);
+    border-color: rgb(59, 124, 176);
+    background-image: none;
+}
+ 
+#comment .k-tabstrip-items .k-state-active{
+    background-color: rgb(51, 136, 204);
+    border-color: rgb(51, 136, 204);
+}
+#comment .k-tabstrip-items .k-state-active .k-link,
+#comment .k-tabstrip-items .k-state-hover .k-link{
+    color:#fff;
+}
+
+#comment .k-state-active{
+    border-color: rgb(51, 136, 204);
+}
+
+#taskExecutionDetail > .km-content > .km-scroll-container{
+    display: initial;
+    height: 100%;
+}
+
+#comment .grid > table > tbody > tr > td:last-child {
+    border-width: 0 1px 0 1px;
 }

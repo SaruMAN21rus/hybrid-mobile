@@ -22,7 +22,7 @@
             addTask:function(){
                 app.app.navigate('#tasksListView');
             },
-            showHideSearchBox: function(e) {
+            showHideSearchBox: function() {
                 var searchBox = $('#tasksMenuView header .km-listview-wrapper');
                 this.searchBox = searchBox;
                 if (searchBox.is(':visible')) {
@@ -34,12 +34,13 @@
                 }
             },
             beforeHide: function(e) {
-                if (this.searchBox && this.searchBox.is(':visible'))
+                if (this.searchBox && this.searchBox.is(':visible')){
                     this.searchBox.hide();
+                }
                 this.filter._clearFilter(e);
                 this.rightMenuViewModel.exitMenu(e);
             },
-            beforeShow: function(e){
+            beforeShow: function(){
                 this.set("importantTasksCount", 555);
             },
             showTasksExecution: function(){

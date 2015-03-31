@@ -7,14 +7,14 @@
 			//the actual model
 			modelData: app.taskModel,
 			//other properties or functions you want to observe and expose to html
-			init:function(e){
+			init:function(){
                 var filterOption = {
                     field : "name"
                 };
                 app.tasksExecution.viewModel.filter = new app.Filter($('#tasksExecutionView div[data-role="navbar"]'), app.tasksExecution.viewModel.modelData, filterOption);
                 $('#tasksExecutionView header .km-listview-wrapper').hide();
             },
-            initMenu:function(e){
+            initMenu:function(){
 				var buttons = $('#menu-pane a[data-role="button"]');
                 buttons.each(
                     function () {
@@ -24,27 +24,33 @@
                 $('#menu-pane #menu-tree').height($('#menu-pane').height() - $(buttons[0]).outerHeight(true));
                 $('#menu-pane #menu-tree').css('margin-top', $(buttons[0]).outerHeight(true) + 'px');
 			},
-            initContent:function(e){
+            initContentGrid:function(e){
                 var scroller = e.view.scroller;
-                scroller.bind("scroll", function(e) {
+                scroller.bind("scroll", function() {
                     $('#content-pane .grid tbody').find('.active-tr').toggleClass('active-tr', false);
                 });
 
-                $("#tasksExecutionView #content-pane #comment").kendoTabStrip({
-                    animation:  {
-                        open: {
-                            effects: "fadeIn"
-                        }
-                    }
+                this.tabstrip = $("#tasksExecutionView #content-pane #comment").kendoTabStrip({
+                    animation: false,
+                    show: this.onHistoryTabShow
                 });
             },
-            showHideSearchBox: function(e) {
+            showHideSearchBox: function() {
                 var searchBox = $('#tasksExecutionView header .km-listview-wrapper');
                 app.tasksExecution.viewModel.searchBox = searchBox;
                 if (searchBox.is(':visible')) {
-                    searchBox.hide({duration:300});
+                    searchBox.hide({duration:300, complete: function() {
+                        $("#tasksExecutionView #content-pane #comment > div").each( function() {
+                            $(this).height($("#tasksExecutionView #content-pane #comment").height() - $("#tasksExecutionView #content-pane #comment ul").outerHeight(true) - ($(this).outerHeight(true) - $(this).height()));
+                            $("#tasksExecutionView #content-pane #comment > div > div[data-role=\"scroller\"]").height($(this).height() - $("#tasksExecutionView #content-pane #comment > div > .grid").height());
+                        });
+                    }});
                 } else {
                     searchBox.show({duration:300, complete: function() {
+                        $("#tasksExecutionView #content-pane #comment > div").each( function() {
+                            $(this).height($("#tasksExecutionView #content-pane #comment").height() - $("#tasksExecutionView #content-pane #comment ul").outerHeight(true) - ($(this).outerHeight(true) - $(this).height()));
+                            $("#tasksExecutionView #content-pane #comment > div > div[data-role=\"scroller\"]").height($(this).height() - $("#tasksExecutionView #content-pane #comment > div > .grid").height());
+                        });
                         searchBox.find('input[type=search]').focus();
                     }});
                 }
@@ -53,14 +59,20 @@
                 var filter = app.tasksExecution.viewModel.filter;
                 var searchBox = app.tasksExecution.viewModel.searchBox;
                 if (filter) {
-                    if (searchBox && searchBox.is(':visible'))
+                    if (searchBox && searchBox.is(':visible')){
                         searchBox.hide();
+                    }
                     filter._clearFilter(e);
                 }
                 app.tasksExecution.viewModel.setTaskCounts();
-                if ($('#content-pane').data('kendoMobilePane').view().id != "#tasksExecutionGrid") {
+                if ($('#content-pane').data('kendoMobilePane').view().id !== "#tasksExecutionGrid") {
                     $('#content-pane').data('kendoMobilePane').navigate('tasksExecutionGrid');
                 }
+                $("#tasksExecutionView .km-content").each(function(){
+                    if ($(this).data("kendoMobileScroller")){
+                        $(this).data("kendoMobileScroller").scrollTo(0, 0);
+                    }
+                });
             },
             rowSelect:function(e){
                 e.sender.element.toggleClass('active-tr', true);
@@ -84,9 +96,25 @@
                 this.set("forAgreementTaskCount", 22);
                 this.set("myDocumentCount", 11);
                 menuTreeItems.each(function(){
-                    if ($(this).text() == 0)
+                    if ($(this).text() === "0"){
                         $(this).hide();
+                    }
                 });
+            },
+            initContentDetail:function(){
+                $("#tasksExecutionView #content-pane #comment > div").each( function() {
+                    $(this).height($("#tasksExecutionView #content-pane #comment").height() - $("#tasksExecutionView #content-pane #comment ul").outerHeight(true) - ($(this).outerHeight(true) - $(this).height()));
+                });
+            },
+            onHistoryTabShow:function(e){
+                if($(e.item).attr("aria-controls") === "comment-2"){
+                    $("#tasksExecutionView #content-pane #comment #history-grid-scroller").height($("#tasksExecutionView #content-pane #comment > div").height() - $("#tasksExecutionView #content-pane #comment > div > .grid").height());
+                    $("#history-grid-scroller").data("kendoMobileScroller").scrollTo(0, 0);
+                }
+                app.tasksExecution.viewModel.tabstrip.unbind("show", this.onHistoryTabShow);
+            },
+            beforeShowContentDetail:function(){
+                $("#tasksExecutionView #content-pane #comment").data('kendoTabStrip').activateTab($('#tasksExecutionView #content-pane #comment .k-first'));
             },
             taskCount: 0,
             outboxTaskCount:0,

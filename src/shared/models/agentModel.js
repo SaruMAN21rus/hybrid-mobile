@@ -7,13 +7,13 @@
         delay: Number,
         sum: Number,
         status: String
-    })
+    });
 
-    app.agentModel = agent.asKendoDataSource({ provider: 'webSql', databaseName:'KendoDB' });
+    app.agentModel = agent.asKendoDataSource({databaseName:'KendoDB' });
 
     agent.readAll()
         .then(function (items) {
-            if (items.length == 0) {
+            if (items.length === 0) {
                 return agent.addMany([{ name: 'наименование 1', delay: 1, sum: 123.22, status: 1 }, 
                                       { name: 'наименование 2', delay: 2, sum: 123.22, status: 2 }, 
                                       { name: 'наименование 3', delay: 3, sum: 123.22, status: 1 }, 

@@ -5,7 +5,7 @@
     //below we create the viewModel 
     app.rightMenu = { //create viewModel namespace in global i.e. namespace.[viewModel Name], to expose to global
         viewModel: kendo.observable({
-            init: function(e) {
+            init: function() {
                 var buttons = $("#right-menu .km-button");
                 var menu = $("#right-menu");
                 
@@ -14,7 +14,7 @@
                 buttons.each(
                     function () {
                         $(this).height(app.rightMenuButtonSize-2);
-                        $(this).width(app.rightMenuButtonSize-2)
+                        $(this).width(app.rightMenuButtonSize-2);
                         $(this).css({
                             fontSize: app.rightMenuButtonSize*0.7,
                             lineHeight: app.rightMenuButtonSize+"px"
@@ -35,11 +35,9 @@
                 }
             },
             exitMenu: function(e) {
-                if (typeof app.app != "undefined" 
-                    && app.rightMenu.viewModel.isVisible
-                    && app.rightMenu.viewModel.view !== null) {
+                if (typeof app.app !== "undefined" && app.rightMenu.viewModel.isVisible && app.rightMenu.viewModel.view !== null) {
                     app.rightMenu.viewModel.isVisible = false;
-                    var duration = typeof e.view != "undefined" ? 0 : 400; 
+                    var duration = typeof e.view !== "undefined" ? 0 : 400; 
                     $(app.rightMenu.viewModel.view.id).animate({
                         width: "100%"
                     }, duration);

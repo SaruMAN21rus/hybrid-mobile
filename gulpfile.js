@@ -81,6 +81,11 @@ gulp.task('moveKendoFlatTheme', function(){
         .pipe(gulp.dest('./www/thirdparty/Flat'));
 });
 
+gulp.task('moveJayDataProviders', function(){
+    return gulp.src(['./wwwDev/bower_components/jaydata/build/jaydataproviders/*.*'])
+        .pipe(gulp.dest('./www/jaydataproviders'));
+});
+
 //gulp.task('moveBootstrapCSSStuff', function(){
 //    gulp.src(['./wwwDev/bower_components/bootstrap/dist/fonts/**/*.*'])
 //        .pipe(gulp.dest('./www/fonts'));
@@ -176,6 +181,6 @@ gulp.task('dev', function(callback) {
 });
 
 gulp.task('prod', function(callback) {
-    runSequence('cleanProd','buildFromDev','cssLint','htmlHint','jsHint','minifyHtml','minifyCss',/*'minifyJs',*/'moveKendoImages','moveKendoFlatTheme','moveAppImages',/*'moveBootstrapCSSStuff',*/'reportSize'/*,'startProductionServer'*/, callback);
+    runSequence('cleanProd','buildFromDev','cssLint','htmlHint','jsHint','minifyHtml','minifyCss',/*'minifyJs',*/'moveKendoImages','moveKendoFlatTheme','moveAppImages','moveJayDataProviders',/*'moveBootstrapCSSStuff',*/'reportSize',/*'startProductionServer',*/ callback);
     return false;
 });

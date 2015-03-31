@@ -48,5 +48,10 @@
 
         $('#tasksExecutionView #menu-pane #menu-tree').height($('#tasksExecutionView #menu-pane').height() - tasksExecutionMenuButtonHeight);
         $('#tasksExecutionView #menu-pane #menu-tree').css('margin-top', tasksExecutionMenuButtonHeight + 'px');
+
+        $("#tasksExecutionView #content-pane #comment > div").each( function() {
+            $(this).height($("#tasksExecutionView #content-pane #comment").height() - $("#tasksExecutionView #content-pane #comment ul").outerHeight(true) - ($(this).outerHeight(true) - $(this).height()));
+            $("#tasksExecutionView #content-pane #comment > div > div[data-role=\"scroller\"]").height($(this).height() - $("#tasksExecutionView #content-pane #comment > div > .grid").height());
+        });
     });
 })(app);

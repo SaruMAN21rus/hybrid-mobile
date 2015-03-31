@@ -11,12 +11,11 @@ window.app = {
         'use strict';
         
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener('DOMContentLoaded', this.onDeviceReady, false);
+        document.addEventListener('DOMContentLoaded', this.onDOMContentLoaded, false);
     },
 
     onDeviceReady: function () {
         'use strict';
-
         window.app.app = new kendo.mobile.Application(document.body, {
             transition: 'slide',
             skin: 'flat',

@@ -14,7 +14,7 @@ data-bind="events:{init:init}"
           <input id="listView-filter" placeholder="Search..." type="text" style="width: 100%" />
         </div>
         <div class="grid k-content">
-        <table id="tasks">
+        <table id="tasksGridHeader">
             <thead>
                 <tr>
                     <th style="width:10%">Идентификатор</th>
@@ -29,7 +29,7 @@ data-bind="events:{init:init}"
 	</header>
 
 	<div class="grid k-content">
-    	<table id="tasks">
+    	<table id="tasksGridBody">
         	<tbody data-bind="source: modelData"
             data-template="tasksListItemTemplate"
             >

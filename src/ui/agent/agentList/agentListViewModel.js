@@ -7,19 +7,16 @@
             //the actual model
             modelData: app.agentModel,
             //other properties or functions you want to observe and expose to html
-            init:function(e){
+            init:function(){
                 $('#agentListView #currentDate').text(app.currentDate);
-
-
-                var listView = $('#agentList');
-
-                if (listView.data().filterable) {
-                    this.filter = new app.Filter($('#agentListView div[data-role="navbar"]'), this.modelData, listView.data().filterable);
-                    $('#agentListView header .km-listview-wrapper').hide();
-                }
+                var filterOption = {
+                    field : "name"
+                };
+                this.filter = new app.Filter($('#agentListView div[data-role="navbar"]'), this.modelData, filterOption);
+                $('#agentListView header .km-listview-wrapper').hide();
 
             },
-            showHideSearchBox: function(e) {
+            showHideSearchBox: function() {
                 var searchBox = $('#agentListView header .km-listview-wrapper');
                 this.searchBox = searchBox;
                 if (searchBox.is(':visible')) {
@@ -31,8 +28,9 @@
                 }
             },
             beforeHide: function(e) {
-                if (this.searchBox && this.searchBox.is(':visible'))
+                if (this.searchBox && this.searchBox.is(':visible')){
                     this.searchBox.hide();
+                }
                 this.filter._clearFilter(e);
                 this.rightMenuViewModel.exitMenu(e);
             },

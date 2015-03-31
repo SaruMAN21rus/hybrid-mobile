@@ -22,11 +22,11 @@
                     }
                 });
             },
-            createTask:function(e){
+            createTask:function(){
                 if(this.taskName.replace(' ','') !== ''){
-                    if (typeof this.id == "undefined")
+                    if (typeof this.id === "undefined"){
                         this.modelData.add({name:this.taskName, checkbox:this.checkbox, radio:this.radio});
-                    else {
+                    }else {
                         this.model.set('name',this.taskName);
                         this.model.set('checkbox',this.checkbox);
                         this.model.set('radio',this.radio);
@@ -40,7 +40,7 @@
             },
             show:function(e){
                 this.id = e.view.params.id;
-                if (typeof this.id != "undefined") {
+                if (typeof this.id !== "undefined") {
                     this.model = this.modelData.get(this.id);
                     this.set('taskName',this.model.name);
                     this.set('checkbox',this.model.checkbox);

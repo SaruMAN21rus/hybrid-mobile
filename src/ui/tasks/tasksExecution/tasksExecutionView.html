@@ -31,10 +31,10 @@ data-show="app.tasksExecution.viewModel.show"
         </div>
     </div>
     <div data-role="pane" data-layout="default" id="content-pane" data-transition="slide">
-        <div data-role="view" data-model="app.tasksExecution.viewModel" id="tasksExecutionGrid" data-bind="events:{init:initContent}">
+        <div data-role="view" data-model="app.tasksExecution.viewModel" id="tasksExecutionGrid" data-bind="events:{init:initContentGrid}">
             <header data-role="header">
                 <div class="grid k-content km-widget km-navbar">
-                    <table id="tasksExecution">
+                    <table id="tasksExecutionGridHeader">
                         <thead>
                             <tr>
                                 <th style="width:45%">Задания (Ответственный)</th>
@@ -48,13 +48,14 @@ data-show="app.tasksExecution.viewModel.show"
             </header>
 
             <div class="grid k-content">
-                <table id="tasksExecution">
+                <table id="tasksExecutionGridBody">
                     <tbody id="tasksExecutionList" data-bind="source: modelData" data-template="tasksExecutionListItemTemplate"></tbody>
                 </table>
             </div>
         </div>
-        <div data-role="view" data-model="app.tasksExecution.viewModel" id="taskExecutionDetail">
-            <div id="left-content">
+        <div data-role="view" data-model="app.tasksExecution.viewModel" id="taskExecutionDetail" data-bind="events:{init:initContentDetail, beforeShow: beforeShowContentDetail}">
+             <div id="left-content">
+                <h2>Подготовить коммерческое предложение для "ТрансБанк"</h2>
                 <a data-align="left" data-icon="back-button" data-role="backbutton"></a>
             </div>
             <div id="right-content">
@@ -62,8 +63,30 @@ data-show="app.tasksExecution.viewModel.show"
             <div id="comment">
                 <ul>
                     <li class="k-state-active">Комментарии</li>
-                    <li>История</li>
+                    <li >История</li>
                 </ul>
+                <div>
+                    Нет комментариев
+                </div>
+                <div>
+                    <div class="grid k-content km-widget km-navbar">
+                        <table id="taskExecutionHistoryGridHeader">
+                            <thead>
+                                <tr>
+                                    <th style="width:80%">Действие</th>
+                                    <th style="width:20%">Дата</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div data-role="scroller" style="width:100%;" id="history-grid-scroller">
+                        <div class="grid k-content">
+                             <table id="taskExecutionHistoryGridBody">
+                                <tbody id="taskExecutionCommentList" data-bind="source: modelData" data-template="commentItemTemplate"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

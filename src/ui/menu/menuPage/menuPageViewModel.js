@@ -10,7 +10,6 @@
                 $('#menuPageView #currentDate').text(app.currentDate);
 
                 var icons = $(".bigButtonWithIcon .icon");
-                var texts = $(".bigButtonWithIcon .text");
                 icons.each(
                     function () {
                         $(this).width($(this).height());

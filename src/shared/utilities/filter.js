@@ -41,7 +41,7 @@
 
         _filterChange: function(e) {
             var filter = this;
-            if (e.type == "paste" && this.options.autoFilter !== false) {
+            if (e.type === "paste" && this.options.autoFilter !== false) {
                 setTimeout(function() {
                     filter._applyFilter();
                 }, 1);
