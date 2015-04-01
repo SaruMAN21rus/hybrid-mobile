@@ -4,13 +4,14 @@ data-transition="slide"
 data-layout="default"
 data-init="app.tasksExecution.viewModel.init"
 data-show="app.tasksExecution.viewModel.show"
+style="display:none;"
 >
     <header data-role="header">
-    <div data-role="navbar">
-        <a data-align="left" data-icon="back-button" data-role="backbutton"></a>
-        <span data-role="view-title">Исполнение поручений</span>
-        <a data-align="right" data-icon="search" data-role="button" data-click="app.tasksExecution.viewModel.showHideSearchBox"></a>
-    </div>
+        <div data-role="navbar">
+            <a data-align="left" data-icon="back-button" data-role="backbutton"></a>
+            <span data-role="view-title">Исполнение поручений</span>
+            <a data-align="right" data-icon="search" data-role="button" data-click="app.tasksExecution.viewModel.showHideSearchBox"></a>
+        </div>
     </header>
     <div data-role="pane" data-layout="default" id="menu-pane">
         <div data-role="view" data-model="app.tasksExecution.viewModel" data-bind="events:{init:initMenu}">
@@ -59,6 +60,12 @@ data-show="app.tasksExecution.viewModel.show"
                 <a data-align="left" data-icon="back-button" data-role="backbutton"></a>
             </div>
             <div id="right-content">
+                <div id="taskStatus"><span>ЗАДАНИЕ В РАБОТЕ</span></div>
+                <a data-role="button" class="btn-with-image green"><span>ЗАВЕРШИТЬ</span></a>
+                <a data-role="button" class="btn-with-image orange"><span>ОТКЛОНИТЬ</span></a>
+                <div class="title-and-value-list">РОДИТЕЛЬСКОЕ ЗАДАНИЕ<br><span>Родительское задание отсутствует</span></div>
+                <div class="title-and-value-list">ДОЧЕРНИЕ ЗАДАНИЯ<br><span>Дочерние задания отсутствуют</span></div>
+                <a data-role="button" class="btn-with-image"><span>Создать задание</span></a>
             </div>
             <div id="comment">
                 <ul>
