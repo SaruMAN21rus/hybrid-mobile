@@ -15,8 +15,8 @@
 
         rightMenuButtons.each(
             function () {
-                $(this).height(app.rightMenuButtonSize-2);//2 - border
-                $(this).width(app.rightMenuButtonSize-2);
+                $(this).height(app.rightMenuButtonSize-1);
+                $(this).width(app.rightMenuButtonSize);
                 $(this).css({
                     fontSize: app.rightMenuButtonSize*0.7,
                     lineHeight: app.rightMenuButtonSize+"px"
@@ -27,7 +27,7 @@
         if(app.rightMenu.viewModel.isVisible){
             $(app.app.view().id).width($(window).width() - app.rightMenuButtonSize);
         }
-        rightMenu.width(app.rightMenuButtonSize);
+        rightMenu.width(app.rightMenuButtonSize-1);
                   
         icons.each(
             function () {

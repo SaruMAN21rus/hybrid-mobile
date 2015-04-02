@@ -8,11 +8,11 @@
                 var menu = $("#right-menu");
                 
                 app.rightMenuButtonSize = $(window).height()/9;
-                menu.width(app.rightMenuButtonSize);
+                menu.width(app.rightMenuButtonSize-1);
                 buttons.each(
                     function () {
-                        $(this).height(app.rightMenuButtonSize-2);
-                        $(this).width(app.rightMenuButtonSize-2);
+                        $(this).height(app.rightMenuButtonSize);
+                        $(this).width(app.rightMenuButtonSize);
                         $(this).css({
                             fontSize: app.rightMenuButtonSize*0.7,
                             lineHeight: app.rightMenuButtonSize+"px"
