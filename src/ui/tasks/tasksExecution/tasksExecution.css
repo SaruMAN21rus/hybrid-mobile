@@ -171,13 +171,15 @@
     height: 14.16%;
     width: 100%;
     padding: 0;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    margin-top: .5em;
+    margin-bottom: .5em;
     display: flex;
 }
-#taskExecutionDetail .btn-with-image span,
 #taskExecutionDetail #taskStatus span{
     margin:auto;
+}
+#taskExecutionDetail .btn-with-image span{
+    margin:auto 0 auto .3em;
 }
 #taskExecutionDetail .btn-with-image.green{
     background-color: #93c47d; 
@@ -193,4 +195,60 @@
     width: 100%;
     margin-top: 3%;
     margin-bottom: 3%;
+}
+#taskExecutionDetail .btn-with-image .km-icon,
+#taskExecutionDetail .large-font{
+    font-size: 2em;
+}
+.km-end-task:after,
+.km-end-task:before {
+    background-image: url("img/test.png");
+    -webkit-background-clip: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.km-reject-task:after,
+.km-reject-task:before {
+    background-image: url("img/test.png");
+    -webkit-background-clip: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.km-add-task:after,
+.km-add-task:before {
+    background-image: url("img/test.png");
+    -webkit-background-clip: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.km-document:after,
+.km-document:before {
+    background-image: url("img/test.png");
+    -webkit-background-clip: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.km-add-document:after,
+.km-add-document:before {
+    background-image: url("img/test.png");
+    -webkit-background-clip: border-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#taskExecutionDetail .btn-transparent{
+    border-width: 0;
+    background-color: transparent;
+}
+#taskExecutionDetail .info-with-label{
+    width:50%;
+    float: left;
+}
+#taskExecutionDetail .info{
+    width:100%;
+    display: flex;
+}
+#taskExecutionDetail .title-button{
+    border-width: 0;
+    font-size: 1.5em;
+    padding: 0.1em;
 }

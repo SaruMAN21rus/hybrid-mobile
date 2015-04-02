@@ -113,8 +113,13 @@
                 }
                 app.tasksExecution.viewModel.tabstrip.unbind("show", this.onHistoryTabShow);
             },
-            beforeShowContentDetail:function(){
+            showContentDetail:function(){
                 $("#tasksExecutionView #content-pane #comment").data('kendoTabStrip').activateTab($('#tasksExecutionView #content-pane #comment .k-first'));
+                var dlButtons = $('#taskExecutionDetail #left-content #document-list a');
+                var btn = $('#taskExecutionDetail #left-content #add-document');
+                dlButtons.each(function(){
+                    $(this).height(btn.height());
+                });
             },
             taskCount: 0,
             outboxTaskCount:0,
