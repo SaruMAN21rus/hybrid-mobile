@@ -2,11 +2,9 @@
 
 	'use strict';
  
-	app.tasksExecution = {//create viewModel namespace in global i.e. namespace.[viewModel Name], to expose to global
+	app.tasksExecution = {
 		viewModel: kendo.observable({
-			//the actual model
 			modelData: app.taskModel,
-			//other properties or functions you want to observe and expose to html
 			init:function(){
                 var filterOption = {
                     field : "name"

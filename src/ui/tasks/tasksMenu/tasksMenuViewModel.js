@@ -1,13 +1,9 @@
 ﻿(function(app){
     'use strict';
-    //below you place anything private you don't want exposed in the viewModel
 
-    //below we create the viewModel 
-    app.tasksMenu = { //create viewModel namespace in global i.e. namespace.[viewModel Name], to expose to global
+    app.tasksMenu = {
         viewModel: kendo.observable({
-            //the actual model
             modelData: app.taskModel,
-            //other properties or functions you want to observe and expose to html
             init:function() {
 
                 $('#tasksMenuView #currentDate').text(app.currentDate);

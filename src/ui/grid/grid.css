@@ -1,5 +1,0 @@
-#gridView .km-details:after,
-#gridView .km-details:before {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-}

@@ -1,9 +1,7 @@
 ﻿(function(app){
     'use strict';
-    //below you place anything private you don't want exposed in the viewModel
 
-    //below we create the viewModel 
-    app.menuPage = { //create viewModel namespace in global i.e. namespace.[viewModel Name], to expose to global
+    app.menuPage = {
         viewModel: kendo.observable({
             init:function() {
 
@@ -20,7 +18,7 @@
                 app.app.navigate('#agentListView');
             },
             goToCalendar:function(){
-                //alert("Календарь");
+                alert("Календарь");
             },
             goToAnalytics:function(){
                 app.app.navigate('#chartView');
@@ -29,11 +27,11 @@
                 app.app.navigate('#tasksMenuView');
             },
             goToDocuments:function(){
-                app.app.navigate('#gridView');
+                alert("Документы");
             },
             goToFavorites:function(){
-                //alert("Избранное");
+                alert("Избранное");
             }
         })
     };
-})(app); //pass in global namespace
+})(app);

@@ -1,9 +1,7 @@
 (function(app){
     'use strict';
-    //below you place anything private you don't want exposed in the viewModel
 
-    //below we create the viewModel 
-    app.rightMenu = { //create viewModel namespace in global i.e. namespace.[viewModel Name], to expose to global
+    app.rightMenu = {
         viewModel: kendo.observable({
             init: function() {
                 var buttons = $("#right-menu .km-button");

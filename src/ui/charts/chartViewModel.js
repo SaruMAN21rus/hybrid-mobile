@@ -1,16 +1,8 @@
 (function(app){
-
     'use strict';
 
-    //below you place anything private you don't want exposed in the viewModel
-
-    //below we create the viewModel
-
-    app.chart = {//create viewModel namespace in global i.e. namespace.[viewModel Name], to expose to global
+    app.chart = {
         viewModel: kendo.observable({
-            //the actual model
-            //modelData: app.taskModel,
-            //other properties or functions you want to observe and expose to html
             init:function(){
                 $(document).ready(this.createChart);
             },
@@ -69,4 +61,4 @@
 
     };
 
-})(app); //pass in global namespace
+})(app);
