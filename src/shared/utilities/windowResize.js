@@ -53,5 +53,12 @@
             $(this).height($("#tasksExecutionView #content-pane #comment").height() - $("#tasksExecutionView #content-pane #comment ul").outerHeight(true) - ($(this).outerHeight(true) - $(this).height()));
             $("#tasksExecutionView #content-pane #comment > div > div[data-role=\"scroller\"]").height($(this).height() - $("#tasksExecutionView #content-pane #comment > div > .grid").height());
         });
+        
+        var dlStandartBtn = $('#taskExecutionDetail #right-content #end-task');
+        $('#taskExecutionDetail #left-content #document-list a').each(function(){
+            $(this).height(dlStandartBtn.height());
+        });
+        $('#taskExecutionDetail #left-content #add-document').height(dlStandartBtn.height());
+        $("#taskExecutionDetail #document-list-scroller").height($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #document-list-scroller").position().top - ($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #left-content").height())/2);
     });
 })(app);

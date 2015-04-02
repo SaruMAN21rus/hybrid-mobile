@@ -103,6 +103,17 @@
                 $("#tasksExecutionView #content-pane #comment > div").each( function() {
                     $(this).height($("#tasksExecutionView #content-pane #comment").height() - $("#tasksExecutionView #content-pane #comment ul").outerHeight(true) - ($(this).outerHeight(true) - $(this).height()));
                 });
+                $("#taskExecutionDetail #document-list").kendoMobileListView({
+                    dataSource: this.modelData,
+                    template: $("#documentItemTemplate").text(),
+                    dataBound: function(e) {
+                        var standartBtn = $('#taskExecutionDetail #right-content #end-task');
+                        $('#taskExecutionDetail #left-content #document-list a').each(function(){
+                            $(this).height(standartBtn.height());
+                        });
+                        $('#taskExecutionDetail #left-content #add-document').height(standartBtn.height());
+                    }
+                });
             },
             onHistoryTabShow:function(e){
                 if($(e.item).attr("aria-controls") === "comment-2"){
@@ -113,11 +124,7 @@
             },
             showContentDetail:function(){
                 $("#tasksExecutionView #content-pane #comment").data('kendoTabStrip').activateTab($('#tasksExecutionView #content-pane #comment .k-first'));
-                var dlButtons = $('#taskExecutionDetail #left-content #document-list a');
-                var btn = $('#taskExecutionDetail #left-content #add-document');
-                dlButtons.each(function(){
-                    $(this).height(btn.height());
-                });
+                $("#taskExecutionDetail #document-list-scroller").height($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #document-list-scroller").position().top - ($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #left-content").height())/2);
             },
             taskCount: 0,
             outboxTaskCount:0,

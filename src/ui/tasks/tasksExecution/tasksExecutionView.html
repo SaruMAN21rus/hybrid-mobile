@@ -75,25 +75,18 @@ style="display:none;"
                         Исполнитель: <span>Муравьев В.</span>
                     </div>
                 </div>
-                <div>
+                <div style="margin-bottom:1%">
                     <br>ДОКУМЕНТЫ
                 </div>
-                <div id="document-list">
-                    <a data-role="button" data-icon="document" class="btn-transparent btn-with-image">КП Трансбанк.docx</a>
-                    <div class="info">
-                        <div class="info-with-label">
-                            создан: <span>20.08.2014</span>
-                        </div>
-                        <div class="info-with-label">
-                            <span>Муравьев В.</span>
-                        </div>
+                <div data-role="scroller" style="width:100%;" id="document-list-scroller">
+                    <div id="document-list">
                     </div>
+                    <a id="add-document" data-role="button" data-icon="add-document" class="btn-transparent btn-with-image">Добавить документ</a>
                 </div>
-                <a id="add-document" data-role="button" data-icon="add-document" class="btn-transparent btn-with-image">Добавить документ</a>
             </div>
             <div id="right-content">
                 <div id="taskStatus"><span>ЗАДАНИЕ В РАБОТЕ</span></div>
-                <a data-role="button" data-icon="end-task" class="btn-with-image green">ЗАВЕРШИТЬ</a>
+                <a data-role="button" id="end-task" data-icon="end-task" class="btn-with-image green">ЗАВЕРШИТЬ</a>
                 <a data-role="button" data-icon="reject-task" class="btn-with-image orange">ОТКЛОНИТЬ</a>
                 <div class="title-and-value-list">РОДИТЕЛЬСКОЕ ЗАДАНИЕ<br><span>Родительское задание отсутствует</span></div>
                 <div class="title-and-value-list">ДОЧЕРНИЕ ЗАДАНИЯ<br><span>Дочерние задания отсутствуют</span></div>
@@ -121,7 +114,7 @@ style="display:none;"
                     <div data-role="scroller" style="width:100%;" id="history-grid-scroller">
                         <div class="grid k-content">
                              <table id="taskExecutionHistoryGridBody">
-                                <tbody id="taskExecutionCommentList" data-bind="source: modelData" data-template="commentItemTemplate"></tbody>
+                                <tbody id="taskExecutionCommentList" data-bind="source: modelData" data-template="taskHistoryItemTemplate"></tbody>
                             </table>
                         </div>
                     </div>
