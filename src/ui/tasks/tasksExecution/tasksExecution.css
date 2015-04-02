@@ -146,14 +146,13 @@
 #comment .k-state-active{
     border-color: rgb(51, 136, 204);
 }
+#comment-2{
+    padding: 0;
+}
 
 #taskExecutionDetail > .km-content > .km-scroll-container{
     display: initial;
     height: 100%;
-}
-
-#comment .grid > table > tbody > tr > td:last-child {
-    border-width: 0 1px 0 1px;
 }
 #taskExecutionDetail #taskStatus{
     height: 14.66%;

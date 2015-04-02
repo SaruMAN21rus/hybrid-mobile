@@ -17,6 +17,10 @@
     border-width: 0 0 0 1px;
     overflow: hidden;
 }
+.grid > table > thead > tr > th:first-child,
+.grid > table > tbody > tr > td:first-child{
+    border-width: 0;
+}
 .grid > table > tbody > tr > td {
     padding: .4em .6em;
     text-align: left;
@@ -31,4 +35,7 @@
     -o-text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+.grid.k-content.km-widget.km-navbar{
+    border-width: 0 0 1px 0;
 }
