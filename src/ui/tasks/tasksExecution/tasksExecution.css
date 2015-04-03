@@ -15,7 +15,6 @@
     box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.75);
     vertical-align: middle;
     margin: 10% 2.5% 10% 5%;
-    content:url("img/test.png");
 }
 #tasksExecutionView #menu-pane .btn01{
     position:absolute;
@@ -26,7 +25,6 @@
     box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.75);
     vertical-align: middle;
     margin: 10% 5% auto 2.5%;
-    content:url("img/test.png");
 }
 #tasksExecutionView #menu-pane #menu-tree li{
     background-color: transparent;

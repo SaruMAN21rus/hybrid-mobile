@@ -8,8 +8,6 @@
         
         var rightMenu = $("#right-menu");
         var rightMenuButtons = $("#right-menu .km-button");
-        var icons = $(".bigButtonWithIcon .icon");
-        var texts = $(".bigButtonWithIcon .text");
         var tasksExecutionMenuButtons = $('#tasksExecutionView #menu-pane a[data-role="button"]');
         var tasksExecutionMenuButtonHeight = $(tasksExecutionMenuButtons[0]).outerHeight(true);
 
@@ -29,9 +27,11 @@
         }
         rightMenu.width(app.rightMenuButtonSize-1);
                   
+        var icons = $("#menuPageView .btn .km-icon");
+        var texts = $("#menuPageView .btn .km-text");
         icons.each(
             function () {
-                $(this).width($(this).height());
+                $(this).css({'font-size': $("#menuPageView .btn").height()});
             }
         );
         texts.each(
@@ -39,6 +39,7 @@
                 $(this).css("z-index", 1);
             }
         );
+
 
         tasksExecutionMenuButtons.each(
             function () {

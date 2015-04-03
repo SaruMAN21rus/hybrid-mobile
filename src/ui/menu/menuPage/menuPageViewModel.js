@@ -7,10 +7,16 @@
 
                 $('#menuPageView #currentDate').text(app.currentDate);
 
-                var icons = $(".bigButtonWithIcon .icon");
+                var icons = $("#menuPageView .btn .km-icon");
+                var texts = $("#menuPageView .btn .km-text");
                 icons.each(
                     function () {
-                        $(this).width($(this).height());
+                        $(this).css({'font-size': $("#menuPageView .btn").height()});
+                    }
+                );
+                texts.each(
+                    function () {
+                        $(this).css("z-index", 1);
                     }
                 );
             },

@@ -10,85 +10,25 @@ data-bind="events:{init:init}"
             <span data-role="view-title">Главное меню</span>
             <span data-align="right" data-role="view-title" id="currentDate"></span>
             <a data-align="right" data-icon="refresh" data-role="button" ></a>
-            <a data-align="right" data-icon="data-button" data-role="button"></a>
+            <a data-align="right" data-icon="wifi" data-role="button"></a>
         </div>
     </header>
     <div class="div00">
-        <div data-role="button" class="btn" data-bind="click:goToAgents">
-            <table class="bigButtonWithIcon">
-                <tr>
-                    <td class="icon agentInfo">
-                    </td>
-                    <td class="text">
-                        Информация о контрагентах
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <a data-role="button" data-icon="agent" class="btn" data-bind="click:goToAgents">Информация о контрагентах</a>
     </div> 
     <div class="div01">
-        <div data-role="button" class="btn" data-bind="click:goToCalendar">
-            <table class="bigButtonWithIcon">
-                <tr>
-                    <td class="icon agentInfo">
-                    </td>
-                    <td class="text">
-                        Календарь
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <a data-role="button" data-icon="calendar" class="btn" data-bind="click:goToCalendar">Календарь</a>
     </div> 
     <div class="div10">
-        <div data-role="button" class="btn" data-bind="click:goToAnalytics">
-            <table class="bigButtonWithIcon">
-                <tr>
-                    <td class="icon agentInfo">
-                    </td>
-                    <td class="text">
-                        Аналитика, Отчеты, Графики
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <a data-role="button" data-icon="chart" class="btn" data-bind="click:goToAnalytics">Аналитика, Отчеты, Графики</a>
     </div> 
     <div class="div11">
-        <div data-role="button" class="btn" data-bind="click:goToTasks">
-            <table class="bigButtonWithIcon">
-                <tr>
-                    <td class="icon agentInfo">
-                    </td>
-                    <td class="text">
-                        Задачи, распоряжения
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <a data-role="button" data-icon="task" class="btn" data-bind="click:goToTasks">Задачи, распоряжения</a>
     </div>
     <div class="div20">
-        <div data-role="button" class="btn" data-bind="click:goToDocuments">
-            <table class="bigButtonWithIcon">
-                <tr>
-                    <td class="icon agentInfo">
-                    </td>
-                    <td class="text">
-                        Документы
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <a data-role="button" data-icon="doc" class="btn" data-bind="click:goToDocuments">Документы</a>
     </div> 
     <div class="div21">
-        <div data-role="button" class="btn" data-bind="click:goToFavorites">
-            <table class="bigButtonWithIcon">
-                <tr>
-                    <td class="icon agentInfo">
-                    </td>
-                    <td class="text">
-                        Избранное
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <a data-role="button" data-icon="favorites" class="btn" data-bind="click:goToFavorites">Избранное</a>
     </div> 
 </div>
