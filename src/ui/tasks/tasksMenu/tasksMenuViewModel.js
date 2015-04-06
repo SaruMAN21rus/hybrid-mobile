@@ -14,6 +14,15 @@
 
                 this.filter = new app.Filter($('#tasksMenuView div[data-role="navbar"]'), this.modelData, filterOption);
                 $('#tasksMenuView header .km-listview-wrapper').hide();
+
+                $("#tasksMenuView .btn .km-icon").each(function () {
+                    $(this).css({'font-size': $("#tasksMenuView .btn .icon").height()});
+                });
+
+                $("#tasksMenuView #notification-list").kendoMobileListView({
+                    dataSource: this.modelData,
+                    template: $("#notificationItemTemplate").text()
+                });
             },
             addTask:function(){
                 app.app.navigate('#tasksListView');

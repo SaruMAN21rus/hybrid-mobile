@@ -14,11 +14,11 @@ style="display:none;"
         </div>
     </header>
     <div data-role="pane" data-layout="default" id="menu-pane">
-        <div data-role="view" data-model="app.tasksExecution.viewModel" data-bind="events:{init:initMenu}">
-            <a data-role="button" class="btn00"></a>
-            <a data-role="button" data-icon="edit" class="btn01"></a>
-            <ul data-role="listview" id="menu-tree" >
-                <li data-icon="blue-folder"><a href="#" data-transition="none"><span class="text">Задания</span><span class="count" data-bind="text: taskCount"></span></a></li>
+        <div data-role="view" data-model="app.tasksExecution.viewModel">
+            <a data-role="button" data-icon="flag" class="big-btn btn00"></a>
+            <a data-role="button" data-icon="edit" class="big-btn btn01"></a>
+            <ul data-role="listview" id="menu-tree" data-click="app.tasksExecution.viewModel.menuTreeClick">
+                <li data-icon="blue-folder km-open-folder"><a href="#" data-transition="none"><span class="text">Задания</span><span class="count" data-bind="text: taskCount"></span></a></li>
                 <li data-icon="blue-folder" class="subfolder"><a href="#" data-transition="none"><span class="text">исходящие</span><span class="count" data-bind="text: outboxTaskCount"></span></a></li>
                 <li data-icon="blue-folder" class="subfolder"><a href="#" data-transition="none"><span class="text">на исполнение</span><span class="count" data-bind="text: forExecutionTaskCount"></span></a></li>
                 <li data-icon="blue-folder" class="subfolder"><a href="#" data-transition="none"><span class="text">на контроле</span><span class="count" data-bind="text: forControlTaskCount"></span></a></li>

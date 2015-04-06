@@ -8,7 +8,7 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
     <header data-role="header">
         <div data-role="navbar">
             <a data-align="left" data-icon="details" data-role="backbutton"></a>
-            <span data-role="view-title">Задачи</span>
+            <span data-role="view-title">Задачи и распоряжения</span>
             <span data-align="right" data-role="view-title" id="currentDate"></span>
             <a data-align="right" data-icon="search" data-role="button" data-bind="click:showHideSearchBox"></a>
             <a data-align="right" data-icon="refresh" data-role="button"></a>
@@ -39,7 +39,7 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
     </div> 
     <div class="cell-01">
         <div data-role="button" class="btn">
-            <table>
+            <table class="full">
                 <tr>
                     <td class="text">
                         ИСХОДЯЩИЕ
@@ -47,15 +47,23 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
                     <td class="text value" data-bind="text: outboundTasksCount">
                     </td>
                 </tr>
+                <tr class="full">
+                    <td colspan="2" class="icon km-icon km-action icon">
+                    </td>
+                </tr>
             </table>
         </div>
     </div>   
     <div class="cell-02">
         <div data-role="button" class="btn" data-bind="click:addTask">
-            <table>
+            <table class="full">
                 <tr>
                     <td class="text">
                         СОЗДАНИЕ ПОРУЧЕНИЙ
+                    </td>
+                </tr>
+                <tr class="full">
+                    <td class="icon km-icon km-edit icon">
                     </td>
                 </tr>
             </table>
@@ -63,7 +71,7 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
     </div>
     <div class="cell-10">
         <div data-role="button" class="btn">
-            <table>
+            <table class="full">
                 <tr>
                     <td class="text">
                         УВЕДОМЛЕНИЯ
@@ -77,19 +85,26 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
                     <td class="text value" data-bind="text: weekday">
                     </td>
                 </tr>
+                <tr class="full">
+                    <td colspan="2">
+                        <div data-role="scroller" class="full" id="document-list-scroller">
+                            <div id="notification-list"></div>
+                        </div>
+                    </td>
+                </tr>
             </table>
 
         </div>
     </div>
     <div class="cell-11">
         <div data-role="button" class="btn" data-bind="events:{click: showTasksExecution}">
-            <table class="fullheight">
+            <table class="full">
                 <tr>
                     <td class="text">
                         ИСПОЛНЕНИЕ ПОРУЧЕНИЙ
                     </td>
                 </tr>
-                <tr class="fullheight">
+                <tr class="full">
                 </tr>
                 <tr>
                     <td class="text">
@@ -110,13 +125,13 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
     </div>
     <div class="cell-12">
         <div data-role="button" class="btn">
-            <table class="fullheight">
+            <table class="full">
                 <tr>
                     <td class="text">
                         СОГЛАСОВАНИЕ ДОКУМЕНТОВ
                     </td>
                 </tr>
-                <tr class="fullheight">
+                <tr class="full">
                 </tr>
                 <tr>
                     <td class="text">
@@ -130,13 +145,13 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
     </div>
     <div class="cell-21">
         <div data-role="button" class="btn">
-            <table class="fullheight">
+            <table class="full">
                 <tr>
                     <td class="text">
                         ПРОСМОТР ИСПОЛНЕННЫХ ПОРУЧЕНИЙ
                     </td>
                 </tr>
-                <tr class="fullheight">
+                <tr class="full">
                 </tr>
                 <tr>
                     <td class="text">
@@ -150,13 +165,13 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
     </div>
     <div class="cell-22">
         <div data-role="button" class="btn">
-            <table class="fullheight">
+            <table class="full">
                 <tr>
                     <td class="text">
                         ПРОСМОТР ДОКУМЕНТОВ
                     </td>
                 </tr>
-                <tr class="fullheight">
+                <tr class="full">
                 </tr>
                 <tr>
                     <td class="text">

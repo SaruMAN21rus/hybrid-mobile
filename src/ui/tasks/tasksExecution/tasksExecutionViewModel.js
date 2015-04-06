@@ -12,16 +12,6 @@
                 app.tasksExecution.viewModel.filter = new app.Filter($('#tasksExecutionView div[data-role="navbar"]'), app.tasksExecution.viewModel.modelData, filterOption);
                 $('#tasksExecutionView header .km-listview-wrapper').hide();
             },
-            initMenu:function(){
-				var buttons = $('#menu-pane a[data-role="button"]');
-                buttons.each(
-                    function () {
-                        $(this).height($(this).width());
-                    }
-                );
-                $('#menu-pane #menu-tree').height($('#menu-pane').height() - $(buttons[0]).outerHeight(true));
-                $('#menu-pane #menu-tree').css('margin-top', $(buttons[0]).outerHeight(true) + 'px');
-			},
             initContentGrid:function(e){
                 var scroller = e.view.scroller;
                 scroller.bind("scroll", function() {
@@ -71,6 +61,15 @@
                         $(this).data("kendoMobileScroller").scrollTo(0, 0);
                     }
                 });
+                var buttons = $("#tasksExecutionView #menu-pane .big-btn");
+                buttons.each(
+                    function () {
+                        $(this).height($(this).width());
+                        $(this).children(".km-icon").css({'font-size': $(this).width()});
+                    }
+                );
+                $('#menu-pane #menu-tree').height($('#menu-pane').height() - $(buttons[0]).outerHeight(true));
+                $('#menu-pane #menu-tree').css('margin-top', $(buttons[0]).outerHeight(true) + 'px');
             },
             rowSelect:function(e){
                 e.sender.element.toggleClass('active-tr', true);
@@ -125,6 +124,15 @@
             showContentDetail:function(){
                 $("#tasksExecutionView #content-pane #comment").data('kendoTabStrip').activateTab($('#tasksExecutionView #content-pane #comment .k-first'));
                 $("#taskExecutionDetail #document-list-scroller").height($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #document-list-scroller").position().top - ($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #left-content").height())/2);
+            },
+            menuTreeClick: function(e){
+                if (this.openFolder){
+                    this.openFolder.toggleClass("km-open-folder");
+                } else {
+                    $("#tasksExecutionView #menu-pane #menu-tree").children().first().find(".km-icon").toggleClass("km-open-folder");
+                }
+                this.openFolder = e.item.find(".km-icon");
+                this.openFolder.toggleClass("km-open-folder");
             },
             taskCount: 0,
             outboxTaskCount:0,

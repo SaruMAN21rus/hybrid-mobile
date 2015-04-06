@@ -6,24 +6,20 @@
 #tasksExecutionView #menu-pane .km-view .km-content{
     background-color:rgb(159, 197, 248);
 }
-#tasksExecutionView #menu-pane .btn00{
+#tasksExecutionView #menu-pane .big-btn{
     position:absolute;
     width:42.5%;
-    left:0;
     top:0;
     display: flex;
     box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.75);
     vertical-align: middle;
+}
+#tasksExecutionView #menu-pane .btn00{
+    left:0;
     margin: 10% 2.5% 10% 5%;
 }
 #tasksExecutionView #menu-pane .btn01{
-    position:absolute;
-    width:42.5%;
     right:0;
-    top:0;
-    display: flex;
-    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.75);
-    vertical-align: middle;
     margin: 10% 5% auto 2.5%;
 }
 #tasksExecutionView #menu-pane #menu-tree li{
@@ -52,6 +48,10 @@
     content: "\e0a1";
     color:blue;
     -webkit-text-fill-color: blue;
+}
+#tasksExecutionView .km-blue-folder.km-open-folder:after,
+#tasksExecutionView .km-blue-folder.km-open-folder:before {
+    content: "\e0a2";
 }
 #tasksExecutionView .km-add-folder:after,
 #tasksExecutionView .km-add-folder:before {

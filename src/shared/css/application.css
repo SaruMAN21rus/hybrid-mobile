@@ -34,6 +34,28 @@
 .km-doc:after { 
     content: "\e086"; 
 }
+.km-flag:before, 
+.km-flag:after { 
+    content: "\e09f"; 
+}
+.km-message:before, 
+.km-message:after {
+    content: "\e091";
+    text-align: center;
+    line-height: 1.5em;
+}
+.km-response:before, 
+.km-response:after { 
+    content: "\e093";
+    text-align: center;
+    line-height: 1.5em;
+}
+.km-attachment:before, 
+.km-attachment:after { 
+    content: "\e083";
+    text-align: center;
+    line-height: 1.5em;
+}
 .km-tablet .km-filter-wrap {
     margin: 0 auto;
     max-width: 100%;

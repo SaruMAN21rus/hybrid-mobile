@@ -98,8 +98,9 @@
     width: 100%;
     white-space: nowrap;
 }
-#tasksMenuView .km-button .fullheight{
+#tasksMenuView .km-button .full{
     height: 100%;
+    width: 100%;
 }
 
 #tasksMenuView .cell-00 .km-button,
@@ -109,4 +110,34 @@
 #tasksMenuView .cell-00 .km-button.km-state-active,
 #tasksMenuView .cell-10 .km-button.km-state-active{
     background-color: rgb(51, 136, 204);
+}
+#tasksMenuView .icon{
+    width: 100%;
+    height: 100%;
+    margin: 0; 
+}
+#tasksMenuView .icon.km-icon:before,
+#tasksMenuView .icon.km-icon:after{
+    text-align: center;
+}
+#tasksMenuView #notification-list li{
+    background-color: transparent;
+    padding: 0;
+}
+#tasksMenuView #notification-list .km-icon{
+    margin: 5px 0 5px 0;
+    font-size:2em;
+    background: white;
+    border: 1px solid black;
+    border-radius: 1em;
+    -webkit-border-radius: 1em;
+    width: 1.5em;
+    height: 1.5em;
+}
+#tasksMenuView #notification-list .km-icon.km-attachment{
+    margin-left: 1.5em;
+}
+#tasksMenuView #notification-list .notification-text{
+    margin: auto 0 auto .3em;
+    line-height: 1.5em;
 }

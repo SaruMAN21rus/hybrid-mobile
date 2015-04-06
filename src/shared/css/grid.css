@@ -21,6 +21,9 @@
 .grid > table > tbody > tr > td:first-child{
     border-width: 0;
 }
+.grid > table > tbody > tr:nth-child(odd){
+    background-color: rgb(249,249,249);
+}
 .grid > table > tbody > tr > td {
     padding: .4em .6em;
     text-align: left;

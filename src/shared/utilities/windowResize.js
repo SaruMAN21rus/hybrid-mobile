@@ -61,5 +61,12 @@
         });
         $('#taskExecutionDetail #left-content #add-document').height(dlStandartBtn.height());
         $("#taskExecutionDetail #document-list-scroller").height($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #document-list-scroller").position().top - ($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #left-content").height())/2);
+        
+        $("#tasksExecutionView #menu-pane .big-btn").each(function(){
+            $(this).children(".km-icon").css({'font-size': $(this).height()});
+        });
+        $("#tasksMenuView .btn .icon").each(function () {
+            $(this).css({'font-size': $("#tasksMenuView .btn").height()-$("#tasksMenuView .btn table tr").first().height()});
+        });
     });
 })(app);
