@@ -107,8 +107,7 @@
 #tasksMenuView .cell-10 .km-button{
     background-color: rgb(159, 197, 248);
 }
-#tasksMenuView .cell-00 .km-button.km-state-active,
-#tasksMenuView .cell-10 .km-button.km-state-active{
+#tasksMenuView .cell-00 .km-button.km-state-active{
     background-color: rgb(51, 136, 204);
 }
 #tasksMenuView .icon{
@@ -126,13 +125,13 @@
 }
 #tasksMenuView #notification-list .km-icon{
     margin: 5px 0 5px 0;
-    font-size:2em;
+    font-size:1.5vw;
     background: white;
-    border: 1px solid black;
-    border-radius: 1em;
-    -webkit-border-radius: 1em;
+    border-radius: .75em;
+    -webkit-border-radius: .75em;
     width: 1.5em;
     height: 1.5em;
+    min-width: 1.5em;
 }
 #tasksMenuView #notification-list .km-icon.km-attachment{
     margin-left: 1.5em;
@@ -140,4 +139,5 @@
 #tasksMenuView #notification-list .notification-text{
     margin: auto 0 auto .3em;
     line-height: 1.5em;
+    font-size: 1.2vw;
 }

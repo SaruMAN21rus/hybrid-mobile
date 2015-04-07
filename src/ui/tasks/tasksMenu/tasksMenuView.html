@@ -71,7 +71,7 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
     </div>
     <div class="cell-10">
         <div data-role="button" class="btn">
-            <table class="full">
+            <table class="full" style="display:inline-block;">
                 <tr>
                     <td class="text">
                         УВЕДОМЛЕНИЯ
@@ -87,7 +87,7 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
                 </tr>
                 <tr class="full">
                     <td colspan="2">
-                        <div data-role="scroller" class="full" id="document-list-scroller">
+                        <div data-role="scroller" id="notification-list-scroller">
                             <div id="notification-list"></div>
                         </div>
                     </td>

@@ -126,13 +126,15 @@
                 $("#taskExecutionDetail #document-list-scroller").height($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #document-list-scroller").position().top - ($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #left-content").height())/2);
             },
             menuTreeClick: function(e){
-                if (this.openFolder){
+                if (e.item.data('folder') === true) {
+                    if (this.openFolder){
+                        this.openFolder.toggleClass("km-open-folder");
+                    } else {
+                        $("#tasksExecutionView #menu-pane #menu-tree").children().first().find(".km-icon").toggleClass("km-open-folder");
+                    }
+                    this.openFolder = e.item.find(".km-icon");
                     this.openFolder.toggleClass("km-open-folder");
-                } else {
-                    $("#tasksExecutionView #menu-pane #menu-tree").children().first().find(".km-icon").toggleClass("km-open-folder");
                 }
-                this.openFolder = e.item.find(".km-icon");
-                this.openFolder.toggleClass("km-open-folder");
             },
             taskCount: 0,
             outboxTaskCount:0,

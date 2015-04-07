@@ -42,3 +42,9 @@
 .grid.k-content.km-widget.km-navbar{
     border-width: 0 0 1px 0;
 }
+.active-tr{
+    background-color: rgb(51, 136, 204) !important;
+}
+.active-tr td{
+    color:white !important;
+}

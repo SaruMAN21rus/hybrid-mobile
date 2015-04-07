@@ -23,6 +23,7 @@
                     dataSource: this.modelData,
                     template: $("#notificationItemTemplate").text()
                 });
+                $("#tasksMenuView #notification-list-scroller").height($('#tasksMenuView .cell-10 table').height() - 2*$('#tasksMenuView .cell-10 table tr').first().height() - 8);
             },
             addTask:function(){
                 app.app.navigate('#tasksListView');
@@ -46,6 +47,9 @@
                 this.rightMenuViewModel.exitMenu(e);
             },
             beforeShow: function(){
+                $("#notification-list-scroller").data("kendoMobileScroller").scrollTo(0, 0);
+                
+
                 this.set("importantTasksCount", 555);
             },
             showTasksExecution: function(){

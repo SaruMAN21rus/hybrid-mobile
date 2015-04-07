@@ -73,10 +73,3 @@
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
 }
-.active-tr{
-    background-color: rgb(51, 136, 204);
-    color:white;
-}
-.active-tr td{
-    color:white !important;
-}
