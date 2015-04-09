@@ -14,26 +14,6 @@
 .km-data-button:after { 
     content: "\E0B0"; 
 }
-.km-calendar:before, 
-.km-calendar:after { 
-    content: "\e089"; 
-}
-.km-agent:before, 
-.km-agent:after { 
-    content: "\e0e4"; 
-}
-.km-chart:before, 
-.km-chart:after { 
-    content: "\e050"; 
-}
-.km-task:before, 
-.km-task:after { 
-    content: "\e07a"; 
-}
-.km-doc:before, 
-.km-doc:after { 
-    content: "\e086"; 
-}
 .km-flag:before, 
 .km-flag:after { 
     content: "\e09f"; 

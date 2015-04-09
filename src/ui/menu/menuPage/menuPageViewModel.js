@@ -11,7 +11,7 @@
                 var texts = $("#menuPageView .btn .km-text");
                 icons.each(
                     function () {
-                        $(this).css({'font-size': $("#menuPageView .btn").height()});
+                        $(this).width($(this).height());
                     }
                 );
                 texts.each(
