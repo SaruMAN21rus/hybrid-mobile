@@ -72,7 +72,6 @@
 <script src="bower_components/kendo-ui/src/js/messages/kendo.messages.ru-RU.js"></script>
 <script src="bower_components/kendo-ui/src/js/cultures/kendo.culture.ru-RU.js"></script>
 <script src="bower_components/fastclick/lib/fastclick.js"></script>
-<script src="js/app.js"></script>
 <script src="bower_components/jaydata/Scripts/datajs-1.0.3.js"></script>
 <script src="bower_components/jaydata/build/jaydata.js"></script>
 <script src="bower_components/jaydata/build/jaydatamodules/kendo.js"></script>
@@ -81,14 +80,17 @@
 
 <!-- build:js eludiaapp.js -->
 
-<!-- utilities : Must run before models & viewModels-->
+<!-- models  : Must run before utilities & viewModels-->
+<script src="shared/models/taskModel.js"></script>
+<script src="shared/models/agentModel.js"></script>
+<script src="shared/models/testModel.js"></script>
+<script src="shared/models/entityContext.js"></script>
+<script src="js/app.js"></script>
+
+<!-- utilities : Must run before viewModels-->
 <script src="shared/utilities/globalParams.js"></script>
 <script src="shared/utilities/windowResize.js"></script>
 <script src="shared/utilities/filter.js"></script>
-
-<!-- models  : Must run before viewModels-->
-<script src="shared/models/taskModel.js"></script>
-<script src="shared/models/agentModel.js"></script>
 
 <!-- viewModels  -->
 <script src="ui/menu/rightMenu/rightMenuViewModel.js"></script>

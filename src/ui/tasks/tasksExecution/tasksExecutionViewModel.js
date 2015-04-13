@@ -4,7 +4,7 @@
  
 	app.tasksExecution = {
 		viewModel: kendo.observable({
-			modelData: app.taskModel,
+			modelData: ketraDB.Tasks.asKendoDataSource(),
 			init:function(){
                 var filterOption = {
                     field : "name"

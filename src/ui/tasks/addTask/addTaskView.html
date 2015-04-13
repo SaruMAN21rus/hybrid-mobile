@@ -15,12 +15,12 @@ data-bind="events:{init:init, afterShow:afterShow, show:show}"
         <ul data-role="listview" data-style="inset">
             <li>
                 <label>Наименование
-                    <input type="text" id="taskNameInput" data-bind="value: taskName" placeholder="Введите наименование задачи">
+                    <input type="text" id="taskNameInput" data-bind="value: task.name" placeholder="Введите наименование задачи">
                 </label>
             </li>
             <li>
                 <label>
-                    <input type="checkbox" data-bind="checked: checkbox"/>
+                    <input type="checkbox" data-bind="checked: task.checkbox"/>
                     Чекбокс
                 </label>
             </li>
@@ -31,19 +31,19 @@ data-bind="events:{init:init, afterShow:afterShow, show:show}"
                 <ul>
                     <li>
                         <label>
-                            <input name="radio" type="radio" value="Свойство1" data-bind="checked: radio" />
+                            <input name="radio" type="radio" value="Свойство1" data-bind="checked: task.radio" />
                             Свойство1
                         </label>
                     </li>
                     <li>
                         <label>
-                            <input name="radio" type="radio" value="Свойство2" data-bind="checked: radio" />
+                            <input name="radio" type="radio" value="Свойство2" data-bind="checked: task.radio" />
                             Свойство2
                         </label>
                     </li>
                     <li>
                         <label>
-                            <input name="radio" type="radio" value="Свойство3" data-bind="checked: radio" />
+                            <input name="radio" type="radio" value="Свойство3" data-bind="checked: task.radio" />
                             Свойство3
                         </label>
                     </li>

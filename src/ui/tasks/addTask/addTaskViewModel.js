@@ -3,7 +3,7 @@
 
     app.addTask = {
         viewModel: kendo.observable({
-            modelData: app.taskModel,
+            modelData: app.tasksList.viewModel.modelData,
             init:function(){
                 this.doneButton = $('#addTaskDoneBtn').data('kendoMobileButton');
                 var doneButton = this.doneButton;
@@ -16,13 +16,9 @@
                 });
             },
             createTask:function(){
-                if(this.taskName.replace(' ','') !== ''){
+                if(this.task.name.replace(' ','') !== ''){
                     if (typeof this.id === "undefined"){
-                        this.modelData.add({name:this.taskName, checkbox:this.checkbox, radio:this.radio});
-                    }else {
-                        this.model.set('name',this.taskName);
-                        this.model.set('checkbox',this.checkbox);
-                        this.model.set('radio',this.radio);
+                        this.modelData.add(this.task);
                     }
                     this.modelData.sync();
                     app.app.navigate('#:back');
@@ -34,22 +30,17 @@
             show:function(e){
                 this.id = e.view.params.id;
                 if (typeof this.id !== "undefined") {
-                    this.model = this.modelData.get(this.id);
-                    this.set('taskName',this.model.name);
-                    this.set('checkbox',this.model.checkbox);
-                    this.set('radio',this.model.radio);
+                    this.set('task',this.modelData.get(this.id));
                     this.doneButton.enable(true);
                 } else {
-                    this.set('taskName','');
-                    this.set('checkbox',false);
-                    this.set('radio','Свойство1');
-                    this.doneButton.enable(false);
+                    this.set('task', {name:'', checkbox:false, radio:'Свойство1'});
                 }
             },
-            taskName:'',
-            checkbox:false,
-            radio: 'Свойство1'
-
+            task: {
+                name:'', 
+                checkbox:false, 
+                radio:'Свойство1'
+            }
         })
 
     };

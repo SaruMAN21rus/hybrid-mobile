@@ -2,7 +2,7 @@
 data-role="view" 
 data-layout="default" 
 data-model="app.tasksList.viewModel"
-data-bind="events:{init:init}"
+data-bind="events:{init:init, beforeShow: beforeShow}"
 >
 	<header data-role="header">
 		<div data-role="navbar">
@@ -18,10 +18,10 @@ data-bind="events:{init:init}"
             <thead>
                 <tr>
                     <th style="width:10%">Идентификатор</th>
-                    <th>Наименование</th>
-                    <th>Чекбокс</th>
-                    <th>Свойство</th>
-                    <th></th>
+                    <th style="width:40%">Наименование</th>
+                    <th style="width:10%">Чекбокс</th>
+                    <th style="width:20%">Свойство</th>
+                    <th style="width:20%"></th>
                 </tr>
             </thead>
         </table>
@@ -30,9 +30,7 @@ data-bind="events:{init:init}"
 
 	<div class="grid k-content">
     	<table id="tasksGridBody">
-        	<tbody data-bind="source: modelData"
-            data-template="tasksListItemTemplate"
-            >
+        	<tbody data-bind="source: modelData" data-template="tasksListItemTemplate">
             </tbody>
         </table>
 	</div>

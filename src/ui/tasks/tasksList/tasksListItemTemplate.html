@@ -1,10 +1,10 @@
 <script id="tasksListItemTemplate" type="text/x-kendo-template">
 	<tr>
-		<td>#= id#</td>
-        <td>#= name #</td>
-        <td>#= checkbox #</td>
-        <td>#= radio #</td>
-        <td>
+		<td style="width:10%">#= id#</td>
+        <td style="width:40%">#= name #</td>
+        <td style="width:10%">#= checkbox #</td>
+        <td style="width:20%">#= radio #</td>
+        <td style="width:20%">
             <a data-icon="edit" data-role="button" data-bind="events:{click:editTask}" data-id="#= id#"></a>
             <a data-icon="delete" data-role="button" data-bind="events:{click:deleteTask}" data-id="#= id#"></a>
         </td>

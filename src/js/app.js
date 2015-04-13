@@ -16,16 +16,19 @@ window.app = {
 
     onDeviceReady: function () {
         'use strict';
-        window.app.app = new kendo.mobile.Application(document.body, {
-            transition: 'slide',
-            skin: 'flat',
-            initial: 'menuPageView',
-            init: function() {
-                //fix mouse events in iOS don't do it for android, causes more issues than it fixes
-                kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0:20);
-            }
-        });
         
+        ketraDB.onReady(function(){
+            window.app.app = new kendo.mobile.Application(document.body, {
+                transition: 'slide',
+                skin: 'flat',
+                initial: 'menuPageView',
+                init: function() {
+                    //fix mouse events in iOS don't do it for android, causes more issues than it fixes
+                    kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0:20);
+                }
+            });
+        });
+
         if (navigator.notification) { // Override default HTML alert with native dialog
             window.alert = function (message) {
                 navigator.notification.alert(

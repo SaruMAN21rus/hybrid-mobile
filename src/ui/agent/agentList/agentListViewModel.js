@@ -3,11 +3,14 @@
  
     app.agentList = {
         viewModel: kendo.observable({
-            modelData: app.agentModel,
+            modelData: ketraDB.Tests.asKendoDataSource(),
             init:function(){
+                /*for(var i = 100001; i <= 400000; i++)
+                    ketraDB.Tests.addMany([{ name: 'наименование ' + i, delay: i, sum: 123.22, status: 1 }]);
+                ketraDB.saveChanges();*/
                 $('#agentListView #currentDate').text(app.currentDate);
                 var filterOption = {
-                    field : "name"
+                    field : "delay"
                 };
                 this.filter = new app.Filter($('#agentListView div[data-role="navbar"]'), this.modelData, filterOption);
                 $('#agentListView header .km-listview-wrapper').hide();

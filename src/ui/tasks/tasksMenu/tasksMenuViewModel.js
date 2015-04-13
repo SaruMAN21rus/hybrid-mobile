@@ -3,7 +3,7 @@
 
     app.tasksMenu = {
         viewModel: kendo.observable({
-            modelData: app.taskModel,
+            modelData: ketraDB.Tasks.asKendoDataSource(),
             init:function() {
 
                 $('#tasksMenuView #currentDate').text(app.currentDate);
