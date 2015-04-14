@@ -12,7 +12,7 @@
                     field : "name"
                 };
 
-                this.filter = new app.Filter($('#tasksMenuView div[data-role="navbar"]'), this.modelData, filterOption);
+                this.filter = new app.Filter($('#tasksMenuView div[data-role="navbar"]'), this.modelData, filterOption, null);
                 $('#tasksMenuView header .km-listview-wrapper').hide();
 
                 $("#tasksMenuView .btn .km-icon").each(function () {

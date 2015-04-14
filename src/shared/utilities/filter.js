@@ -5,12 +5,13 @@
     app.SEARCH_TEMPLATE = kendo.template('<div class="km-listview-wrapper bottom-line"><form class="km-filter-form"><div class="km-filter-wrap"><input type="search" placeholder="#=placeholder#"/><a href="\\#" class="km-filter-reset" title="Очистить"><span class="km-icon km-clear"></span><span class="km-text">Очистить</span></a></div></form></div>');
 
     app.Filter = kendo.Class.extend({
-        init: function(filterPlace, dataSource, options) {
+        init: function(filterPlace, dataSource, options, grid) {
             var filter = this,
                 events = "change paste";
 
             this.options = options;
             this.dataSource = dataSource;
+            this.grid = grid;
 
             filterPlace.after(app.SEARCH_TEMPLATE({ placeholder: "Найти..." }));
 
@@ -40,6 +41,12 @@
         },
 
         _filterChange: function(e) {
+            if(this.grid){
+                var listView = this.grid.data("kendoMobileListView");
+                listView.scroller().scrollTo(0,0);
+                listView._itemBinder.list.refresh();
+            }
+
             var filter = this;
             if (e.type === "paste" && this.options.autoFilter !== false) {
                 setTimeout(function() {

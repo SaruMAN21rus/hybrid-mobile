@@ -48,11 +48,7 @@ style="display:none;"
                 </div>
             </header>
 
-            <div class="grid k-content">
-                <table id="tasksExecutionGridBody">
-                    <tbody id="tasksExecutionList" data-bind="source: modelData" data-template="tasksExecutionListItemTemplate"></tbody>
-                </table>
-            </div>
+            <div data-role="listview" id="tasksExecutionList" data-bind="source: modelData" data-template="tasksExecutionListItemTemplate" class="grid"></div>
         </div>
         <div data-role="view" data-model="app.tasksExecution.viewModel" id="taskExecutionDetail" data-bind="events:{init:initContentDetail, show: showContentDetail}">
              <div id="left-content">
@@ -112,11 +108,7 @@ style="display:none;"
                         </table>
                     </div>
                     <div data-role="scroller" style="width:100%;" id="history-grid-scroller">
-                        <div class="grid k-content">
-                             <table id="taskExecutionHistoryGridBody">
-                                <tbody id="taskExecutionCommentList" data-bind="source: modelData" data-template="taskHistoryItemTemplate"></tbody>
-                            </table>
-                        </div>
+                        <div data-role="listview" id="taskExecutionCommentList" data-bind="source: modelData" data-template="taskHistoryItemTemplate" class="grid"></div>
                     </div>
                 </div>
             </div>

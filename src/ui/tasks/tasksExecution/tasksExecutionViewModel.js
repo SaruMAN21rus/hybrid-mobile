@@ -9,7 +9,7 @@
                 var filterOption = {
                     field : "name"
                 };
-                app.tasksExecution.viewModel.filter = new app.Filter($('#tasksExecutionView div[data-role="navbar"]'), app.tasksExecution.viewModel.modelData, filterOption);
+                app.tasksExecution.viewModel.filter = new app.Filter($('#tasksExecutionView div[data-role="navbar"]'), app.tasksExecution.viewModel.modelData, filterOption, null);
                 $('#tasksExecutionView header .km-listview-wrapper').hide();
             },
             initContentGrid:function(e){
