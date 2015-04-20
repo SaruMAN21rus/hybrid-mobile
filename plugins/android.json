@@ -11,6 +11,20 @@
                         {
                             "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -18,10 +32,13 @@
         }
     },
     "installed_plugins": {
+        "com.msopentech.websql": {
+            "PACKAGE_NAME": "ru.fastek.ketra"
+        },
         "org.apache.cordova.dialogs": {
             "PACKAGE_NAME": "ru.fastek.ketra"
         },
-        "com.msopentech.websql": {
+        "org.apache.cordova.network-information": {
             "PACKAGE_NAME": "ru.fastek.ketra"
         }
     },

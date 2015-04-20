@@ -18,12 +18,6 @@
 .km-flag:after { 
     content: "\e09f"; 
 }
-.km-message:before, 
-.km-message:after {
-    content: "\e091";
-    text-align: center;
-    line-height: 1.5em;
-}
 .km-response:before, 
 .km-response:after { 
     content: "\e093";
@@ -46,10 +40,10 @@
     border-color: #cdcdcd;
     border-width: 0 0 1px 0;
 }
-
-.km-back-button:after,
-.km-back-button:before {
-    content: "\e0e2";
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
+.km-view .km-navbar .km-button{
+    padding: .3em .6em;
+}
+.km-view .km-navbar .km-button .km-icon{
+    width: 1.5em;
+    height: 1.5em;
 }

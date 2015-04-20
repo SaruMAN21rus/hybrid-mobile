@@ -1,5 +1,0 @@
-#chartView .km-details:after,
-#chartView .km-details:before {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-}

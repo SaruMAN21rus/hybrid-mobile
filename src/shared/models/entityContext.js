@@ -3,7 +3,3 @@ $data.EntityContext.extend("KetraDatabase", {
     Tasks: { type: $data.EntitySet, elementType: Task },
     Tests: { type: $data.EntitySet, elementType: Test }
 });
-
-var ketraDB = new KetraDatabase({
-    provider: 'sqLite' , databaseName: 'KetraDatabase'
-});

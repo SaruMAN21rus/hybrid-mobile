@@ -37,6 +37,9 @@
             },
             goToFavorites:function(){
                 alert("Избранное");
+            },
+            refresh:function(){
+                app.checkConnection();
             }
         })
     };

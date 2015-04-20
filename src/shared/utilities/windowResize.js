@@ -65,9 +65,6 @@
         $("#tasksExecutionView #menu-pane .big-btn").each(function(){
             $(this).children(".km-icon").css({'font-size': $(this).height()});
         });
-        $("#tasksMenuView .btn .icon").each(function () {
-            $(this).css({'font-size': $("#tasksMenuView .btn").height()-$("#tasksMenuView .btn table tr").first().height()});
-        });
         $("#tasksMenuView #notification-list-scroller").height($('#tasksMenuView .cell-10 table').height() - 2*$('#tasksMenuView .cell-10 table tr').first().height() - 8);
     });
 })(app);

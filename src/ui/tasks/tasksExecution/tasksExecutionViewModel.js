@@ -4,7 +4,7 @@
  
 	app.tasksExecution = {
 		viewModel: kendo.observable({
-			modelData: ketraDB.Tasks.asKendoDataSource(),
+			modelData: app.db.Tasks.asKendoDataSource(),
 			init:function(){
                 var filterOption = {
                     field : "name"
@@ -121,9 +121,12 @@
                 }
                 app.tasksExecution.viewModel.tabstrip.unbind("show", this.onHistoryTabShow);
             },
-            showContentDetail:function(){
+            showContentDetail:function(e){
                 $("#tasksExecutionView #content-pane #comment").data('kendoTabStrip').activateTab($('#tasksExecutionView #content-pane #comment .k-first'));
                 $("#taskExecutionDetail #document-list-scroller").height($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #document-list-scroller").position().top - ($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #left-content").height())/2);
+                if (e.view.params.id) {
+                    this.set('task',this.modelData.get(e.view.params.id));
+                }
             },
             menuTreeClick: function(e){
                 if (e.item.data('folder') === true) {

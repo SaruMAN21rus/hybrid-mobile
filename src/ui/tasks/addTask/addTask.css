@@ -1,9 +1,3 @@
-#addTaskView .km-details:after,
-#addTaskView .km-details:before {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-}
-
 #addTaskView #addTaskBtn{
     width:100%;
 }

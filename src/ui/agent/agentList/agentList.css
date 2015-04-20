@@ -1,5 +1,0 @@
-#agentListView .km-details:after,
-#agentListView .km-details:before {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-}

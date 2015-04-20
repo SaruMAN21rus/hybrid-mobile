@@ -3,7 +3,7 @@
  
     app.agentList = {
         viewModel: kendo.observable({
-            modelData: ketraDB.Tests.asKendoDataSource({pageSize: 100}),
+            modelData: app.db.Tests.asKendoDataSource({pageSize: 100}),
             init:function(){
                 /*for(var i = 1; i <= 300000; i++)
                     ketraDB.Tests.addMany([{ name: 'наименование ' + i, delay: i, sum: 123.22, status: 1 }]);
@@ -36,8 +36,15 @@
                 if (this.searchBox && this.searchBox.is(':visible')){
                     this.searchBox.hide();
                 }
-                this.filter._clearFilter(e);
                 this.rightMenuViewModel.exitMenu(e);
+            },
+            hide:function(e){
+                this.filter._clearFilter(e);
+            },
+            show: function(){
+                var listView = $("#agentList").data("kendoMobileListView");
+                listView.scroller().scrollTo(0,0);
+                listView._itemBinder.list.refresh();
             },
             rightMenuViewModel: app.rightMenu.viewModel
         })

@@ -7,14 +7,14 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
 >
     <header data-role="header">
         <div data-role="navbar">
-            <a data-align="left" data-icon="details" data-role="backbutton"></a>
+            <a data-align="left" data-icon="back" data-role="backbutton"></a>
             <span data-role="view-title">Задачи и распоряжения</span>
             <span data-align="right" data-role="view-title" id="currentDate"></span>
-            <a data-align="right" data-icon="search" data-role="button" data-bind="click:showHideSearchBox"></a>
-            <a data-align="right" data-icon="refresh" data-role="button"></a>
-            <a data-align="right" data-icon="data-button" data-role="button"></a>
-            <a data-align="right" data-icon="home" data-role="button"></a>
-            <a data-align="right" data-icon="rightmenu" data-role="button" data-rel="drawer" data-bind="click:rightMenuViewModel.showRightMenu"></a>
+            <a data-align="right" data-icon="custom-search" data-role="button" data-bind="click:showHideSearchBox"></a>
+            <a data-align="right" data-icon="sync-data" data-role="button"></a>
+            <a data-align="right" data-icon="visible" data-role="button"></a>
+            <a data-align="right" data-icon="custom-home" data-role="button"></a>
+            <a data-align="right" data-icon="control-panel" data-role="button" data-rel="drawer" data-bind="click:rightMenuViewModel.showRightMenu"></a>
         </div>
     </header>
     <div class="cell-00">
@@ -48,7 +48,17 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
                     </td>
                 </tr>
                 <tr class="full">
-                    <td colspan="2" class="icon km-icon km-action icon">
+                    <td colspan="2" class="icon km-icon km-feedback">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">
+                        &nbsp;
                     </td>
                 </tr>
             </table>
@@ -63,7 +73,17 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
                     </td>
                 </tr>
                 <tr class="full">
-                    <td class="icon km-icon km-edit icon">
+                    <td class="icon km-icon km-quill-with-ink">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">
+                        &nbsp;
                     </td>
                 </tr>
             </table>
@@ -105,6 +125,8 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
                     </td>
                 </tr>
                 <tr class="full">
+                    <td class="icon km-icon km-inspection">
+                    </td>
                 </tr>
                 <tr>
                     <td class="text">
@@ -132,12 +154,19 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
                     </td>
                 </tr>
                 <tr class="full">
+                    <td class="icon km-icon km-signature">
+                    </td>
                 </tr>
                 <tr>
                     <td class="text">
                         Новые
                     </td>
                     <td class="text value" data-bind="text: newConformDocumentsCount">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">
+                        &nbsp;
                     </td>
                 </tr>
             </table>
@@ -152,12 +181,19 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
                     </td>
                 </tr>
                 <tr class="full">
+                    <td class="icon km-icon km-fine-print">
+                    </td>
                 </tr>
                 <tr>
                     <td class="text">
                         На контроль
                     </td>
                     <td class="text value" data-bind="text: сontrolTasksCount">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">
+                        &nbsp;
                     </td>
                 </tr>
             </table>
@@ -172,12 +208,19 @@ data-bind="events:{init:init, beforeHide:beforeHide, beforeShow:beforeShow}"
                     </td>
                 </tr>
                 <tr class="full">
+                    <td class="icon km-icon km-doc">
+                    </td>
                 </tr>
                 <tr>
                     <td class="text">
                         Новые
                     </td>
                     <td class="text value" data-bind="text: newDocumentsCount">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text">
+                        &nbsp;
                     </td>
                 </tr>
             </table>

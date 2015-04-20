@@ -3,7 +3,7 @@
  
 	app.tasksList = {
 		viewModel: kendo.observable({
-			modelData: ketraDB.Tasks.asKendoDataSource(),
+			modelData: app.db.Tasks.asKendoDataSource(),
 			init:function(){
 			}, 
 			addTask: function() {
@@ -20,9 +20,6 @@
 				var id = data.id;
 				this.modelData.remove(this.modelData.get(id));
 				this.modelData.sync();
-			},
-			beforeShow:function(){
-				ketraDB.Tasks.Task.readAll();
 			}
 		})
 	};

@@ -1,9 +1,3 @@
-#tasksListView .km-details:after,
-#tasksListView .km-details:before {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-}
-
 #tasksListView .grid {
     width: 100%;
     padding: 0 20px 0 20px;

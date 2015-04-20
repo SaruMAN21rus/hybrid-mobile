@@ -8,7 +8,7 @@ style="display:none;"
 >
     <header data-role="header">
         <div data-role="navbar">
-            <a data-align="left" data-icon="back-button" data-role="backbutton"></a>
+            <a data-align="left" data-icon="back" data-role="backbutton"></a>
             <span data-role="view-title">Исполнение поручений</span>
             <a data-align="right" data-icon="search" data-role="button" data-click="app.tasksExecution.viewModel.showHideSearchBox"></a>
         </div>
@@ -52,7 +52,7 @@ style="display:none;"
         </div>
         <div data-role="view" data-model="app.tasksExecution.viewModel" id="taskExecutionDetail" data-bind="events:{init:initContentDetail, show: showContentDetail}">
              <div id="left-content">
-                <span class="large-font">Подготовить коммерческое предложение для "ТрансБанк"</span>
+                <span class="large-font" data-bind="text: task.name"></span>
                 <a data-icon="back-button" data-role="backbutton" class="title-button"></a>
                 <a data-icon="edit" data-role="button" class="title-button"></a>
                 <a data-icon="delete" data-role="button" class="title-button"></a>

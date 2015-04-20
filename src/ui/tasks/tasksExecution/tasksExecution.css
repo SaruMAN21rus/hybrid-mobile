@@ -218,13 +218,6 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-.km-document:after,
-.km-document:before {
-    background-image: url("img/test.png");
-    -webkit-background-clip: border-box;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 .km-add-document:after,
 .km-add-document:before {
     background-image: url("img/test.png");

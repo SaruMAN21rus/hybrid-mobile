@@ -17,8 +17,8 @@ window.app = {
     onDeviceReady: function () {
         'use strict';
         
-        ketraDB.onReady(function(){
-            window.app.app = new kendo.mobile.Application(document.body, {
+        app.db.onReady(function(){
+            app.app = new kendo.mobile.Application(document.body, {
                 transition: 'slide',
                 skin: 'flat',
                 initial: 'menuPageView',
@@ -45,5 +45,14 @@ window.app = {
         'use strict';
 
         FastClick.attach(document.body);
-    }
+    },
+
+    checkConnection: function(){
+        if (navigator.connection) {
+            var networkState = navigator.connection.type;
+            return networkState !== Connection.NONE;
+        }
+        return false;
+    },
+    db: new KetraDatabase({provider: 'sqLite' , databaseName: 'KetraDatabase'})
 };
