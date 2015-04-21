@@ -5,9 +5,9 @@
         viewModel: kendo.observable({
             modelData: app.db.Tests.asKendoDataSource({pageSize: 100}),
             init:function(){
-                /*for(var i = 1; i <= 300000; i++)
-                    ketraDB.Tests.addMany([{ name: 'наименование ' + i, delay: i, sum: 123.22, status: 1 }]);
-                ketraDB.saveChanges();*/
+                for(var i = 1; i <= 3; i++)
+                    app.db.Tests.addMany([{ name: 'наименование ' + i, delay: i, sum: 123.22, status: 1 }]);
+                app.db.saveChanges();
                 $('#agentListView #currentDate').text(app.currentDate);
                 var filterOption = {
                     field : "delay"

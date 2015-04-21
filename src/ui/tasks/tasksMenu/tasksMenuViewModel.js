@@ -20,9 +20,9 @@
                     template: $("#notificationItemTemplate").text()
                 });
                 $("#tasksMenuView #notification-list-scroller").height($('#tasksMenuView .cell-10 table').height() - 2*$('#tasksMenuView .cell-10 table tr').first().height() - 8);
-                /*for(var i = 1; i <= 3; i++)
-                    ketraDB.Tasks.addMany([{ name: 'наименование ' + i, datePlan: new Date(2010, 0, 1), dateFact: new Date(2013, 5, 5), status: 1 }]);
-                ketraDB.saveChanges();*/
+                for(var i = 1; i <= 3; i++)
+                    app.db.Tasks.addMany([{ label: 'наименование ' + i, dt_from_plan: new Date(2010, 0, 1), dt_from_fact: new Date(2013, 5, 5), status: 1 }]);
+                app.db.saveChanges();
             },
             addTask:function(){
                 app.app.navigate('#tasksListView');
