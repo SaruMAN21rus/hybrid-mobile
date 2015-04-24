@@ -49,7 +49,12 @@
                 this.set("importantTasksCount", 555);
 
                 for(var i = 1; i <= 3; i++){
-                    app.db.tasks.addMany([{ label: 'наименование ' + i, dt_from_plan: new Date(2010, 0, 1), dt_from_fact: new Date(2013, 5, 5), task_status_id: i}]);
+                    app.db.tasks.addMany([{ 
+                        label: 'наименование ' + i, 
+                        dt_from_plan: new Date(2010, 0, 1), 
+                        dt_from_fact: new Date(2013, 5, 5),
+                        dt: new Date(), 
+                        id_task_status: i}]);
                 }
                 app.db.saveChanges();
             },

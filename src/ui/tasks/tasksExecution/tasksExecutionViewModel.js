@@ -126,6 +126,7 @@
                 $("#taskExecutionDetail #document-list-scroller").height($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #document-list-scroller").position().top - ($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #left-content").height())/2);
                 if (e.view.params.id) {
                     this.set('task',this.modelData.get(e.view.params.id));
+                    this.task.set('dt_string', this.task.dt ? kendo.toString(this.task.dt, 'dd.MM.yyyy') : '');
                 }
             },
             menuTreeClick: function(e){

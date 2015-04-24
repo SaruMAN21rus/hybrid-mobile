@@ -52,8 +52,8 @@ style="display:none;"
         </div>
         <div data-role="view" data-model="app.tasksExecution.viewModel" id="taskExecutionDetail" data-bind="events:{init:initContentDetail, show: showContentDetail}">
              <div id="left-content">
-                <span class="large-font" data-bind="text: task.name"></span>
-                <a data-icon="back-button" data-role="backbutton" class="title-button"></a>
+                <span class="large-font" data-bind="text: task.label"></span>
+                <a data-icon="back" data-role="backbutton" class="title-button"></a>
                 <a data-icon="edit" data-role="button" class="title-button"></a>
                 <a data-icon="delete" data-role="button" class="title-button"></a>
                 <a data-icon="refresh" data-role="button" class="title-button"></a>
@@ -64,7 +64,7 @@ style="display:none;"
                     <div class="info-with-label">
                         Автор: <span>Муравьев В.</span>
                         <br>
-                        Создано: <span>20.08.2014</span>
+                        Создано: <span  data-bind="text: task.dt_string"></span>
                     </div><div class="info-with-label">
                         Срок: <span>23.08.2014</span>
                         <br>
