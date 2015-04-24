@@ -4,7 +4,7 @@
  
 	app.tasksExecution = {
 		viewModel: kendo.observable({
-			modelData: app.db.Tasks.asKendoDataSource(),
+			modelData: app.db.tasks.asKendoDataSource(),
 			init:function(){
                 var filterOption = {
                     field : "name"

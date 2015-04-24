@@ -4,7 +4,7 @@
             <td style="width:45%">#= label #</td>
             <td style="width:20%">#= kendo.toString(dt_from_plan, 'dd.MM.yyyy') #</td>
             <td style="width:20%">#= kendo.toString(dt_from_fact, 'dd.MM.yyyy') #</td>
-            <td style="width:15%; text-align: center;">#= status #</td>
+            <td style="width:15%; text-align: center;">#=  task_status_id ? app.taskStatusSource.get(task_status_id).label : '' #</td>
         </tr>
     </table>
 </script>
