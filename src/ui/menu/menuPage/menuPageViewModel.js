@@ -39,7 +39,17 @@
                 alert("Избранное");
             },
             refresh:function(){
-                app.checkConnection();
+                if (app.checkConnection()){
+                    app.getSid();
+                }
+            },
+            showSettings: function(){
+                app.app.navigate('#settingsView');
+            },
+            tasks:function(){
+                if (app.checkConnection()){
+                    app.getUsers();
+                }
             }
         })
     };

@@ -1,0 +1,33 @@
+<div id="settingsView" 
+data-role="view" 
+data-layout="default"
+data-model="app.settings.viewModel"
+data-bind="events:{init:init, afterShow:afterShow, show:show}"
+>
+    <header data-role="header">
+        <div data-role="navbar">
+            <a data-align="left" id="settingsCancelBtn" data-role="button" href="#:back">Отмена</a>
+            <span data-role="view-title">Настройки</span>
+            <a data-align="right" id="settingsSaveBtn" data-role="button" data-bind="events{click: saveSettings}">Готово</a>
+        </div>
+    </header>
+    <div>
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label>Адрес сервера
+                    <input type="text" id="serverUrlInput" data-bind="value: settings.server_url" placeholder="Введите адрес сервера">
+                </label>
+            </li>
+            <li>
+                <label>Имя пользователя
+                    <input type="text" id="loginInput" data-bind="value: settings.login" placeholder="Введите имя пользователя">
+                </label>
+            </li>
+            <li>
+                <label>Пароль
+                    <input type="password" id="passwordInput" data-bind="value: settings.password" placeholder="Введите пароль">
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>

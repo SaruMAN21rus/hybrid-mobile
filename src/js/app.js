@@ -18,18 +18,21 @@ window.app = {
         'use strict';
         
         app.db.onReady()
-            .then(function(){
-                app.app = new kendo.mobile.Application(document.body, {
-                    transition: 'slide',
-                    skin: 'flat',
-                    initial: 'menuPageView',
-                    init: function() {
-                        //fix mouse events in iOS don't do it for android, causes more issues than it fixes
-                        kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0:20);
-                    }
-                });
+            .then(function() {
                 app.addVocData();
                 app.createKendoDataSources();
+                app.settingsSource.read()
+                .then(function(){
+                    app.app = new kendo.mobile.Application(document.body, {
+                        transition: 'slide',
+                        skin: 'flat',
+                        initial: 'menuPageView',
+                        init: function() {
+                            //fix mouse events in iOS don't do it for android, causes more issues than it fixes
+                            kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0:20);
+                        }
+                    });
+                });
             });
 
         if (navigator.notification) { // Override default HTML alert with native dialog
@@ -55,7 +58,7 @@ window.app = {
             var networkState = navigator.connection.type;
             return networkState !== Connection.NONE;
         }
-        return false;
+        return true;
     },
     db: new KetraDatabase({provider: 'sqLite' , databaseName: 'KetraDatabase'})
 };

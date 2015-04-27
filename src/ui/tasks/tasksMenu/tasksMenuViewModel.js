@@ -44,19 +44,9 @@
             },
             beforeShow: function(){
                 $("#notification-list-scroller").data("kendoMobileScroller").scrollTo(0, 0);
-                
 
                 this.set("importantTasksCount", 555);
 
-                for(var i = 1; i <= 3; i++){
-                    app.db.tasks.addMany([{ 
-                        label: 'наименование ' + i, 
-                        dt_from_plan: new Date(2010, 0, 1), 
-                        dt_from_fact: new Date(2013, 5, 5),
-                        dt: new Date(), 
-                        id_task_status: i}]);
-                }
-                app.db.saveChanges();
             },
             showTasksExecution: function(){
                 app.app.navigate('#tasksExecutionView');
