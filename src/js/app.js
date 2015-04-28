@@ -20,19 +20,27 @@ window.app = {
         app.db.onReady()
             .then(function() {
                 app.addVocData();
-                app.createKendoDataSources();
-                app.settingsSource.read()
-                .then(function(){
-                    app.app = new kendo.mobile.Application(document.body, {
-                        transition: 'slide',
-                        skin: 'flat',
-                        initial: 'menuPageView',
-                        init: function() {
-                            //fix mouse events in iOS don't do it for android, causes more issues than it fixes
-                            kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0:20);
+                app.db.settings.count()
+                    .then(function(count){
+                        if(count === 0) {
+                            app.settings = new settings();
+                        } else {
+                            app.db.settings.first()
+                                .then(function(item){
+                                    app.settings = item;
+                                    app.createKendoDataSources();
+                                });
                         }
+                        app.app = new kendo.mobile.Application(document.body, {
+                            transition: 'slide',
+                            skin: 'flat',
+                            initial: 'menuPageView',
+                            init: function() {
+                                //fix mouse events in iOS don't do it for android, causes more issues than it fixes
+                                kendo.UserEvents.defaultThreshold(kendo.support.mobileOS.device === 'android' ? 0:20);
+                            }
+                        });
                     });
-                });
             });
 
         if (navigator.notification) { // Override default HTML alert with native dialog

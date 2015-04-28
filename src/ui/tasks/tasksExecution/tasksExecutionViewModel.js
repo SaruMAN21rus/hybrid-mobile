@@ -4,13 +4,20 @@
  
 	app.tasksExecution = {
 		viewModel: kendo.observable({
-			modelData: app.db.tasks.asKendoDataSource(),
+			modelData: null,
 			init:function(){
+                app.tasksExecution.viewModel.modelData = app.allTaskSource;
                 var filterOption = {
                     field : "name"
                 };
                 app.tasksExecution.viewModel.filter = new app.Filter($('#tasksExecutionView div[data-role="navbar"]'), app.tasksExecution.viewModel.modelData, filterOption, null);
                 $('#tasksExecutionView header .km-listview-wrapper').hide();
+
+                $("#content-pane #tasksExecutionList").kendoMobileListView({
+                    dataSource: app.tasksExecution.viewModel.modelData,
+                    template: $("#tasksExecutionListItemTemplate").text(),
+                    endlessScroll: true
+                });
             },
             initContentGrid:function(e){
                 var scroller = e.view.scroller;
@@ -84,18 +91,38 @@
             },
             setTaskCounts:function(){
                 var menuTreeItems = $('#menu-pane #menu-tree span.count');
-                this.set("taskCount", 1);
-                this.set("outboxTaskCount", 0);
-                this.set("forExecutionTaskCount", 0);
-                this.set("forControlTaskCount", 22);
-                this.set("reworkTaskCount", 3);
-                this.set("agreementTaskCount", 999);
-                this.set("forAgreementTaskCount", 22);
-                this.set("myDocumentCount", 11);
-                menuTreeItems.each(function(){
-                    if ($(this).text() === "0"){
-                        $(this).hide();
-                    }
+                var that = this;
+                app.allTaskSource.fetch()
+                .then(function(){
+                    that.set("taskCount", app.allTaskSource.total());
+                })
+                .then(app.initiateTaskSource.fetch()
+                    .then(function(){
+                        that.set("outboxTaskCount", app.initiateTaskSource.total());
+                    })
+                )
+                .then(app.executeTaskSource.fetch()
+                    .then(function(){
+                        that.set("forExecutionTaskCount", app.executeTaskSource.total());
+                    })
+                )
+                .then(app.inspectTaskSource.fetch()
+                    .then(function(){
+                        that.set("forControlTaskCount", app.inspectTaskSource.total());
+                    })
+                )
+                .then(function(){
+                    that.set("reworkTaskCount", 0);
+                    that.set("agreementTaskCount", 0);
+                    that.set("forAgreementTaskCount", 0);
+                    that.set("myDocumentCount", 0);
+                    menuTreeItems.each(function(){
+                        if ($(this).text() === "0"){
+                            $(this).hide();
+                        } else {
+                            $(this).show();
+                        }
+                    });
                 });
             },
             initContentDetail:function(){
@@ -127,6 +154,7 @@
                 if (e.view.params.id) {
                     this.set('task',this.modelData.get(e.view.params.id));
                     this.task.set('dt_string', this.task.dt ? kendo.toString(this.task.dt, 'dd.MM.yyyy') : '');
+                    this.task.set('dt_to_plan_string', this.task.dt_to_plan ? kendo.toString(this.task.dt_to_plan, 'dd.MM.yyyy') : '');
                 }
             },
             menuTreeClick: function(e){
@@ -139,6 +167,9 @@
                     this.openFolder = e.item.find(".km-icon");
                     this.openFolder.toggleClass("km-open-folder");
                 }
+            },
+            filterTaskByGroup: function(e){
+                console.log(e);
             },
             taskCount: 0,
             outboxTaskCount:0,

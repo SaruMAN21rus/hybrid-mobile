@@ -1,11 +1,10 @@
 (function(app){
     'use strict';
 
-    app.settings = {
+    app.settingsPage = {
         viewModel: kendo.observable({
-            modelData: app.settingsSource,
             init:function(){
-                this.modelData = app.settingsSource;
+                this.set('settings', app.settings);
                 this.saveButton = $('#settingsSaveBtn').data('kendoMobileButton');
                 this.cancelButton = $('#settingsCancelBtn').data('kendoMobileButton');
                 var that = this;
@@ -23,10 +22,10 @@
                 if(this.settings.server_url.replace(' ','') !== ''
                     && this.settings.login.replace(' ','') !== ''
                     && this.settings.password.replace(' ','') !== ''){
-                    if (this.modelData.data().length === 0){
-                        this.modelData.add(this.settings);
-                    }
-                    this.modelData.sync();
+                    app.settings.server_url = this.settings.server_url;
+                    app.settings.login = this.settings.login;
+                    app.settings.password = this.settings.password;
+                    app.settings.save();
                     app.app.navigate('#:back');
                 }
             },
@@ -34,9 +33,7 @@
                 e.view.element.find('#serverUrlInput').focus();
             },
             show:function(e){
-                if (this.modelData && this.modelData.data().length > 0) {
-                    this.edit = true;
-                    this.set('settings',this.modelData.data()[0]);
+                if (this.settings && this.settings.login && this.settings.login !== '') {
                     this.saveButton.enable(true);
                 } else {
                     this.saveButton.enable(false);
@@ -52,12 +49,7 @@
                     this.saveButton.enable(false);
                 }
             },
-            settings: {
-                server_url:'', 
-                login:'', 
-                password:''
-            },
-            edit: false
+            settings: app.settings
         })
 
     };

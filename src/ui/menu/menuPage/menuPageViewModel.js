@@ -44,11 +44,12 @@
                 }
             },
             showSettings: function(){
-                app.app.navigate('#settingsView');
+                app.app.navigate('#settingsPageView');
             },
             tasks:function(){
                 if (app.checkConnection()){
                     app.getUsers();
+                    app.getTasks();
                 }
             }
         })

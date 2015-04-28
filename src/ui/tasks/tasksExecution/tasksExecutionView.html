@@ -18,16 +18,16 @@ style="display:none;"
             <a data-role="button" data-icon="flag" class="big-btn btn00"></a>
             <a data-role="button" data-icon="edit" class="big-btn btn01"></a>
             <ul data-role="listview" id="menu-tree" data-click="app.tasksExecution.viewModel.menuTreeClick">
-                <li data-icon="blue-folder km-open-folder" data-folder="true"><a href="#" data-transition="none"><span class="text">Задания</span><span class="count" data-bind="text: taskCount"></span></a></li>
+                <li data-icon="blue-folder km-open-folder" data-folder="true"><a href="#"><span class="text">Задания</span><span class="count" data-bind="text: taskCount"></span></a></li>
                 <li data-icon="blue-folder" class="subfolder" data-folder="true"><a href="#" data-transition="none"><span class="text">исходящие</span><span class="count" data-bind="text: outboxTaskCount"></span></a></li>
-                <li data-icon="blue-folder" class="subfolder" data-folder="true"><a href="#" data-transition="none"><span class="text">на исполнение</span><span class="count" data-bind="text: forExecutionTaskCount"></span></a></li>
-                <li data-icon="blue-folder" class="subfolder" data-folder="true"><a href="#" data-transition="none"><span class="text">на контроле</span><span class="count" data-bind="text: forControlTaskCount"></span></a></li>
-                <li data-icon="blue-folder" class="subfolder" data-folder="true"><a href="#" data-transition="none"><span class="text">на доработке</span><span class="count" data-bind="text: reworkTaskCount"></span></a></li>
-                <li data-icon="blue-folder" data-folder="true"><a href="#" data-transition="none"><span class="text">Согласование</span><span class="count" data-bind="text: agreementTaskCount"></span></a></li>
-                <li data-icon="blue-folder" class="subfolder" data-folder="true"><a href="#" data-transition="none"><span class="text">на согласование</span><span class="count" data-bind="text: forAgreementTaskCount"></span></a></li>
-                <li data-icon="blue-folder" data-folder="true"><a href="#" data-transition="none"><span class="text">Мои документы</span><span class="count" data-bind="text: myDocumentCount"></span></a></li>
+                <li data-icon="blue-folder" class="subfolder" data-folder="true"><a href="#"><span class="text">на исполнение</span><span class="count" data-bind="text: forExecutionTaskCount"></span></a></li>
+                <li data-icon="blue-folder" class="subfolder" data-folder="true"><a href="#"><span class="text">на контроле</span><span class="count" data-bind="text: forControlTaskCount"></span></a></li>
+                <li data-icon="blue-folder" class="subfolder" data-folder="true"><a href="#"><span class="text">на доработке</span><span class="count" data-bind="text: reworkTaskCount"></span></a></li>
+                <li data-icon="blue-folder" data-folder="true"><a href="#"><span class="text">Согласование</span><span class="count" data-bind="text: agreementTaskCount"></span></a></li>
+                <li data-icon="blue-folder" class="subfolder" data-folder="true"><a href="#"><span class="text">на согласование</span><span class="count" data-bind="text: forAgreementTaskCount"></span></a></li>
+                <li data-icon="blue-folder" data-folder="true"><a href="#"><span class="text">Мои документы</span><span class="count" data-bind="text: myDocumentCount"></span></a></li>
                 <li class="my-folders-title">М О И &nbsp&nbspП А П К И</li>
-                <li data-icon="add-folder" class="add-folder"><a href="#" data-transition="none"><span class="text">Добавить папку</span></a></li>
+                <li data-icon="add-folder" class="add-folder"><a href="#"><span class="text">Добавить папку</span></a></li>
             </ul>
         </div>
     </div>
@@ -48,7 +48,7 @@ style="display:none;"
                 </div>
             </header>
 
-            <div data-role="listview" id="tasksExecutionList" data-bind="source: modelData" data-template="tasksExecutionListItemTemplate" class="grid"></div>
+            <div id="tasksExecutionList" class="grid"></div>
         </div>
         <div data-role="view" data-model="app.tasksExecution.viewModel" id="taskExecutionDetail" data-bind="events:{init:initContentDetail, show: showContentDetail}">
              <div id="left-content">
@@ -57,18 +57,18 @@ style="display:none;"
                 <a data-icon="edit" data-role="button" class="title-button"></a>
                 <a data-icon="delete" data-role="button" class="title-button"></a>
                 <a data-icon="refresh" data-role="button" class="title-button"></a>
-                <br><a href="#back">Документ основание - Клиентский запрос</a>
+                <br><a href="#:back">Документ основание - Клиентский запрос</a>
                 <br>Вид: <span>На исполнение</span>
                 <br><br>
                 <div class="info">
                     <div class="info-with-label">
-                        Автор: <span>Муравьев В.</span>
+                        Автор: <span data-bind="text: task.user_initiator_label"></span>
                         <br>
-                        Создано: <span  data-bind="text: task.dt_string"></span>
+                        Создано: <span data-bind="text: task.dt_string"></span>
                     </div><div class="info-with-label">
-                        Срок: <span>23.08.2014</span>
+                        Срок: <span data-bind="text: task.dt_to_plan_string"></span>
                         <br>
-                        Исполнитель: <span>Муравьев В.</span>
+                        Исполнитель: <span data-bind="text: task.user_executor_label"></span>
                     </div>
                 </div>
                 <div style="margin-bottom:1%">
