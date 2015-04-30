@@ -75,8 +75,12 @@
                         $(this).children(".km-icon").css({'font-size': $(this).width()});
                     }
                 );
-                $('#menu-pane #menu-tree').height($('#menu-pane').height() - $(buttons[0]).outerHeight(true));
-                $('#menu-pane #menu-tree').css('margin-top', $(buttons[0]).outerHeight(true) + 'px');
+                var menu_tree = $('#menu-pane #menu-tree');
+                menu_tree.height($('#menu-pane').height() - $(buttons[0]).outerHeight(true));
+                menu_tree.css('margin-top', $(buttons[0]).outerHeight(true) + 'px');
+                var allTasksBranch = $(menu_tree.data('kendoMobileListView').items()[0]);
+                var a = {item : allTasksBranch};
+                app.tasksExecution.viewModel.menuTreeClick(a);
             },
             rowSelect:function(e){
                 e.sender.element.toggleClass('active-tr', true);
@@ -144,7 +148,7 @@
             onHistoryTabShow:function(e){
                 if($(e.item).attr("aria-controls") === "comment-2"){
                     $("#tasksExecutionView #content-pane #comment #history-grid-scroller").height($("#tasksExecutionView #content-pane #comment > div").height() - $("#tasksExecutionView #content-pane #comment > div > .grid").height());
-                    $("#history-grid-scroller").data("kendoMobileScroller").scrollTo(0, 0);
+                    $("#history-grid-scroller").data("kendoMobileScroller").scrollTo(0,0);
                 }
                 app.tasksExecution.viewModel.tabstrip.unbind("show", this.onHistoryTabShow);
             },
@@ -158,6 +162,7 @@
                 }
             },
             menuTreeClick: function(e){
+                console.log(e);
                 if (e.item.data('folder') === true) {
                     if (this.openFolder){
                         this.openFolder.toggleClass("km-open-folder");
@@ -167,9 +172,20 @@
                     this.openFolder = e.item.find(".km-icon");
                     this.openFolder.toggleClass("km-open-folder");
                 }
-            },
-            filterTaskByGroup: function(e){
-                console.log(e);
+                var group = e.item.data('group');
+                if (group) {
+                    if (group === "all"){
+                        app.tasksExecution.viewModel.modelData = app.allTaskSource;
+                    } else if (group === "outbox"){
+                        app.tasksExecution.viewModel.modelData = app.initiateTaskSource;
+                    } else if (group === "execution"){
+                        app.tasksExecution.viewModel.modelData = app.executeTaskSource;
+                    } else if (group === "control"){
+                        app.tasksExecution.viewModel.modelData = app.inspectTaskSource;
+                    }
+                    $("#content-pane #tasksExecutionList").data('kendoMobileListView').scroller().scrollTo(0,0);
+                    $("#content-pane #tasksExecutionList").data('kendoMobileListView').setDataSource(app.tasksExecution.viewModel.modelData);
+                }
             },
             taskCount: 0,
             outboxTaskCount:0,

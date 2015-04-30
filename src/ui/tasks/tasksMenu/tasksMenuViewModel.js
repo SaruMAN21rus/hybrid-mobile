@@ -39,7 +39,7 @@
                 if (this.searchBox && this.searchBox.is(':visible')){
                     this.searchBox.hide();
                 }
-                this.filter._clearFilter(e);
+                //this.filter._clearFilter(e);
                 this.rightMenuViewModel.exitMenu(e);
             },
             beforeShow: function(){

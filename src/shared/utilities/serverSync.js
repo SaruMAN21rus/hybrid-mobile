@@ -6,15 +6,15 @@
             url:        app.settings.server_url,
             data: {
                 type:   'logon',
-                action: 'execute_unitech_mobile',
-                __only_json: 1,
+                action: 'execute',
+                mobile:     1,
                 login: app.settings.login,
                 password: app.settings.password
             },
             success:function(data){
                 if (!data.error || data.error === '') {
                     $.each(data, function(key, val) {
-                        eval('app.settings.' + key + ' = ' + val);
+                        app.settings[key] = val;
                     });
                     app.settings.save();
                 } else {
