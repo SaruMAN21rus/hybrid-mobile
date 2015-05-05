@@ -46,10 +46,9 @@
             showSettings: function(){
                 app.app.navigate('#settingsPageView');
             },
-            tasks:function(){
+            sync:function(){
                 if (app.checkConnection()){
-                    app.getUsers();
-                    app.getTasks();
+                    app.sync();
                 }
             }
         })

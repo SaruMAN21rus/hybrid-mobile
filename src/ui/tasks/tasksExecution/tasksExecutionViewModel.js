@@ -78,9 +78,6 @@
                 var menu_tree = $('#menu-pane #menu-tree');
                 menu_tree.height($('#menu-pane').height() - $(buttons[0]).outerHeight(true));
                 menu_tree.css('margin-top', $(buttons[0]).outerHeight(true) + 'px');
-                var allTasksBranch = $(menu_tree.data('kendoMobileListView').items()[0]);
-                var a = {item : allTasksBranch};
-                app.tasksExecution.viewModel.menuTreeClick(a);
             },
             rowSelect:function(e){
                 e.sender.element.toggleClass('active-tr', true);
@@ -127,7 +124,11 @@
                             $(this).show();
                         }
                     });
-                });
+                    var menu_tree = $('#menu-pane #menu-tree');
+                    var allTasksBranch = $(menu_tree.data('kendoMobileListView').items()[0]);
+                    var a = {item : allTasksBranch};
+                    app.tasksExecution.viewModel.menuTreeClick(a);
+                    });
             },
             initContentDetail:function(){
                 $("#tasksExecutionView #content-pane #comment > div").each( function() {
@@ -162,15 +163,14 @@
                 }
             },
             menuTreeClick: function(e){
-                console.log(e);
                 if (e.item.data('folder') === true) {
-                    if (this.openFolder){
-                        this.openFolder.toggleClass("km-open-folder");
+                    if (app.tasksExecution.viewModel.openFolder){
+                        app.tasksExecution.viewModel.openFolder.toggleClass("km-open-folder");
                     } else {
                         $("#tasksExecutionView #menu-pane #menu-tree").children().first().find(".km-icon").toggleClass("km-open-folder");
                     }
-                    this.openFolder = e.item.find(".km-icon");
-                    this.openFolder.toggleClass("km-open-folder");
+                    app.tasksExecution.viewModel.openFolder = e.item.find(".km-icon");
+                    app.tasksExecution.viewModel.openFolder.toggleClass("km-open-folder");
                 }
                 var group = e.item.data('group');
                 if (group) {
