@@ -8,9 +8,12 @@ style="display:none;"
 >
     <header data-role="header">
         <div data-role="navbar">
-            <a data-align="left" data-icon="back" data-role="backbutton"></a>
+            <a data-align="left" data-icon="back" data-role="button" data-click="app.tasksExecution.viewModel.goBack"></a>
             <span data-role="view-title">Исполнение поручений</span>
-            <a data-align="right" data-icon="search" data-role="button" data-click="app.tasksExecution.viewModel.showHideSearchBox"></a>
+            <a data-align="right" data-icon="custom-search" data-role="button" data-click="app.tasksExecution.viewModel.showHideSearchBox" class="gridButton"></a>
+            <a data-align="right" data-icon="edit" data-role="button" class="detailButton" style="display:none;"  data-click="app.tasksExecution.viewModel.test"></a>
+            <a data-align="right" data-icon="delete" data-role="button" class="detailButton" style="display:none;"></a>
+            <a data-align="right" data-icon="refresh" data-role="button" class="detailButton" style="display:none;"></a>
         </div>
     </header>
     <div data-role="pane" data-layout="default" id="menu-pane">
@@ -23,7 +26,7 @@ style="display:none;"
                 <li data-icon="blue-folder" class="subfolder" data-folder="true" data-group="execution"><a href="#"><span class="text">на исполнение</span><span class="count" data-bind="text: forExecutionTaskCount"></span></a></li>
                 <li data-icon="blue-folder" class="subfolder" data-folder="true" data-group="control"><a href="#"><span class="text">на контроле</span><span class="count" data-bind="text: forControlTaskCount"></span></a></li>
                 <li data-icon="blue-folder" class="subfolder" data-folder="true" ><a href="#"><span class="text">на доработке</span><span class="count" data-bind="text: reworkTaskCount"></span></a></li>
-                <li data-icon="blue-folder" data-folder="true" ><a href="#"><span class="text">Согласование</span><span class="count" data-bind="text: agreementTaskCount"></span></a></li>
+                <li data-icon="blue-folder" data-folder="true" ><a href="#"><span class="text">Согласование</span><span class="count" data-bind="text: agreementTaskC$$$$retount"></span></a></li>
                 <li data-icon="blue-folder" class="subfolder" data-folder="true" ><a href="#"><span class="text">на согласование</span><span class="count" data-bind="text: forAgreementTaskCount"></span></a></li>
                 <li data-icon="blue-folder" data-folder="true"><a href="#" ><span class="text">Мои документы</span><span class="count" data-bind="text: myDocumentCount"></span></a></li>
                 <li class="my-folders-title">М О И &nbsp&nbspП А П К И</li>
@@ -32,7 +35,7 @@ style="display:none;"
         </div>
     </div>
     <div data-role="pane" data-layout="default" id="content-pane" data-transition="slide">
-        <div data-role="view" data-model="app.tasksExecution.viewModel" id="tasksExecutionGrid" data-bind="events:{init:initContentGrid}">
+        <div data-role="view" data-model="app.tasksExecution.viewModel" id="tasksExecutionGrid" data-bind="events:{init:initContentGrid, show: showGrid}">
             <header data-role="header">
                 <div class="grid k-content km-widget km-navbar">
                     <table id="tasksExecutionGridHeader">
@@ -53,10 +56,6 @@ style="display:none;"
         <div data-role="view" data-model="app.tasksExecution.viewModel" id="taskExecutionDetail" data-bind="events:{init:initContentDetail, show: showContentDetail}">
              <div id="left-content">
                 <span class="large-font" data-bind="text: task.label"></span>
-                <a data-icon="back" data-role="backbutton" class="title-button"></a>
-                <a data-icon="edit" data-role="button" class="title-button"></a>
-                <a data-icon="delete" data-role="button" class="title-button"></a>
-                <a data-icon="refresh" data-role="button" class="title-button"></a>
                 <br><a href="#:back">Документ основание - Клиентский запрос</a>
                 <br>Вид: <span>На исполнение</span>
                 <br><br>

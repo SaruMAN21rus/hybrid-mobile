@@ -102,7 +102,8 @@
 #tasksMenuView .cell-10 .km-button{
     background-color: rgb(159, 197, 248);
 }
-#tasksMenuView .cell-00 .km-button.km-state-active{
+#tasksMenuView .cell-00 .km-button.km-state-active,
+#tasksMenuView .cell-10 .km-button.km-state-active{
     background-color: rgb(51, 136, 204);
 }
 #tasksMenuView .icon{

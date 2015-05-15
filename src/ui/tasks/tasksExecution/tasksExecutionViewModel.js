@@ -154,12 +154,14 @@
                 app.tasksExecution.viewModel.tabstrip.unbind("show", this.onHistoryTabShow);
             },
             showContentDetail:function(e){
+                $('#tasksExecutionView .detailButton').show();
+                $('#tasksExecutionView .gridButton').hide();
                 $("#tasksExecutionView #content-pane #comment").data('kendoTabStrip').activateTab($('#tasksExecutionView #content-pane #comment .k-first'));
                 $("#taskExecutionDetail #document-list-scroller").height($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #document-list-scroller").position().top - ($("#taskExecutionDetail #left-content").outerHeight() - $("#taskExecutionDetail #left-content").height())/2);
                 if (e.view.params.id) {
-                    this.set('task',this.modelData.get(e.view.params.id));
-                    this.task.set('dt_string', this.task.dt ? kendo.toString(this.task.dt, 'dd.MM.yyyy') : '');
-                    this.task.set('dt_to_plan_string', this.task.dt_to_plan ? kendo.toString(this.task.dt_to_plan, 'dd.MM.yyyy') : '');
+                    app.tasksExecution.viewModel.set('task',this.modelData.get(e.view.params.id));
+                    app.tasksExecution.viewModel.task.set('dt_string', this.task.dt ? kendo.toString(this.task.dt, 'dd.MM.yyyy') : '');
+                    app.tasksExecution.viewModel.task.set('dt_to_plan_string', this.task.dt_to_plan ? kendo.toString(this.task.dt_to_plan, 'dd.MM.yyyy') : '');
                 }
             },
             menuTreeClick: function(e){
@@ -171,6 +173,9 @@
                     }
                     app.tasksExecution.viewModel.openFolder = e.item.find(".km-icon");
                     app.tasksExecution.viewModel.openFolder.toggleClass("km-open-folder");
+                }
+                if($('#content-pane').data('kendoMobilePane').view().id !== '#tasksExecutionGrid'){
+                    $('#content-pane').data('kendoMobilePane').navigate('#:back');
                 }
                 var group = e.item.data('group');
                 if (group) {
@@ -186,6 +191,20 @@
                     $("#content-pane #tasksExecutionList").data('kendoMobileListView').scroller().scrollTo(0,0);
                     $("#content-pane #tasksExecutionList").data('kendoMobileListView').setDataSource(app.tasksExecution.viewModel.modelData);
                 }
+            },
+            goBack: function(e){
+                if($('#content-pane').data('kendoMobilePane').view().id === '#tasksExecutionGrid'){
+                    app.app.navigate('#:back');
+                } else {
+                    $('#content-pane').data('kendoMobilePane').navigate('#:back');
+                }
+            },
+            showGrid: function(){
+                $('#tasksExecutionView .detailButton').hide();
+                $('#tasksExecutionView .gridButton').show();
+            },
+            test: function(){
+                console.log(app.tasksExecution.viewModel.task);
             },
             taskCount: 0,
             outboxTaskCount:0,

@@ -40,16 +40,13 @@
             },
             refresh:function(){
                 if (app.checkConnection()){
-                    app.getSid();
+                    app.sync();
                 }
             },
             showSettings: function(){
                 app.app.navigate('#settingsPageView');
             },
             sync:function(){
-                if (app.checkConnection()){
-                    app.sync();
-                }
             }
         })
     };

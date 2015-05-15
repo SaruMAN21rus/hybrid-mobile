@@ -1,5 +1,5 @@
 $data.Entity.extend("task", {
-    id:                     {type: "int", key: true, computed: true },
+    id:                     {type: "int"},
     parent:                 {type: "int"}, //Родительская задача
     id_user_initiator:      {type: "int"}, //Инициатор
     user_initiator_label:   {type: String}, //Инициатор
@@ -16,5 +16,6 @@ $data.Entity.extend("task", {
     task_type_label:        {type: String}, //Тип
     id_task_status:         {type: "int"},
     task_status_label:      {type: String}, //Статус
-    dt_sync:                {type: Date} //Дата синхронизации 
+    dt_log:                 {type: Date}, //Дата изменения записи
+    uuid:                   {type: "guid", /*key: true,*/ computed: true }
 });
